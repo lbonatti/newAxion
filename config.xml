@@ -6,7 +6,7 @@
         WebFactory DevTeam
     </author>
 
-    < nombre de preferencia = "SplashScreenDelay" value = "0" / >
+    <preference name="SplashScreenDelay" value="0" />
     <preference name="permissions"                value="none"/>
 
     <!-- Customize your app and platform with the preference element. -->
