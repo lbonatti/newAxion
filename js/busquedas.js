@@ -180,6 +180,7 @@ function eventosBusqueda(){
     });
 
     $('.map').on('touchstart', function(e){
+        $( "#txHasta" ).autocomplete( "option", "position", { my: "left top",at: "left bottom", collision: "flip" } );
 
         $('.dir').removeClass('searchIsOpen').css('height','auto');
         $('#txDesde').addClass('x');
@@ -211,6 +212,12 @@ function eventosBusqueda(){
     });
 
     $('.lupa').on('touchstart', function(){
+        if(isMobile()){
+            $( "#txBusqueda" ).autocomplete( "option", "position", { my: "left top",at: "left bottom", collision: "none" } );
+        }else{
+            $( "#txBusqueda" ).autocomplete( "option", "position", { my: "left top",at: "left bottom", collision: "flip" } );
+        }
+
         $('.goToBtn').remove();
         $('#txBusqueda').removeAttr('disabled');
         if($(this).hasClass('abierto')){

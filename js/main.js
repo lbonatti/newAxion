@@ -44,32 +44,63 @@ $(document).ready(function(){
             source: direcciones,
             appendTo: ".dir",
             minLength: 3,
-            position: { my: "left top",at: "left bottom", offset:'0 -278' },
             open: function () {
                 $(this).data("uiAutocomplete").menu.element.addClass("newAutoComplete");
+            },
+            select: function( event, ui ) {
+                //console.log(ui.item.label)
+                setTimeout(function(){
+                    var e = jQuery.Event("keypress");
+                    e.keyCode = 13; // # Some key code value
+                    $("#txHasta").trigger(e);
+                },200)
+
             }
         })
         $('#txBusqueda').autocomplete({
             source: direcciones,
             minLength: 3,
             appendTo: ".dir",
-            position: { collision: "fit" }
+            select: function( event, ui ) {
+                //console.log(ui.item.label)
+                setTimeout(function(){
+                    var e = jQuery.Event("keypress");
+                    e.keyCode = 13; // # Some key code value
+                    $("#txHasta").trigger(e);
+                },200)
+            }
         });
     }else{
         $('#txHasta').autocomplete({
             source: direcciones,
             minLength: 3,
             appendTo: ".dir",
-            position: { my: "left top",at: "left bottom", collision: "flip" },
             open: function () {
                 $(this).data("uiAutocomplete").menu.element.addClass("newAutoComplete");
+            },
+            select: function( event, ui ) {
+                //console.log(ui.item.label)
+                setTimeout(function(){
+                    var e = jQuery.Event("keypress");
+                    e.keyCode = 13; // # Some key code value
+                    $("#txHasta").trigger(e);
+                },200)
+
             }
         })
         $('#txBusqueda').autocomplete({
             source: direcciones,
             minLength: 3,
             appendTo: ".dir",
-            position: { my: "left top",at: "left bottom", collision: "flip" }
+            select: function( event, ui ) {
+                //console.log(ui.item.label)
+                setTimeout(function(){
+                    var e = jQuery.Event("keypress");
+                    e.keyCode = 13; // # Some key code value
+                    $("#txHasta").trigger(e);
+                },200)
+
+            }
         });
     }
 });
