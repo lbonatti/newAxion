@@ -34,75 +34,15 @@ $(document).ready(function(){
         }
 
         if(document.body.clientWidth>1024){
-            setTimeout(function(){
-                showPromocionesInicial(ocultarChrome);
-            },2000);
+            //setTimeout(function(){
+            //    showPromocionesInicial(ocultarChrome);
+            //},2000);
         }
-
-    if (isMobile()){
-        $('#txHasta').autocomplete({
-            source: direcciones,
-            appendTo: ".dir",
-            minLength: 3,
-            open: function () {
-                $(this).data("uiAutocomplete").menu.element.addClass("newAutoComplete");
-            },
-            select: function( event, ui ) {
-                //console.log(ui.item.label)
-                setTimeout(function(){
-                    var e = jQuery.Event("keypress");
-                    e.keyCode = 13; // # Some key code value
-                    $("#txHasta").trigger(e);
-                },200)
-
-            }
-        })
         $('#txBusqueda').autocomplete({
             source: direcciones,
             minLength: 3,
-            appendTo: ".dir",
-            select: function( event, ui ) {
-                //console.log(ui.item.label)
-                setTimeout(function(){
-                    var e = jQuery.Event("keypress");
-                    e.keyCode = 13; // # Some key code value
-                    $("#txHasta").trigger(e);
-                },200)
-            }
+            appendTo: ".dir"
         });
-    }else{
-        $('#txHasta').autocomplete({
-            source: direcciones,
-            minLength: 3,
-            appendTo: ".dir",
-            open: function () {
-                $(this).data("uiAutocomplete").menu.element.addClass("newAutoComplete");
-            },
-            select: function( event, ui ) {
-                //console.log(ui.item.label)
-                setTimeout(function(){
-                    var e = jQuery.Event("keypress");
-                    e.keyCode = 13; // # Some key code value
-                    $("#txHasta").trigger(e);
-                },200)
-
-            }
-        })
-        $('#txBusqueda').autocomplete({
-            source: direcciones,
-            minLength: 3,
-            appendTo: ".dir",
-            select: function( event, ui ) {
-                //console.log(ui.item.label)
-                setTimeout(function(){
-                    var e = jQuery.Event("keypress");
-                    e.keyCode = 13; // # Some key code value
-                    $("#txHasta").trigger(e);
-                },200)
-
-            }
-        });
-    }
 });
 
 document.addEventListener("deviceready", detectOs(), false);
@@ -117,7 +57,4 @@ $(window).on('resize',function(){
     if($('.ui-autocomplete').length > 0){
         $('.ui-autocomplete').hide();
     }
-
-    
-
 })

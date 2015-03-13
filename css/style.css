@@ -27,17 +27,17 @@ html, body, #splashScreen {
 .ui-autocomplete li a {
     display: block;
     padding: 10px 0;
-    width: 100% !important;
+    /*width: 100% !important;*/
 }
 .ui-autocomplete {
     overflow-y: scroll !important;
     overflow-x: hidden !important;
     background-color: #861d55 !important;
     border-radius: 0 !important;
-    /*width: 100% !important;*/
+    width: 100% !important;
     /*max-width: 468px;*/
     z-index: 9999 !important;
-    text-align: left;
+    text-align: left !important;
 }
 .ui-widget-content {
     background: none !important;
