@@ -191,13 +191,13 @@ function eventosBusqueda(){
         }else{
             $('#txHasta').autocomplete({
                 source: direcciones,
-                minLength: 1,
+                minLength: 3,
                 appendTo: ".dir",
                 open: function () {
+                    $(this).autocomplete( "option", "position", { my: "left top",at: "left bottom", offset:"0 60", collision: "flip" } );
                     //$(this).data("uiAutocomplete").menu.element.addClass("newAutoComplete");
                 }
             })
-            //$( "#txHasta" ).autocomplete( "option", "position", { my: "left top",at: "left bottom", collision: "flip" } );
             var gotobtn_html = '<div class="goToBtn"><a href="#" title="ir">Ir</a></div>';
             if(mostrandoRuta){
                 mostrandoRuta = false;
