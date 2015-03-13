@@ -76,19 +76,7 @@ function eventosGenerales(){
 function deviceBackBtn(){
 
     document.addEventListener("backbutton", function(e){
-        //e.preventDefault();
-        //var exitApp = 1;
-        //
-        //if( exitApp ){
-        //    navigator.notification.confirm(
-        //        '¿Seguro deseas salir?', // message
-        //        onConfirm, // callback to invoke with index of button pressed
-        //        'Cerrar Aplicación', // title
-        //        ['Cancelar','Salir'] // buttonLabels
-        //    );
-        //}else{
-        //    navigator.app.backHistory();
-        //}
+        showMap()
     }, false);
 }
 
@@ -101,15 +89,20 @@ function onConfirm(buttonIndex) {
 document.addEventListener("offline",isOffLine, false);
 
 function isOffLine(){
-    try{
-        navigator.notification.alert(
-            'La aplicación no puede conectarse a internet. Se intentará reconectarse.', // message
-            showLoadingConection(), // callback to invoke with index of button pressed
-            'Sin conexión',            // title
-            'Cerrar'                  // buttonName
-        );
-    }catch(err){
-        alert('La aplicación no puede conectarse a internet.')
+    if (deviceInfo != 'iPad' || deviceInfo != 'iPhone') {
+        console.log('Android')
+        try{
+            navigator.notification.alert(
+                'La aplicación no puede conectarse a internet. Se intentará reconectarse.', // message
+                showLoadingConection(), // callback to invoke with index of button pressed
+                'Sin conexión',            // title
+                'Cerrar'                  // buttonName
+            );
+        }catch(err){
+            alert('La aplicación no puede conectarse a internet.')
+        }
+    }else{
+        console.log('IOS')
     }
 };
 function showLoadingConection(){
@@ -122,4 +115,18 @@ function showLoadingConection(){
 function onOnline() {
     //Cargar el mapa nuevamente...
     location.reload();
+}
+
+function showMap(){
+    if (mostrandoRuta){
+        $('.geo').trigger('touchstart');
+    }
+    if ($('.detail').length > 0) {
+        $('.detail .cerrar').trigger('touchstart')
+    }
+    $('.sec1 .footer-content > div').each(function(){
+        if($(this).hasClass('abierto')){
+            $(this).trigger('touchstart');
+        }
+    })
 }

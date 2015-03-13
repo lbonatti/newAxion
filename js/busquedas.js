@@ -207,23 +207,6 @@ function eventosBusqueda(){
             var map = true
             comoLlegar(map);
             pasosOcultar();
-            if (!isMobile()){
-                $('#txHasta').autocomplete({
-                    source: direcciones,
-                    position: { collision: "flip" },
-                    open: function () {
-                        $(this).data("uiAutocomplete").menu.element.addClass("newAutoComplete");
-                    }
-                })
-            }else{
-                $('#txHasta').autocomplete({
-                    source: direcciones,
-                    position: { offset:'0 62',collision: "flip" },
-                    open: function () {
-                        $(this).data("uiAutocomplete").menu.element.addClass("newAutoComplete");
-                    }
-                })
-            }
         }
     });
 
@@ -243,12 +226,8 @@ function eventosBusqueda(){
             $inputsBar.fadeIn();
             $('#txDesde,#txHasta').hide();
             $('#txBusqueda').fadeIn();
-            $('#txBusqueda').val('').attr('placeholder','Ingrese ubicación a buscar').focus().addClass('autocomplete')
+            $('#txBusqueda').val('').attr('placeholder','Ingrese ubicación a buscar').focus();
             $('#txBusqueda').val(currentDirText);
-            $('#txBusqueda.autocomplete').autocomplete({
-                source: direcciones,
-                position: { my: "left bottom", at: "left top", collision: "flip" }
-            });
             $('#ui-id-1').css('height',$_calc-120);
             //buscar();
         }
