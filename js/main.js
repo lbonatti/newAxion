@@ -39,22 +39,6 @@ $(document).ready(function(){
             },2000);
         }
 
-    $(window).resize()
-});
-
-document.addEventListener("deviceready", detectOs(), false);
-
-function detectOs() {
-    var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
-
-    deviceInfo = deviceType
-}
-
-$(window).on('resize',function(){
-    if($('.ui-autocomplete').length > 0){
-        $('.ui-autocomplete').hide();
-    }
-
     if (isMobile()){
         $('#txHasta').autocomplete({
             source: direcciones,
@@ -88,5 +72,21 @@ $(window).on('resize',function(){
             position: { my: "left top",at: "left bottom", collision: "flip" }
         });
     }
+});
+
+document.addEventListener("deviceready", detectOs(), false);
+
+function detectOs() {
+    var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
+
+    deviceInfo = deviceType
+}
+
+$(window).on('resize',function(){
+    if($('.ui-autocomplete').length > 0){
+        $('.ui-autocomplete').hide();
+    }
+
+    
 
 })

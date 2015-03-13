@@ -23,7 +23,7 @@ function initializeMap() {
 
     directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
     directionsService = new google.maps.DirectionsService();
-    var pos1 = new google.maps.LatLng(-34.639507,-58.4910882 );
+    var pos1 = new google.maps.LatLng(-34.6,-58.45 );
 
     var myStyles =[
         {
@@ -321,7 +321,7 @@ function limpiarRuta(){
     centerMap(lastPosition);
     actualizarGeolocMarker(lastPosition)
     currentPositionToCenter = lastPosition;
-
+    map.setZoom(7)
 }
 
 function routeFromGeoToStation(stationId){

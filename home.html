@@ -371,11 +371,16 @@
                     });
 
 			$(document).on('touchstart','#removeRuta',function(e){
-				e.preventDefault();
-				$('.geo').trigger('touchstart');
-				$('.closeRuta').remove();
-				mostrandoRuta = false;
-				$('.geo').trigger('touchstart');
+				if(gpsEnabled){
+					e.preventDefault();
+					$('.geo').trigger('touchstart');
+					$('.closeRuta').remove();
+					mostrandoRuta = false;
+				}else{
+					limpiarRuta();
+					$('.closeRuta').remove();
+					mostrandoRuta = false;
+				}
 			})
         })
 
