@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+
+<head>
+    <title>AXION</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+		.ui-autocomplete {
+			max-height: 100px;
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
+		.ui-autocomplete {
+			opacity: 0.8 !important;
+			background-color: #861D55 !important;
+			border: none !important;
+			border-radius: 0 !important;
+			padding: 0 !important;
+			outline: none;
+		}
+		.ui-autocomplete li {
+			background-color: #861D55 !important;
+		}
+		.ui-autocomplete li a {
+			font-size: 11px !important;
+			color: #ecd2e0 !important;
+		}
+    </style>
+
+	<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css" />
+
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.min.js"></script>
+    <script src="js/slimscroll.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?v=3.6&language=es&key=AIzaSyDfs88uaYQmu_fU2PMdDM90BqdMn5ZWeh8&sensor=false" ></script>
+
+    <link rel="stylesheet" href="css/fuentes.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/estilos_add.css" />
+
+
+</head>
+
+<body class="mapSection" onload="">
+   
+    <div id="container" style="overflow: hidden;">
+
+	<div class="preloadMap">Cargando contenido...</div>
+    <div class="noConectionPreload" style="">Intentando reconectarse con el servicio...</div>
+
+        <header>
+            <div class="header-content">
+                <a href="home.html" class="logo"><img src="img/logo.png" /></a>
+
+                <!--<ul class="menu">-->
+                    <!--<li class="selected"><a href="#">Estaciones de Servicio</a></li>-->
+                    <!--<li><a href="acerca.html">Acerca de AXION</a></li>-->
+                    <!--<li><a href="promociones.html">Promociones</a></li>-->
+
+
+                <!--</ul>-->
+				<div class="descargas">
+					<a href="#" class="link-android"></a>
+					<a href="#" class="link-ios"></a>
+					<a href="#" data-href="https://ar.linkedin.com/company/axion-energy" class="link-linkedin masinfo ext"></a>
+					<a href="#" data-href="https://www.youtube.com/user/AXIONenergy" class="link-youtube masinfo ext"></a>
+				</div>
+                <!--<a href="#" class="menu-btn"><img src="img/menu.png" /></a>-->
+            </div>
+
+        </header>
+
+        <div class="detail-bg">
+
+        </div>
+
+        <div class="detail ">
+                <div class="d-header">
+                    <div class="titleContainer">
+                        <div class="titulo1">Title 1</div>
+                        <div class="titulo2">Title 2</div>
+                    </div>
+                    <a href="#" class="cerrar"></a>
+                </div>
+                <div class="detailContainer" style="">
+                    <div class="img-background">
+                        <img class="tipo" />
+                    </div>
+                    <div class="estado">Abierta</div>
+                    <div class="distancia">Distancia: 1,0 km.</div>
+                    <div class="tel">Tel. +54 114760-3547</div>
+                    <div class="web">www.estacion.com.ar</div>
+                    <div class="linea"></div>
+                    <div class="combustibles group">
+                        <div><img src="img/combustible.png" /><span>Diesel</span></div>
+                        <div><img src="img/combustible.png" /><span>Premium</span></div>
+                        <div><img src="img/combustible.png" /><span>Super</span></div>
+                    </div>
+
+                    <div class="linea2"></div>
+
+                    <div class="servicios group">
+                        <div><img src="img/dt-24hs.png" /><span>Abierto 24hs</span></div>
+                        <div><img src="img/dt-tc.png" /><span>Tarjeta de Credito</span></div>
+                        <div><img src="img/dt-tienda.png" /><span>Minimercado</span></div>
+                        <div><img src="img/dt-wifi.png" /><span>Wifi</span></div>
+                        <div><img src="img/dt-oil.png" /><span>Mobil Oil Express</span></div>
+                        <div><img src="img/dt-card.png" /><span>AXION card</span></div>
+                        <div><img src="img/dt-cajero.png" /><span>Cajero automatico</span></div>
+                        <div><img src="img/combustible.png" /><span>GNC</span></div>
+                    </div>
+
+                    <div class="linea3"></div>
+
+                    <div class="promocion">
+                        <div class="img">
+                            <img src="img/promocion.png">
+                        </div>
+                        <div class="text">
+                            Promoción vigente<br/>
+                            <span class="promoVigente">Desayuno Gratis</span>
+                        </div>
+                    </div>
+
+
+
+
+                    <a class="comollegar" href="#">COMO LLEGAR</a>
+                </div>
+
+        </div>
+
+        <div class="promociones">
+            <div >
+                <div class="titulo1">Conocé nuestras promociones</div>
+                <a href="#" class="cerrar"></a>
+            </div>
+            <div class="seccion1">
+                <div class="content">
+                    <div class="g50">
+                        <img class="imagen" src="img/promocion.png" />
+                        <div class="title">Desayuno Gratis</div>
+                        <div class="text">Con tu carga de $100 o mas te podés llevar un delicioso desayuno gratis.</div>
+                        <div class="masinfo">
+                            <a href="#">Ver en el mapa &raquo;</a>
+                        </div>
+                    </div>
+                    <div class="g50">
+                        <img class="imagen" src="img/promocion.png" />
+                        <div class="title">Desayuno Gratis</div>
+                        <div class="text">Con tu carga de $100 o mas te podés llevar un delicioso desayuno gratis.</div>
+                        <div class="masinfo">
+                            <a href="#">Ver en el mapa &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seccion1">
+
+                <div class="content">
+                    <div class="g50">
+                        <img class="imagen" src="img/promocion.png" />
+                        <div class="title">Desayuno Gratis</div>
+                        <div class="text">Con tu carga de $100 o mas te podés llevar un delicioso desayuno gratis.</div>
+                        <div class="masinfo">
+                            <a href="#">Ver en el mapa &raquo; </a>
+                        </div>
+                    </div>
+                    <div class="g50">
+                        <img class="imagen" src="img/promocion.png" />
+                        <div class="title">Desayuno Gratis</div>
+                        <div class="text">Con tu carga de $100 o mas te podés llevar un delicioso desayuno gratis.</div>
+                        <div class="masinfo">
+                            <a href="#">Ver en el mapa &raquo; </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="pasos" style="">
+            <div class="encabezado">
+                <img src="img/p1.png"/>
+                <div class="titulo">Paraguay 4271</div>
+                <div class="recorrido" style="float: left">Recorrido 15,3 km, 23 min</div>
+                <div style="clear: both"></div>
+            </div>
+
+            <div class="lista">
+                <div>
+                    <div class="item">
+                        <img />
+                        <span>1.</span>
+                        <div>Dirígete al sureste por Paraguay hacia Malabia</div>
+                    </div>
+                    <div class="item">
+                        <img />
+                        <span>2.</span>
+                        <div>Dirígete al sureste por Paraguay hacia Malabia</div>
+                    </div>
+                    <div class="item">
+                        <img />
+                        <span>3.</span>
+                        <div>Dirígete al sureste por Paraguay hacia Malabia</div>
+                    </div>
+                    <div class="item">
+                        <img />
+                        <span>4.</span>
+                        <div>Dirígete al sureste por Paraguay hacia Malabia</div>
+                    </div>
+                    <div class="item">
+                        <img />
+                        <span>5.</span>
+                        <div>Dirígete al sureste por Paraguay hacia Malabia</div>
+                    </div>
+                    <div class="item">
+                        <img />
+                        <span>6.</span>
+                        <div>Dirígete al sureste por Paraguay hacia Malabia</div>
+                    </div>
+                    <div class="item">
+                        <img />
+                        <span>7.</span>
+                        <div>Dirígete al sureste por Paraguay hacia Malabia</div>
+                    </div>
+                    <div class="item">
+                        <img />
+                        <span>8.</span>
+                        <div>Dirígete al sureste por Paraguay hacia Malabia</div>
+                    </div>
+                    <div class="item">
+                        <img />
+                        <span>9.</span>
+                        <div>Dirígete al sureste por Paraguay hacia Malabia</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pie">
+                <img class="img1" src="img/p2.png"/>
+                <div class="titulo">Malabia 3200</div>
+                <img class="printer" src="img/printer2.png"/>
+            </div>
+        </div>
+
+        <div id="googleMap" style="width:320px;height:485px;"></div>
+
+        <div class="footer-content bf-container">
+
+            <div class="bloque-filtro">
+                <div class="bf-titulo">Servicios
+                    <div class="bf-todos" data-checked="0" id="bf-all">Todos</div>
+                </div>
+
+                <div class="bf-items">
+                    <div><img />Servicio 1  </div>
+                    <div><img />Servicio 2  </div>
+                    <div><img />Servicio 3  </div>
+                    <div ><img />Servicio 4  </div>
+                    <div ><img />Servicio 5  </div>
+                    <div ><img />Servicio 6  </div>
+                    <div ><img />Servicio 7  </div>
+                    <div ><img />Servicio 8  </div>
+                    <div ><img />Servicio 9  </div>
+                    <div ><img />Servicio 10  </div>
+                </div>
+                <div class="botonera">
+                    <a href="#" class="ok">OK</a>
+                    <a href="#" class="cancel">CANCELAR</a>
+                </div>
+
+            </div>
+        </div>
+        <footer>
+
+            <div class="sec1">
+                <div class="footer-content">
+
+                    <div class="printer"></div>
+
+                    <div class="menu-pais">
+                    </div>
+
+                    <div class="pais"><img src="img/flag-arg.png" /></div>
+                    <div class="geo">
+                    </div>
+                    <div class="map">
+                    </div>
+                    <div class="dir">
+                        <input id="txBusqueda" />
+                        <input id="txDesde" placeholder="Desde" class="clearable x"/>
+                        <input id="txHasta" placeholder="Hasta" />
+                        <div class="buscarBtn">
+                            <a href="#" title="Buscar">Buscar</a>
+                        </div>
+                    </div>
+                    <div class="lupa">
+                    </div>
+                    <div class="filtro">
+                    </div>
+
+                    <!-- Bloque filtro -->
+                </div>
+            </div>
+            <div class="sec2">
+                <div class="footer-content">
+                    <span>AXION energy es marca registrada. AXION ENERGY ARGENTINA S.A. Todos los derechos reservados. Copyright 2014. <a href="downloads/terminosycondiciones.pdf" target="_blank">Términos
+                        y Condiciones – Política de Privacidad</a></span>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/map.js"></script>
+
+    <script src="js/misc.js"></script>
+    <script src="js/filtros.js"></script>
+    <script src="js/busquedas.js"></script>
+    <script src="js/detail.js"></script>
+    <script src="js/pasos.js"></script>
+    <script src="js/promociones.js"></script>
+
+    <script src="js/main.js"></script>
+
+	<script>
+
+        $(document).ready(function(){
+            var Input = $('#txDesde');
+            var text;
+
+            $('.descargas a.masinfo.ext').on('touchstart',function(e){
+                e.preventDefault();
+                var href = $(this).attr('data-href');
+                window.open(href, '_system', 'location=no');
+            })
+
+            Input.focus(function() {
+                if (currentDirText != ''){
+                    text = currentDirText;
+                }else{
+                    text = globalPositionStr;
+                }
+                if(Input.val() == text) Input.val("");
+            }).blur(function(){
+                if(Input.val().length == 0) Input.val(text);
+            });
+
+            var $body = $('body,html');
+
+            /* bind events */
+            $(document)
+                    .on('focus', 'input', function(e) {
+                        $body.addClass('fixfixed');
+                    })
+                    .on('blur', 'input', function(e) {
+                        $body.removeClass('fixfixed');
+                    });
+
+			$(document).on('touchstart','#removeRuta',function(e){
+				e.preventDefault();
+				$('.geo').trigger('touchstart');
+				$('.closeRuta').remove();
+				mostrandoRuta = false;
+				$('.geo').trigger('touchstart');
+			})
+        })
+
+		document.addEventListener("deviceready", function(e){
+			deviceBackBtn();
+		},false);
+
+		function doOnOrientationChange()
+		{
+			ScrrenOrientation="portrait";
+			if(window.orientation == -90 || window.orientation == 90) ScrrenOrientation = "landscape";
+		}
+
+		window.addEventListener('orientationchange', doOnOrientationChange);
+
+		// Initial execution if needed
+		//doOnOrientationChange();
+
+	</script>
+
+</body>
+</html>

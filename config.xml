@@ -28,17 +28,6 @@
 
     <!-- SPLASH SCREEN IMAGE -->
 
-    <!--<splash src="splash_port.png"  density="hdpi" qualifier="port-hdpi" />-->
-    <gap:splash src="Default-mini-port.png"  gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="Default-Portrait@2x.png"  gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="Default-Portrait.png"  gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="Default-Portrait.png" gap:platform="android" gap:density="xhdpi" />
-    <gap:splash src="Default-mini-port.png"    gap:platform="ios"     width="320" height="480" />
-    <gap:splash src="Default-Portrait@2x.png" gap:platform="ios"     width="640" height="960" />
-    <gap:splash src="Default-Portrait.png"      gap:platform="ios"     width="768" height="1024" />
-    <gap:splash src="Default-Landscape.png"     gap:platform="ios"     width="1024" height="768" />
-
-
     <!-- PLUGINS -->
     <gap:plugin name="org.apache.cordova.geolocation" />
     <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
@@ -56,6 +45,6 @@
     <access origin="*" />
 
     <!-- ICON -->
-    <icon src="img/marker_axion.png" />
+    <icon src="img/axion-ico.png" />
 
 </widget>

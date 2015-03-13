@@ -1,3 +1,4 @@
+var showRute;
 'use strict';
 function alertaDireccionVacia(hasta){
     var tt=$('.sec1 .dir .tooltip');
@@ -189,6 +190,10 @@ function eventosBusqueda(){
             $(this).removeClass('abierto');
         }else{
             var gotobtn_html = '<div class="goToBtn"><a href="#" title="ir">Ir</a></div>';
+            if(mostrandoRuta){
+                mostrandoRuta = false;
+                gotobtn_html += '<div class="closeRuta"><a href="javascript:void(0);" id="removeRuta" title="Eliminar ruta marcada">Borrar ruta</a></div>';
+            }
             $('.dir').append(gotobtn_html);
             $('.sec1 .footer-content div').removeClass('abierto');
             $(this).addClass('abierto');
@@ -196,7 +201,7 @@ function eventosBusqueda(){
                 $('#txDesde').val(currentDirText);
             else
                 $('#txDesde').val(globalPositionStr);
-            if (currentDirText2) {console.log(currentDirText2);$('#txHasta').val(currentDirText2)};
+            if (currentDirText2) {$('#txHasta').val(currentDirText2)};
             var $inputsBar = $('.sec1 .dir');
             $inputsBar.fadeIn();
             var map = true
@@ -221,12 +226,8 @@ function eventosBusqueda(){
             $inputsBar.fadeIn();
             $('#txDesde,#txHasta').hide();
             $('#txBusqueda').fadeIn();
-            $('#txBusqueda').val('').attr('placeholder','Ingrese ubicación a buscar').focus().addClass('autocomplete')
+            $('#txBusqueda').val('').attr('placeholder','Ingrese ubicación a buscar').focus();
             $('#txBusqueda').val(currentDirText);
-            $('#txBusqueda.autocomplete').autocomplete({
-                source: direcciones,
-                position: { my: "left bottom", at: "left top", collision: "flip" }
-            });
             $('#ui-id-1').css('height',$_calc-120);
             //buscar();
         }
@@ -257,11 +258,6 @@ function eventosBusqueda(){
             $('.sec1 div .tooltip').hide();
         }
     });
-
-    $('.closeRuta a').on('touchstart',function(e){
-        e.preventDefault();
-        limpiarRuta();
-    })
 
     $(document).on('touchstart','.goToBtn a',function(e){
         e.preventDefault();

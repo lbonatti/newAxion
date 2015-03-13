@@ -46,7 +46,7 @@ function initializeMap() {
         mapTypeId:google.maps.MapTypeId.ROADMAP,  /*,
         styles: myStyles*/
         zoomControlOptions: {
-            position: google.maps.ControlPosition.LEFT_TOP
+            position: google.maps.ControlPosition.LEFT_BOTTOM
         }
     };
     map=new google.maps.Map(document.getElementById("googleMap") ,mapProp);
@@ -417,18 +417,18 @@ function resizeMap(ocultarChrome){
     var anchoScreen = $(window).width();
 
     if(isMobile()){
-        var alturaHeader = 95;
+        var alturaHeader = 61;
         var alturaFoot = 58;
     }else{
-        var alturaHeader = 50;
-        var alturaFoot = 38;
+        var alturaHeader = 74;
+        var alturaFoot = 58;
     }
 
     $('#container').height(alturaScreen-alturaHeader);
     $('#googleMap').height(alturaScreen-alturaHeader-alturaFoot);
 
-    $('#container').width($(window).width());
-    $('#googleMap').width($(window).width());
+    //$('#container').width($(window).width());
+    //$('#googleMap').width($(window).width());
 
     if(!isMobile()){
         $.each(Paises, function(index, value) {
