@@ -19,6 +19,8 @@
     <script type="text/javascript" src="cordova.js"></script>
 
 	<script>
+	
+		document.addEventListener("deviceready", splashHide, false);
 
         $(document).ready(function(){
             showSplash();
@@ -32,8 +34,13 @@
 			 $('#splashScreen').height($(window).height());
             setTimeout(function(){
                 window.location.href = 'home.html'
-            }, 2000);
+            }, 3000);
         }
+		
+		splashHide(){
+			navigator.splashscreen.hide();
+		}
+		
 	</script>
 
 </body>
