@@ -25,6 +25,7 @@
     <preference name="show-splash-screen-spinner" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="HideKeyboardFormAccessoryBar" value="true" />
+    <preference name="SplashScreen" value="splash" />
     <preference name="SplashScreenDelay" value="1" />
     <preference name="DisallowOverscroll" value="false"/>
 	<preference name="KeyboardShrinksView" value="true" />
