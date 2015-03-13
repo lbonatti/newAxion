@@ -1,0 +1,206 @@
+.content{
+    width:990px;
+    margin:0 auto;
+}
+#container {
+    background-color: #fff;
+}
+footer{
+    position: fixed ;
+}
+.seccion1, .seccion2, .seccion3{
+    overflow: hidden;
+
+    border-top:1px solid #EAE6E5;
+
+
+    padding-top: 35px;
+    padding-bottom: 31px;
+
+}
+.g50{
+    width:50%;
+    float:left;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
+.seccion1{
+    background-color: #F2F2F2;
+}
+.main-image{
+    min-height: 460px;
+    background-image: url(../img/acerca.jpg);
+    background-position: 50%;
+    /*background-size: 174%;*/
+}
+
+.title{
+    font-family: 'HelveticaNeueLT-Medium', Arial, sans-serif;
+    font-size: 24px;
+    color: #2C2C4E;
+    text-shadow: 1px 1px #eee;
+    padding-top: 29px;
+}
+.text{
+    font-family: 'HelveticaNeueLT-Light', Arial, sans-serif;
+    font-size: 16px;
+    color: #777;
+    text-shadow: 1px 1px #ddd;
+    padding-bottom: 20px;
+    padding-top: 7px;
+}
+.masinfo{
+    padding-top: 0px;
+    padding-bottom: 13px;
+    font-size: 13px;
+    color: #999;
+
+}
+.masinfo a{
+    color: #A32C6C;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'HelveticaNeueLT-Medium', Arial, sans-serif;
+}
+
+.imagen{
+    margin-right: 11px;
+    float: left;
+}
+
+.titulo1{
+    font-family: 'HelveticaNeueLT-Medium', Arial, sans-serif;
+    font-size: 34px;
+    color: #2A2C52;
+    text-align: center;
+    padding-top: 104px;
+}
+
+.titulo2{
+    font-family: 'HelveticaNeueLT-Light', Arial, sans-serif;
+    font-size: 15px;
+    color: #727272;  text-align: center;
+    padding-top: 4px;
+    text-shadow: 1px 1px #eee;
+    padding-bottom: 35px;
+}
+.secPromociones .masinfo span {
+    display: inline-block;
+    padding: 0 5px;
+}
+.secPromociones .masinfo a {
+    font-weight: normal !important;
+    font-size: 13px !important;
+}
+.secPromociones .overlay {
+    background-color: black;
+    display: none;
+    opacity: 0.4;
+    position: absolute;
+    top: 74px;
+    width: 100%;
+    z-index: 9995;
+}
+.secPromociones .detail {
+
+}
+.secPromociones .detail .titulo1 {
+    font-size: 20px;
+}
+.secPromociones .detail a {
+    color: #a82d6e;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: 'HelveticaNeueLT-Medium';
+}
+.secPromociones .detail .content{
+    padding: 15px 30px;
+    width: auto;
+}
+.secPromociones .detail .content .linea2{
+    margin: 20px 0;
+}
+.secPromociones .detail .name{
+    color: #2a2d4c;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+.secPromociones .detail .phone, .secPromociones .detail .mail, .secPromociones .detail .dir{
+    color: #7b7b7b;
+}
+.secPromociones .content .g50 .img {
+    width: 35%;
+}.secPromociones .content .g50 .img img{
+     width: 100%;
+     max-width: 161px;
+ }
+.secPromociones .content .g50 .txtContent{
+    width: 63%;
+}
+.secPromociones .content .g50 .img,
+.secPromociones .content .g50 .txtContent{
+    display: inline-block;
+    vertical-align: middle;
+}
+.secPromociones .masinfo {
+    display: none;
+}
+.secPromociones .masinfo.desktop {
+    display: block;
+}
+.secPromociones .masinfo.desktop a:after {
+    content: '»';
+    padding-left: 3px;
+}
+.secPromociones #container > .titulo2 {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.secPromociones .desktop {display: block}
+.secPromociones .mobile {display: none}
+.secPromociones .slimScrollDiv {padding: 30px}
+
+@media only screen and (min-width : 1024px){
+    .secPromociones .detail {height: 600px !important;}
+    .secPromociones .detail .titulo1 {
+        font-size: 26px;
+        line-height: 88px;
+        padding-left: 20px;
+        padding-top: 0;
+        position: static;
+        text-align: left;
+        font-family: 'HelveticaNeueLT-Light';
+        margin-bottom: 50px;
+    }
+    .secPromociones .detail {
+        overflow: hidden;
+    }
+    .secPromociones .detail .content {
+        padding: 0 50px 50px;
+        max-height: 385px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .secPromociones .detail .content .titulo {
+        color: #2a2d4c;
+        margin-bottom: 25px;
+        font-size: 15px;
+    }
+    .secPromociones .detail .content .linea2 {
+        display: none;
+    }
+    .secPromociones .detail .stationContent {
+        display: inline-block;
+        width: 32%;
+        vertical-align: top;
+        margin-right: 5px;
+        margin-bottom: 25px;
+    }
+    .secPromociones .detail .stationContent *{
+        font-size: 85% !important;
+    }
+}
+

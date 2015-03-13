@@ -1,0 +1,90 @@
+@media only screen and (max-width : 1024px){
+
+
+    .content{/*ok*/
+        width: 100%;
+    }
+    #container{
+        padding-bottom: 0px !important;
+    }
+    footer{
+        display:none;
+    }
+
+    .seccion1,
+    .seccion2,
+    .seccion3,
+    .seccion4{/*ok*/
+        padding-top: 17px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 15px;
+    }
+
+    .g50{ /*ok*/
+        width: 100%;
+        padding-right: 0px;
+        padding-top:0px !important;
+        position: relative;
+    }
+    .main-image{ /*   OK    */
+        height: 245px;
+        min-height: 0px;
+        background-size: 1024px 100%;
+        background-position: 32%;
+    }
+
+    .title{/**/
+        font-size: 24px;
+    }
+
+    .subtitle{/**/
+        padding-top: 6px;
+        padding-bottom: 15px;
+        font-size: 13px;
+        line-height: 1.3;
+    }
+    .text{/**/
+        font-size: 13px;
+    }
+
+    .masinfo{/**/
+        font-size: 13px;
+        padding-bottom: 0px;
+    }
+
+    .imgCombustible{
+        width: 22%;
+    }
+
+    .imgVideo{
+        width:100%;
+        padding-top: 10px;
+    }
+
+    .estaciones_servicio ul {
+        display: inline-block;
+        text-align: center;
+    }
+    .estaciones_servicio ul li {
+        display: inline-block;
+        float: none !important;
+        width: 23% !important;
+        vertical-align: top;
+    }
+
+}
+@media only screen and (max-width : 768px){
+    .imgCombustible{
+        width: 44%;
+    }
+
+}
+
+@media only screen and (max-width : 360px){
+    .imgCombustible{
+        width: 100%;
+    }
+
+}
+

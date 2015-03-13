@@ -1,0 +1,71 @@
+.content{
+    width:990px;
+    margin:0 auto;
+}
+#container {
+    background-color: #fff;
+}
+footer{
+    position: relative ;
+}
+.seccion1, .seccion2, .seccion3, .seccion4{
+    overflow: hidden;
+    padding-top: 54px;
+    padding-bottom: 50px;
+    border-top:1px solid #EAE6E5;
+}
+.g50{
+    width:50%;
+    float:left;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
+.seccion2, .seccion4 {
+    background-color: #F2F2F2;
+}
+.main-image{
+    min-height: 460px;
+    background-image: url(../img/acerca.jpg);
+    background-position: 50%;
+    /*background-size: 174%;*/
+}
+
+.title{
+
+    font-family: 'HelveticaNeueLT-Medium', Arial, sans-serif;
+    font-size: 32px;
+    color: #373A5D;
+
+}
+.subtitle{
+
+    padding-top: 12px;
+    padding-bottom: 22px;
+    color: #9F1D63;
+    font-family: 'HelveticaNeueLT-Medium', Arial, sans-serif;
+    font-size: 18px;
+
+}
+.text{
+    font-family: 'HelveticaNeueLT-Light', Arial, sans-serif;
+    font-size: 16px;
+    color: #555;
+    /*text-shadow: 1px 1px #ddd;*/
+    padding-bottom: 18px;
+}
+.masinfo{
+    font-family: 'HelveticaNeueLT-Medium', Arial, sans-serif;
+    padding-top: 0px;
+    padding-bottom: 13px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #9C1F61;
+}
+.imgCombustible{
+    width: 214px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-right: 14px;
+    margin-top: 17px;
+}

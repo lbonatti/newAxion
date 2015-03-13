@@ -1,0 +1,103 @@
+body {
+  font-family: 'HelveticaNeueLT-Medium'; }
+
+.descargas .link-contacto {
+  right: 71px; }
+
+.seccion1, .seccion2, .seccion3, .seccion4 {
+  font-family: 'HelveticaNeueLT-Medium'; }
+  .seccion1 .subtitle, .seccion2 .subtitle, .seccion3 .subtitle, .seccion4 .subtitle {
+    margin-top: 0; }
+  .seccion1 .masinfo a, .seccion2 .masinfo a, .seccion3 .masinfo a, .seccion4 .masinfo a {
+    color: #A32C6C;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'HelveticaNeueLT-Medium'; }
+
+.sec2 .footer-content span {
+  padding-top: 15px;
+  padding-bottom: 15px; }
+  .sec2 .footer-content span a {
+    color: #000; }
+
+.estaciones_servicio {
+  margin-bottom: 20px; }
+  .estaciones_servicio ul {
+    list-style: none;
+    margin: 0 0 0 0;
+    padding: 0; }
+    .estaciones_servicio ul li {
+      float: left;
+      list-style: none;
+      text-align: center;
+      width: 25%;
+      min-width: 100px;
+      margin: 5px 0;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #000; }
+  .estaciones_servicio .icon {
+    background: url("../img/icons.png") no-repeat top left;
+    display: inline-block;
+    height: 57px;
+    width: 67px; }
+    .estaciones_servicio .icon.icon-a {
+      background-position: 0 0; }
+    .estaciones_servicio .icon.icon-b {
+      background-position: -142px 0; }
+    .estaciones_servicio .icon.icon-c {
+      background-position: -269px 0; }
+    .estaciones_servicio .icon.icon-d {
+      background-position: -400px 0; }
+    .estaciones_servicio .icon.icon-e {
+      background-position: 0 -111px; }
+    .estaciones_servicio .icon.icon-f {
+      background-position: -142px -111px; }
+    .estaciones_servicio .icon.icon-g {
+      background-position: -269px -111px; }
+    .estaciones_servicio .icon.icon-h {
+      background-position: -400px -111px; }
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000; }
+
+.video-player .video-wraper {
+  background-color: #FFF;
+  padding: 20px;
+  position: absolute;
+  left: 50%;
+  margin-left: -340px;
+  top: 50%;
+  margin-top: -152px; }
+
+.video-player .video-wraper.lg {
+  margin-left: -272px;
+  margin-top: -240px; }
+
+.video-player .video-bg {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute; }
+
+.video-wraper .close {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  background-image: url("../img/close.png");
+  background-position: center -3px;
+  opacity: 1;
+  text-indent: 1000px; }

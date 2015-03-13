@@ -1,0 +1,159 @@
+body {
+  font-family: 'HelveticaNeueLT-Medium';
+}
+
+.header-content {
+  .link-contacto {
+
+  }
+}
+
+.descargas .link-contacto {
+  right: 71px;
+}
+
+.seccion1, .seccion2, .seccion3, .seccion4 {
+
+  font-family: 'HelveticaNeueLT-Medium';
+
+  .subtitle {
+    margin-top: 0;
+  }
+
+  .masinfo {
+
+    a {
+      color: #A32C6C;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: 'HelveticaNeueLT-Medium';
+    }
+  }
+}
+
+.sec2 {
+
+  .footer-content {
+    span {
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      a {
+        color: #000;
+      }
+    }
+
+  }
+}
+
+.estaciones_servicio {
+
+  margin-bottom: 20px;
+
+  ul {
+    list-style: none;
+    margin: 0 0 0 0;
+    padding: 0;
+
+    li {
+      float: left;
+      list-style: none;
+      text-align: center;
+      width: 25%;
+      margin: 5px 0;
+
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #000;
+    }
+
+  }
+
+  .icon {
+    background: url("../img/icons.png") no-repeat top left;
+    display: inline-block;
+    height: 57px;
+    width: 67px;
+
+    &.icon-a {
+      background-position: 0 0;
+    }
+
+    &.icon-b {
+      background-position: -142px 0;
+    }
+
+    &.icon-c {
+      background-position: -269px 0;
+    }
+
+    &.icon-d {
+      background-position: -400px 0;
+    }
+
+    &.icon-e {
+      background-position: 0 -111px;
+    }
+
+    &.icon-f {
+      background-position: -142px -111px;
+    }
+
+    &.icon-g {
+      background-position: -269px -111px;
+    }
+
+    &.icon-h {
+      background-position: -400px -111px;
+    }
+  }
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+
+.video-player .video-wraper {
+  background-color: #FFF;
+  padding: 20px;
+  position: absolute;
+  left: 50%;
+  margin-left: -340px;
+  top: 50%;
+  margin-top: -152px;
+}
+
+.video-player .video-wraper.lg {
+  margin-left: -423px;
+  margin-top: -240px;
+}
+
+.video-player .video-bg {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.video-wraper .close {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  background-image: url('../img/close.png');
+  background-position: center -3px;
+  opacity: 1;
+  text-indent: 1000px;
+}
