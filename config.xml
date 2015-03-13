@@ -36,8 +36,6 @@
     <preference name="BackgroundColor" value=""/>
     <preference name="KeepRunning" value="true"/>
     <preference name="DisallowOverscroll" value="false"/>
-    <preference name="LoadingDialog" value=","/>
-    <preference name="LoadUrlTimeoutValue" value="20000" />
     <preference name="disable-cursor" value="true" />
     <gap:platform name="ios" />
     <gap:platform name="android" />
