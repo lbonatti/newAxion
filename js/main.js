@@ -38,21 +38,10 @@ $(document).ready(function(){
             //    showPromocionesInicial(ocultarChrome);
             //},2000);
         }
-        /*
-        console.log(direcciones);
-    $("#searchField").autocomplete({
-        target: $('#suggestions'),
-        source: data,
-        link: 'target.html?term=',
-        minLength: 1,
-        matchFromStart: false
-    });
-    */
         $('#txBusqueda').autocomplete({
             source: direcciones,
-            minLength: 1,
-            target: $('#suggestions'),
-            loadingHtml : '<li data-icon="none"><a href="#">Searching...</a></li>', // HTML to display when searching remotely
+            minLength: 3,
+            appendTo: ".dir"
         });
 });
 

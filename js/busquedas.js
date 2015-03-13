@@ -180,6 +180,7 @@ function eventosBusqueda(){
     });
 
     $('.map').on('touchstart', function(e){
+        $('.ui-autocomplete').remove();
         $('.dir').removeClass('searchIsOpen').css('height','auto');
         $('#txDesde').addClass('x');
         $('#txBusqueda').removeAttr('disabled');
@@ -187,17 +188,7 @@ function eventosBusqueda(){
         if($(this).hasClass('abierto')){
             $('.sec1 .dir').hide();
             $(this).removeClass('abierto');
-            $('.newAutoComplete').remove();
         }else{
-            $('#txHasta').autocomplete({
-                source: direcciones,
-                minLength: 3,
-                appendTo: ".dir",
-                open: function () {
-                    $(this).autocomplete( "option", "position", { my: "left top",at: "left bottom", offset:"0 60", collision: "flip" } );
-                    //$(this).data("uiAutocomplete").menu.element.addClass("newAutoComplete");
-                }
-            })
             var gotobtn_html = '<div class="goToBtn"><a href="#" title="ir">Ir</a></div>';
             if(mostrandoRuta){
                 mostrandoRuta = false;
