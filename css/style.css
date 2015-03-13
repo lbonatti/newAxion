@@ -30,13 +30,14 @@ html, body, #splashScreen {
     width: 100% !important;
 }
 .ui-autocomplete {
+    padding: 10px 0 !important;
     overflow-y: scroll !important;
     overflow-x: hidden !important;
     background-color: #861d55 !important;
     border-radius: 0 !important;
     /*width: 100% !important;*/
     /*max-width: 468px;*/
-    z-index: 9999 !important;
+    z-index: 9999;
 }
 .ui-widget-content {
     background: none !important;

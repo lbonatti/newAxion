@@ -76,7 +76,19 @@ function eventosGenerales(){
 function deviceBackBtn(){
 
     document.addEventListener("backbutton", function(e){
-        showMap()
+        //e.preventDefault();
+        //var exitApp = 1;
+        //
+        //if( exitApp ){
+        //    navigator.notification.confirm(
+        //        '¿Seguro deseas salir?', // message
+        //        onConfirm, // callback to invoke with index of button pressed
+        //        'Cerrar Aplicación', // title
+        //        ['Cancelar','Salir'] // buttonLabels
+        //    );
+        //}else{
+        //    navigator.app.backHistory();
+        //}
     }, false);
 }
 
@@ -110,18 +122,4 @@ function showLoadingConection(){
 function onOnline() {
     //Cargar el mapa nuevamente...
     location.reload();
-}
-
-function showMap(){
-    if (mostrandoRuta){
-        $('.geo').trigger('touchstart');
-    }
-    if ($('.detail').length > 0) {
-        $('.detail .cerrar').trigger('touchstart')
-    }
-    $('.sec1 .footer-content > div').each(function(){
-        if($(this).hasClass('abierto')){
-            $(this).trigger('touchstart');
-        }
-    })
 }
