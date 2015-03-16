@@ -77,12 +77,12 @@ function initializeMap() {
             my: "left bottom",
             at: "left top",
             collision: "flip flip",
-            offset: '0 -62'
+            of: '#suggestSearch'
         }
     });
-    $( "#txBusqueda" ).on( "autocompleteopen", function( event, ui ) {
-        $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px','important')
-    } );
+    //$( "#txBusqueda" ).on( "autocompleteopen", function( event, ui ) {
+    //    $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px','important')
+    //} );
 
     $('#txHasta').autocomplete({
         source: direcciones,
@@ -90,13 +90,13 @@ function initializeMap() {
         position: {
             my: "left bottom",
             at: "left top",
-            offset: '0 -62',
+            of: '#suggestHasta',
             collision: "flip flip"
         }
     });
-    $( "#txHasta" ).on( "autocompleteopen", function( event, ui ) {
-        $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px','important')
-    } );
+    //$( "#txHasta" ).on( "autocompleteopen", function( event, ui ) {
+    //    $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px','important')
+    //} );
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);

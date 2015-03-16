@@ -1,6 +1,6 @@
 @media only screen and (max-width:1024px){
     .descargas,div.social .f1,div.social .f2,div.social .f3{display:none}
-    #suggestHasta .Hasd {
+    #suggestHasta {
         position: relative;
         top:-64px;
     }
