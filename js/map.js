@@ -77,9 +77,12 @@ function initializeMap() {
             my: "left bottom",
             at: "left top",
             of: $(".Sasd"),
-            collision: "flip flip"
+            collision: "flip flip",
         }
     });
+    $( "#txBusqueda" ).on( "autocompleteopen", function( event, ui ) {
+        $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px','important')
+    } );
 
     $('#txHasta').autocomplete({
         source: direcciones,
@@ -88,12 +91,12 @@ function initializeMap() {
             my: "left bottom",
             at: "left top",
             of: $(".Hasd"),
-            collision: "flip flip"
+            collision: "flip flip",
         }
     });
-
-    $('.ui-autocomplete').css('max-height', $(window).height()-300 + 'px','important')
-
+    $( "#txHasta" ).on( "autocompleteopen", function( event, ui ) {
+        $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px','important')
+    } );
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
