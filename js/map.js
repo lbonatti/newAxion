@@ -76,7 +76,8 @@ function initializeMap() {
         position: {
             my: "left bottom",
             at: "left top",
-            collision: "flip flip"
+            collision: "flip flip",
+            offset: '0 -62'
         }
     });
     $( "#txBusqueda" ).on( "autocompleteopen", function( event, ui ) {
@@ -89,6 +90,7 @@ function initializeMap() {
         position: {
             my: "left bottom",
             at: "left top",
+            offset: '0 -62',
             collision: "flip flip"
         }
     });
