@@ -37,12 +37,6 @@ html, body, #splashScreen {
     border: none !important;
 }
 
-#suggestSearch,
-#suggestHasta{
-    position: fixed;
-    z-index: 99999;
-    /*width: 100% !important;*/
-}
 .ui-autocomplete {
     list-style: none;
     overflow-y: scroll !important;
