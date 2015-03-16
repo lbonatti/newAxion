@@ -92,6 +92,8 @@ function initializeMap() {
         }
     });
 
+    $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px')
+
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
