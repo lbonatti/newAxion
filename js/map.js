@@ -92,7 +92,7 @@ function initializeMap() {
         }
     });
 
-    $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px')
+    $('.ui-autocomplete').css('max-height', $(window).height()-300 + 'px','important')
 
 }
 
