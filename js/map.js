@@ -69,6 +69,29 @@ function initializeMap() {
         cargarDirecciones(Estaciones);
     }).error(function (jqXHR, textStatus, errorThrown) { alert(errorThrown); });
 
+
+    $('#txBusqueda').autocomplete({
+        source: direcciones,
+        minLength: 3,
+        position: {
+            my: "left bottom",
+            at: "left top",
+            of: $(".Sasd"),
+            collision: "flip flip"
+        }
+    });
+
+    $('#txHasta').autocomplete({
+        source: direcciones,
+        minLength: 3,
+        position: {
+            my: "left bottom",
+            at: "left top",
+            of: $(".Hasd"),
+            collision: "flip flip"
+        }
+    });
+
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);

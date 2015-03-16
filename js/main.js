@@ -32,18 +32,8 @@ $(document).ready(function(){
             $(".bloque-filtro").css("padding-bottom", "90px");
 
         }
-
-        if(document.body.clientWidth>1024){
-            //setTimeout(function(){
-            //    showPromocionesInicial(ocultarChrome);
-            //},2000);
-        }
-        $('#txBusqueda').autocomplete({
-            source: direcciones,
-            minLength: 3,
-            appendTo: ".dir"
-        });
 });
+
 
 document.addEventListener("deviceready", detectOs(), false);
 
@@ -52,9 +42,3 @@ function detectOs() {
 
     deviceInfo = deviceType
 }
-
-$(window).on('resize',function(){
-    if($('.ui-autocomplete').length > 0){
-        $('.ui-autocomplete').hide();
-    }
-})

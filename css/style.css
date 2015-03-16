@@ -24,21 +24,9 @@ html, body, #splashScreen {
     /*max-height: 100% !important;*/
     /*height: 100%;*/
 }
-.ui-autocomplete li a {
-    display: block;
-    padding: 10px 0;
-    /*width: 100% !important;*/
-}
-.ui-autocomplete {
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
-    background-color: #861d55 !important;
-    border-radius: 0 !important;
-    width: 100% !important;
-    /*max-width: 468px;*/
-    z-index: 9999 !important;
-    text-align: left !important;
-}
+
+
+
 .ui-widget-content {
     background: none !important;
     border: none;
@@ -47,4 +35,39 @@ html, body, #splashScreen {
     color: #FFFFFF !important;
     background: transparent !important;
     border: none !important;
+}
+
+#suggestSearch,
+#suggestHasta{
+    position: fixed;
+    z-index: 99999;
+    /*width: 100% !important;*/
+}
+.ui-autocomplete {
+    list-style: none;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    background-color: #861d55 !important;
+    z-index: 9999 !important;
+    text-align: left !important;
+    outline: none;
+    position: absolute !important;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    max-width: 100%;
+}
+.ui-autocomplete li {
+    background-color: #861D55 !important;
+    padding: 10px;
+    margin: 0;
+}
+.ui-autocomplete li a {
+    font-size: 11px !important;
+    color: #ecd2e0 !important;
+    margin: 0;
+}
+.ui-helper-hidden-accessible {
+    display: none !important;
 }

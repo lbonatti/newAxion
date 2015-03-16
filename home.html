@@ -10,31 +10,9 @@
             padding: 0;
             border: none;
         }
-		.ui-autocomplete {
-			max-height: 100px;
-			overflow-y: hidden;
-			overflow-x: hidden;
-		}
-		.ui-autocomplete {
-			opacity: 0.8 !important;
-			background-color: #861D55 !important;
-			border: none !important;
-			border-radius: 0 !important;
-			padding: 0 !important;
-			outline: none;
-		}
-		.ui-autocomplete li {
-			background-color: #861D55 !important;
-		}
-		.ui-autocomplete li a {
-			font-size: 11px !important;
-			color: #ecd2e0 !important;
-		}
     </style>
 
-	<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css" />
-
-    <script src="js/jquery-1.9.0.min.js"></script>
+	<script src="js/jquery-1.9.0.min.js"></script>
     <script src="js/jquery-ui-1.9.2.min.js"></script>
     <script src="js/slimscroll.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?v=3.6&language=es&key=AIzaSyDfs88uaYQmu_fU2PMdDM90BqdMn5ZWeh8&sensor=false" ></script>
@@ -297,9 +275,15 @@
                     <div class="map">
                     </div>
                     <div class="dir">
+						<div id="suggestSearch">
+							<div class="Sasd"></div>
+						</div>
                         <input id="txBusqueda" />
                         <input id="txDesde" placeholder="Desde" class="clearable x"/>
-                        <input id="txHasta" placeholder="Hasta" />
+						<div id="suggestHasta">
+							<div class="Hasd"></div>
+						</div>
+						<input id="txHasta" placeholder="Hasta" />
                         <div class="buscarBtn">
                             <a href="#" title="Buscar">Buscar</a>
                         </div>

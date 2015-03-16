@@ -138,6 +138,7 @@ function eventosBusqueda(){
     });
 
     $('.geo').on('touchstart', function(e){
+        $('#txHasta').val('');
         e.preventDefault();
         $('.dir').removeClass('searchIsOpen').css('height','auto');
         $('.goToBtn').remove();
@@ -180,7 +181,6 @@ function eventosBusqueda(){
     });
 
     $('.map').on('touchstart', function(e){
-        $('.ui-autocomplete').remove();
         $('.dir').removeClass('searchIsOpen').css('height','auto');
         $('#txDesde').addClass('x');
         $('#txBusqueda').removeAttr('disabled');
@@ -188,6 +188,7 @@ function eventosBusqueda(){
         if($(this).hasClass('abierto')){
             $('.sec1 .dir').hide();
             $(this).removeClass('abierto');
+            $('#txHasta').val('');
         }else{
             var gotobtn_html = '<div class="goToBtn"><a href="#" title="ir">Ir</a></div>';
             if(mostrandoRuta){
@@ -211,21 +212,17 @@ function eventosBusqueda(){
     });
 
     $('.lupa').on('touchstart', function(){
-        if(isMobile()){
-            $( "#txBusqueda" ).autocomplete( "option", "position", { my: "left top",at: "left bottom", collision: "none" } );
-        }else{
-            $( "#txBusqueda" ).autocomplete( "option", "position", { my: "left top",at: "left bottom", collision: "flip" } );
-        }
-
+        $('#txHasta').val('');
         $('.goToBtn').remove();
         $('#txBusqueda').removeAttr('disabled');
         if($(this).hasClass('abierto')){
             $(this).removeClass('abierto');
             $('.sec1 .dir').hide();
             $('.searchOverlay').remove();
+            $('#txBusqueda').val('')
         }else{
             var $_calc = $(document).height() - $('.sec1').height() - $('.header-content').height()
-            $('.dir').addClass('searchIsOpen');
+            //$('.dir').addClass('searchIsOpen');
             $('.sec1 .footer-content div').removeClass('abierto');
             $(this).addClass('abierto')
             var $inputsBar = $('.sec1 .dir:hidden');
@@ -234,7 +231,6 @@ function eventosBusqueda(){
             $('#txBusqueda').fadeIn();
             $('#txBusqueda').val('').attr('placeholder','Ingrese ubicación a buscar').focus();
             $('#txBusqueda').val(currentDirText);
-            $('#ui-id-1').css('height',$_calc-120);
             //buscar();
         }
     });
