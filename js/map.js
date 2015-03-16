@@ -76,8 +76,7 @@ function initializeMap() {
         position: {
             my: "left bottom",
             at: "left top",
-            of: $(".Sasd"),
-            collision: "flip flip",
+            collision: "flip flip"
         }
     });
     $( "#txBusqueda" ).on( "autocompleteopen", function( event, ui ) {
@@ -90,8 +89,7 @@ function initializeMap() {
         position: {
             my: "left bottom",
             at: "left top",
-            of: $(".Hasd"),
-            collision: "flip flip",
+            collision: "flip flip"
         }
     });
     $( "#txHasta" ).on( "autocompleteopen", function( event, ui ) {

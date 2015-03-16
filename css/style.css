@@ -57,6 +57,7 @@ html, body, #splashScreen {
     margin: 0;
     max-width: 100%;
     opacity: 0.7;
+    height: 150px !important;
 }
 .ui-autocomplete li {
     background-color: #861D55 !important;
