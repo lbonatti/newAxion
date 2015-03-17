@@ -39,6 +39,7 @@ function alertaDireccionVacia(hasta){
 }
 
 function buscar(zoom){
+    $('.ui-autocomplete').hide();
     try{directionsDisplay.setMap(null)}catch(err){}
     try{geoMarker.setMap(null)}catch(err){}
     try{
@@ -147,8 +148,8 @@ function eventosBusqueda(){
             $('#txDesde').val(globalPositionStr);
 
             if($(this).hasClass('abierto')){
-                $('.sec1 .dir').hide();
-                $(this).removeClass('abierto');
+                //$('.sec1 .dir').hide();
+                //$(this).removeClass('abierto');
             }else{
                 try{
                     directionsDisplay.setMap(null);
@@ -156,13 +157,17 @@ function eventosBusqueda(){
                     geoMarkerStart.setMap(null);
                     geoMarkerEnd.setMap(null);
                 }catch(err){}
-                $('#txBusqueda').attr('disabled','disabled');
-                $('.sec1 .footer-content div').removeClass('abierto');
-                $(this).addClass('abierto');
-                var $inputsBar = $('.sec1 .dir:hidden');
-                if ( $inputsBar.length ){
-                    $inputsBar.fadeIn();
-                }
+                //$('#txBusqueda').attr('disabled','disabled');
+                //$('.sec1 .footer-content div').removeClass('abierto');
+                //$(this).addClass('abierto');
+                //var $inputsBar = $('.sec1 .dir:hidden');
+                //if ( $inputsBar.length ){
+                //    $inputsBar.fadeIn();
+                //    setTimeout(function(){
+                //        $inputsBar.fadeOut()
+                //        $('.sec1 .footer-content div').removeClass('abierto');
+                //    },2000)
+                //}
                 miUbicacion();
             }
         }else{
@@ -278,6 +283,7 @@ function eventosBusqueda(){
         }else{
             $('.goToBtn').remove();
             buscar();
+            $('.ui-autocomplete').hide();
             $('.sec1 div.abierto').removeClass('abierto');
             $('.sec1 div .tooltip').hide();
         }

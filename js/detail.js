@@ -1,5 +1,8 @@
 var currentMarkerId;
 function showDetail(idEstacion){
+
+    calculateDistance(Estaciones[idEstacion].lat,Estaciones[idEstacion].lon)
+
     //pasosCerrar();
     $('div.detail-bg').css('height',$(window).height()).show();
 
@@ -24,7 +27,7 @@ function showDetail(idEstacion){
 
 
     $('.detail .estado').html(Estaciones[idEstacion].estado);
-    $('.detail .distancia').html('Distancia: '+Estaciones[idEstacion].distancia);
+    //$('.detail .distancia').html('Distancia: '+Estaciones[idEstacion].distancia);
     $('.detail .tel').html('Tel. '+Estaciones[idEstacion].telf);
 
     var web = Estaciones[idEstacion].web;

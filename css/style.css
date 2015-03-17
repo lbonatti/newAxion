@@ -66,3 +66,8 @@ html, body, #splashScreen {
 .ui-helper-hidden-accessible {
     display: none !important;
 }
+
+input{
+    -webkit-border-radius:0px !important;
+    -webkit-appearance: none !important;
+}

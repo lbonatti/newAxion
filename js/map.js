@@ -247,7 +247,8 @@ function onSuccess(position) {
         //estacionesAleatorias();
         globalPositionStr=dir;
         globalPais=pais;
-        $('#txBusqueda, #txDesde').val(globalPositionStr);
+        $('#txBusqueda, #txDesde').val('Mi ubicvac');
+        $('#txBusqueda, #txDesde').attr('data-location',globalPositionStr);
         cambiarBandera(pais);
     });
     console.log('GeoLocation success!')
@@ -488,3 +489,28 @@ window.addEventListener("resize", function() {
             try{map.setCenter(currentPositionToCenter)}catch(err){}
         }
 }, false);
+
+
+function calculateDistance(latitud,longitud){
+
+    var MydirectionsService = new google.maps.DirectionsService();
+
+    var start = new google.maps.LatLng(globalLat,globalLon);
+    var end = new google.maps.LatLng(latitud, longitud);
+
+    var distance = google.maps.geometry.spherical.computeDistanceBetween(start, end)
+
+    if (distance){
+        var km = distance / 1000;
+        km = km.toFixed(1) + " km";
+
+        $('.detail .distancia').html('Distancia: '+ km);
+        $('.detail .distancia').show()
+    }else{
+        $('.detail .distancia').hide()
+    }
+
+
+
+
+}
