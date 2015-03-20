@@ -51,20 +51,12 @@ function eventosFiltro(){
     cargarFiltros()
 
     $('.filtro').on('touchend',function(e){
-        var $inputsBar = $('.sec1 .dir');
-        $inputsBar.hide();
 
         ocultarMenu1();
         ocultarMenu2();
         hideDetail();
         hidePromocionesInicial();
 
-        if($(this).hasClass('abierto')){
-            ocultarMenu3()
-            if(isMobile()){
-                $('#googleMap').show();
-            }
-        }else{
             actualizarFiltros();
             if(isMobile()){
                 $('#googleMap').hide();
@@ -73,7 +65,6 @@ function eventosFiltro(){
             }
             $(this).addClass('abierto');
             $('.bf-container').show();
-        }
     });
 
     $(' .bloque-filtro a.ok').on('click', filtrar);

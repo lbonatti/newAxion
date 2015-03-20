@@ -77,7 +77,6 @@ function buscar(zoom){
     hidePromocionesInicial();
     $('.dir').hide();
     $('.sec1 .abierto').removeClass('abierto');
-    $('input').blur()
 }
 
 function comoLlegar(map){
@@ -115,10 +114,6 @@ function miUbicacion(){
 
 
 function eventosBusqueda(){
-    $('.sec1 .footer-content div').not('.dir').not('.buscarBtn').on('touchstart',function(){
-        $('.sec1 .dir').hide();
-        //setTimeout(function(e){$('.sec1 .footer-content div .tooltip').fadeOut(700);e.stopPropagation()},2000)
-    })
 
    $('.sec1 .pais').on('touchstart',function(e){
        $('.sec1 .footer-content div').removeClass('abierto');
@@ -257,7 +252,6 @@ function eventosBusqueda(){
             $('.sec1 div.abierto').removeClass('abierto');
             $('.sec1 div .tooltip').hide();
 
-            $('input').blur();
         }
     });
 
@@ -281,7 +275,6 @@ function eventosBusqueda(){
             $('.ui-autocomplete').hide();
             $('.sec1 div.abierto').removeClass('abierto');
             $('.sec1 div .tooltip').hide();
-            $('input').blur();
         }
     })
 

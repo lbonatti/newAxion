@@ -59,15 +59,14 @@ function eventosGenerales(){
     //});
 
     $('.footer-content > div').on('touchstart',function(e){
-        $('.footer-content > div').not($(this)).removeClass('abierto');
-        ocultarMenu1();
-        ocultarMenu2();
-        ocultarMenu3();
+        $('.footer-content > div').removeClass('abierto');
         var current = $(this).attr('class');
         var focused = '';
         switch (current) {
-            case 'lupa': focused = $('#txBusqueda'); break;
-            case 'map' : focused = $('#txHasta'); break;
+            case 'lupa': focused = $('#txBusqueda');ocultarMenu3(); break;
+            case 'map' : focused = $('#txHasta');ocultarMenu3(); break;
+            case 'geo' : ocultarMenu3(); break;
+            case 'filtro' :$('.dir').hide();
         }
         try{
             setTimeout(function(){focused.focus()},200)
