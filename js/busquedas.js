@@ -75,11 +75,9 @@ function buscar(zoom){
     }
     hideDetail();
     hidePromocionesInicial();
-    setTimeout(function(){
-        $('.dir').fadeOut(700, function(){
-            $('.sec1 .abierto').removeClass('abierto');
-        });
-    },1000)
+    $('.dir').hide();
+    $('.sec1 .abierto').removeClass('abierto');
+    $('input').blur()
 }
 
 function comoLlegar(map){
@@ -196,10 +194,6 @@ function eventosBusqueda(){
             $('#txHasta').val('');
         }else{
             var gotobtn_html = '<div class="goToBtn"><a href="#" title="ir">Ir</a></div>';
-            if(mostrandoRuta){
-                mostrandoRuta = false;
-                gotobtn_html += '<div class="closeRuta"><a href="javascript:void(0);" id="removeRuta" title="Eliminar ruta marcada">Borrar ruta</a></div>';
-            }
             $('.dir').append(gotobtn_html);
             $('.sec1 .footer-content div').removeClass('abierto');
             $(this).addClass('abierto');
@@ -207,12 +201,11 @@ function eventosBusqueda(){
                 $('#txDesde').val(currentDirText);
             else
                 $('#txDesde').val(globalPositionStr);
-            if (currentDirText2) {$('#txHasta').val(currentDirText2)};
-            var $inputsBar = $('.sec1 .dir');
-            $inputsBar.fadeIn();
+            if (currentDirText2 && showRute) {$('#txHasta').val(currentDirText2)}
+            else{$('#txHasta').val('');};
+            $('.sec1 .dir').show();
             var map = true
             comoLlegar(map);
-            pasosOcultar();
         }
     });
 
@@ -231,9 +224,9 @@ function eventosBusqueda(){
             $('.sec1 .footer-content div').removeClass('abierto');
             $(this).addClass('abierto')
             var $inputsBar = $('.sec1 .dir:hidden');
-            $inputsBar.fadeIn();
+            $inputsBar.show();
             $('#txDesde,#txHasta').hide();
-            $('#txBusqueda').fadeIn();
+            $('#txBusqueda').show();
             $('#txBusqueda').val('').attr('placeholder','Ingrese ubicación a buscar').focus();
             $('#txBusqueda').val(currentDirText);
             //buscar();
@@ -263,6 +256,8 @@ function eventosBusqueda(){
             }
             $('.sec1 div.abierto').removeClass('abierto');
             $('.sec1 div .tooltip').hide();
+
+            $('input').blur();
         }
     });
 
@@ -286,6 +281,7 @@ function eventosBusqueda(){
             $('.ui-autocomplete').hide();
             $('.sec1 div.abierto').removeClass('abierto');
             $('.sec1 div .tooltip').hide();
+            $('input').blur();
         }
     })
 

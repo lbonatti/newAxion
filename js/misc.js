@@ -43,27 +43,36 @@ function eventosGenerales(){
         globalY = e.pageY;
     });
 
-    $('.menu-btn').on('touchstart',function(e){
+    //$('.menu-btn').on('touchstart',function(e){
+    //    $()
+    //
+    //    ocultarMenu2();
+    //    ocultarMenu3();
+    //
+    //    if($('ul.menu').hasClass('abierto')){
+    //        ocultarMenu1();
+    //    }else{
+    //        $('ul.menu').animate({height:'136px'})
+    //            .addClass('abierto');
+    //    }
+    //    e.stopPropagation();
+    //});
+
+    $('.footer-content > div').on('touchstart',function(e){
+        $('.footer-content > div').not($(this)).removeClass('abierto');
+        ocultarMenu1();
         ocultarMenu2();
         ocultarMenu3();
-
-        if($('ul.menu').hasClass('abierto')){
-            ocultarMenu1();
-        }else{
-            $('ul.menu').animate({height:'136px'})
-                .addClass('abierto');
+        var current = $(this).attr('class');
+        var focused = '';
+        switch (current) {
+            case 'lupa': focused = $('#txBusqueda'); break;
+            case 'map' : focused = $('#txHasta'); break;
         }
-        e.stopPropagation();
-    });
-
-    $(document).not('ul.menu').on('touchstart',function(){
-        setTimeout(function(){
-            ocultarMenu1();
-            ocultarMenu2();
-            ocultarMenu3();
-        },300)
-    });
-
+        try{
+            setTimeout(function(){focused.focus()},200)
+        }catch(err){}
+    })
 
     var _w = $('.preloadMap').width()/2;
     var _h = $('.preloadMap').height()/2;

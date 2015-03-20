@@ -4,7 +4,22 @@ header{background-image:url(../img/header-bg.png);background-size:100% 100%;back
 .goToBtn a:hover, .closeRuta a:hover{border:1px solid #861d55;background:#79174a}
 .closeRuta a{
     padding-top: 5px;
-    display:block;background:#861d55;height:30px;position:absolute;right:50px;top:-45px;width:50px;z-index:555;color:#fff;font-size:10px;line-height:12px;text-decoration:none;text-transform:uppercase;border:1px solid #79174a;border-radius:7px;text-align:center
+    display:block;
+    background:#861d55;
+    height:30px;
+    position:absolute;
+    right:10px;
+    bottom:65px;
+    width:50px;
+    z-index:555;
+    color:#fff;
+    font-size:10px;
+    line-height:12px;
+    text-decoration:none;
+    text-transform:uppercase;
+    border:1px solid #79174a;
+    border-radius:7px;
+    text-align:center
 }
 
 .buscarBtn{display:none}.noConectionPreload{display:none;top:45%;text-align:center;width:100%;position:absolute;color:#fff;text-transform:uppercase}.map-container{position:relative;padding-bottom:26.25%;padding-top:30px;height:0;overflow:hidden}.map-container embed,.map-container iframe,.map-container object{position:absolute;top:0;left:0;width:100%;height:100%}.ui-autocomplete li:hover{background-color:#9e1f63!important}.ui-autocomplete li a:hover{color:#fff!important;background-color:#9e1f63!important}.header-content .menu.abierto{display:block!important}footer .sec2{display: none}

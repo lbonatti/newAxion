@@ -109,7 +109,9 @@ var myIconGeo = new google.maps.MarkerImage( 'img/geoloc.png', null, null,new go
 var geoMarker = null;
 
 function centerMap(pos/*lat,lon*/){
-    map.panTo(pos/*new google.maps.LatLng(lat,lon)*/);
+    setTimeout(function(){
+        map.panTo(pos/*new google.maps.LatLng(lat,lon)*/);
+    },400)
 }
 
 /*var markers={};

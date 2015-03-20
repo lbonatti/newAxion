@@ -90,16 +90,19 @@ function pasosDestino(destino){
 
 }
 
+function showCloseRuta(){
+    var closeBtn_html = '<div class="closeRuta"><a href="javascript:void(0);" id="removeRuta" title="Eliminar ruta marcada">Borrar ruta</a></div>';
+    $('#container').append(closeBtn_html);
+}
+
 function cargarPasos(myRoute){
     //cargarPasos(response.routes[0].legs[0],directionType);
 
 
-    pasosAbrir();
-
     pasosMostrar();
     pasosTitulo(myRoute.start_address);
-    pasosRecorrido('Recorrido '+myRoute.distance.text+', '+myRoute.duration.text);
     pasosLimpiar();
+    pasosRecorrido('Recorrido '+myRoute.distance.text+', '+myRoute.duration.text);
 
     for (var i = 0; i<myRoute.steps.length; i++) {
         var ins=myRoute.steps[i].instructions;
@@ -112,8 +115,9 @@ function cargarPasos(myRoute){
         }
     }
     pasosDestino(myRoute.end_address);
-    //pasosAbrir();
-
+    $('.pasos').css({height:$('.pasos .encabezado').height()+38});
+    $('.pasos .encabezado').addClass('closed');
+    showCloseRuta();
 }
 
 function pasosImprimir(){

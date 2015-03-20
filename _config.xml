@@ -42,34 +42,54 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
 
-    <gap:splash src="splash/iOS/Default~iphone.png" gap:platform="ios" width="320" height="480" />
-    <gap:splash src="splash/iOS/Default_iphone_640x960.png" gap:platform="ios" width="640" height="960" />
-    <gap:splash src="splash/iOS/Default-Landscape~ipad_480x320.png" gap:platform="ios" width="480" height="320" />
-    <gap:splash src="splash/iOS/Default-568h_iphone_640x1136.png" gap:platform="ios" width="640" height="1136" />
-    <gap:splash src="splash/iOS/Default-Landscape~ipad_960x640.png" gap:platform="ios" width="960" height="640" />
+	<!-- Define app icon for each platform. -->
+    <!--
+	<icon src="icon.png" />
+    <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
+    <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
+    <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
+    <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
+    <icon src="res/icon/ios/icon-57.png"            gap:platform="ios"        width="57" height="57" />
+    <icon src="res/icon/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
+    <icon src="res/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
+    <icon src="res/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
+    <icon src="res/icon/webos/icon-64.png"          gap:platform="webos" />
+    <icon src="res/icon/windows-phone/icon-48.png"  gap:platform="winphone" />
+    <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
+	-->
 
-    <gap:splash src="splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="1136" height="640" />
-    <gap:splash src="splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="768" height="1024 " />
-    <gap:splash src="splash/iOS/Default-Landscape~ipad_1024x768.png" gap:platform="ios" width="1024" height="768" />
-
-
-    <gap:splash src="splash/Android/drawable/screen.png" gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="splash/Android/drawable/screen.png" gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="splash/Android/drawable-hdpi/screen.png" gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="splash/Android/drawable-ldpi/screen.png" gap:platform="android" gap:density="xhdpi" />
-    <gap:splash src="splash/Android/drawable-xxhdpi/screen.png" gap:platform="android" gap:density="xxhdpi" />
-
-    <access origin="*"/>
+    <!-- Define app splash screen for each platform. -->
+	<!--
+    <gap:splash src="res/screen/android/screen-ldpi-portrait.png"       gap:platform="android" gap:qualifier="ldpi" />
+    <gap:splash src="res/screen/android/screen-mdpi-portrait.png"       gap:platform="android" gap:qualifier="mdpi" />
+    <gap:splash src="res/screen/android/screen-hdpi-portrait.png"       gap:platform="android" gap:qualifier="hdpi" />
+    <gap:splash src="res/screen/android/screen-xhdpi-portrait.png"      gap:platform="android" gap:qualifier="xhdpi" />
+    <gap:splash src="res/screen/android/port-xxhdpi.png"                gap:platform="android" gap:qualifier="port-xxhdpi" />
+    <gap:splash src="res/screen/android/land-xhdpi.png"                 gap:platform="android" gap:qualifier="land-xxhdpi" />
+    <gap:splash src="res/screen/ios/screen-iphone-portrait.png"         gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png"      gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="res/screen/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios"     width="640" height="1136" />
+    <gap:splash src="res/screen/ios/screen-ipad-portrait.png"           gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="res/screen/ios/screen-ipad-landscape.png"          gap:platform="ios"     width="1024" height="768" />
+	-->
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-        <string>100</string>
+    <string>100</string>
     </gap:config-file>
-    <gap:config-file platform="ios" parent="UIStatusBarHidden">
-        <true/>
-    </gap:config-file>
-    <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
-        <false/>
-    </gap:config-file>
+
+    <!--
+        Define access to external domains.
+        <access />            - a blank access tag denies access to all external resources.
+        <access origin="*" /> - a wildcard access tag allows access to all external resource.
+        Otherwise, you can specify specific domains:
+    -->
+    <access origin="*"/>
+    <!--
+        <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
+        <access origin="http://phonegap.com" subdomains="true" />  - same as above, but including subdomains, such as http://build.phonegap.com/
+        <access origin="http://phonegap.com" browserOnly="true" /> - only allows http://phonegap.com to be opened by the child browser.
+    -->
+
 
     <!-- ICON -->
     <gap:splash src="splash.png" />

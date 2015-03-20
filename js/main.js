@@ -20,7 +20,7 @@ $(document).ready(function(){
 
         setTimeout(function(){
             document.addEventListener("deviceready", geoloc(), false);
-        },1500);
+        },300);
 
         var ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
         resizeMap(ocultarChrome);
