@@ -78,8 +78,14 @@ function initializeMap() {
             at: "left top",
             collision: "flip flip",
             of: '#suggestSearch'
+        },
+        open: function() {
+            $(this).autocomplete("widget").prepend('<div class="closeUI">x</div>');
+            $(document).on('touchstart','.closeUI',function(){
+                $('#txBusqueda').autocomplete('close')
+            })
         }
-    });
+    }).autocomplete( "widget" ).append('<div class="closeUI">x</div>');
     //$( "#txBusqueda" ).on( "autocompleteopen", function( event, ui ) {
     //    $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px','important')
     //} );

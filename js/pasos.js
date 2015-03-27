@@ -6,12 +6,9 @@ function eventosPasos(){
         if($(this).hasClass('closed')){
             $('.pasos').animate({height:alturaModalPasos},function(){/*$('#googleMap').hide();*/});
             $(this).removeClass('closed');
-
-
         }else{
             $('.pasos').animate({height:$(this).height()+38});
             $(this).addClass('closed');
-
             //$('#googleMap').show();
         }
     });
@@ -99,6 +96,8 @@ function cargarPasos(myRoute){
     //cargarPasos(response.routes[0].legs[0],directionType);
 
 
+    pasosAbrir();
+
     pasosMostrar();
     pasosTitulo(myRoute.start_address);
     pasosLimpiar();
@@ -115,8 +114,11 @@ function cargarPasos(myRoute){
         }
     }
     pasosDestino(myRoute.end_address);
+    //pasosAbrir();
+
     $('.pasos').css({height:$('.pasos .encabezado').height()+38});
     $('.pasos .encabezado').addClass('closed');
+
     showCloseRuta();
 }
 
