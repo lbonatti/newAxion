@@ -48,6 +48,7 @@ function filtrar() {
 
     markerCluster.clearMarkers();
     markerCluster = new MarkerClusterer(map, filterCluster)
+    pasosOcultar();
 }
 
 function eventosFiltro(){
