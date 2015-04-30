@@ -35,16 +35,19 @@ function actualizarFiltros(){
     });
 }
 
-function filtrar(){
-    $('.bf-items div').each(function(){
-        if($(this).attr('data-checked')=="1"){
-            filtros[$(this).attr('data-filtro')].valor=true;
-        }else{
-            filtros[$(this).attr('data-filtro')].valor=false;
+function filtrar() {
+    $('.bf-items div').each(function () {
+        if ($(this).attr('data-checked') == "1") {
+            filtros[$(this).attr('data-filtro')].valor = true;
+        } else {
+            filtros[$(this).attr('data-filtro')].valor = false;
         }
     });
     filtrarEstaciones();
     ocultarMenu3();
+
+    markerCluster.clearMarkers();
+    markerCluster = new MarkerClusterer(map, filterCluster)
 }
 
 function eventosFiltro(){
@@ -71,13 +74,13 @@ function eventosFiltro(){
 
     $(' a.cancel').on('touchstart',function(e){
         ocultarMenu3();
-        var $this = $('.bf-todos')
-        $this.css('background-image','url(img/unchecked.png)');
-        $this.attr('data-checked','0');
-            $('.bf-items div')
-                .css('background-image','url(img/unchecked.png)')
-                .attr('data-checked','0');
-        filtrar();
+        //var $this = $('.bf-todos')
+        //$this.css('background-image','url(img/unchecked.png)');
+        //$this.attr('data-checked','0');
+        //    $('.bf-items div')
+        //        .css('background-image','url(img/unchecked.png)')
+        //        .attr('data-checked','0');
+        //filtrar();
         e.preventDefault();
     } );
 

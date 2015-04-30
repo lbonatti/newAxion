@@ -214,7 +214,7 @@ function eventosBusqueda(){
             $('.searchOverlay').remove();
             $('#txBusqueda').val('')
         }else{
-            var $_calc = $(document).height() - $('.sec1').height() - $('.header-content').height()
+            //var $_calc = $(document).height() - $('.sec1').height() - $('.header-content').height()
             //$('.dir').addClass('searchIsOpen');
             $('.sec1 .footer-content div').removeClass('abierto');
             $(this).addClass('abierto')
@@ -231,22 +231,23 @@ function eventosBusqueda(){
     $('#txBusqueda, #txDesde, #txHasta').keypress(function(e){
         if (e.keyCode == 13) {
 
-            try{limpiarRuta();}catch(err){}
+            //try{limpiarRuta();}catch(err){}
+            $('#removeRuta').hide();
 
             if($('.goToBtn').length > 0){
                 $('.goToBtn').remove();
             }
 
             if ($(this).attr('id') == 'txBusqueda'){
-                var zoom = 18;
+                //var zoom = 18;
                 $('#txDesde, #txHasta').val('');
                 $('.pasos').hide();
                 globalModoBusqueda=1;
-                buscar(zoom);
+                buscar();
                 pasosOcultar();
                 return false;
             }else{
-                buscar(zoom);
+                buscar();
                 return false;
             }
             $('.sec1 div.abierto').removeClass('abierto');

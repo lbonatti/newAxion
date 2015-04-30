@@ -68,9 +68,6 @@ function eventosGenerales(){
             case 'geo' : ocultarMenu3(); break;
             case 'filtro' :$('.dir').hide();
         }
-        try{
-            setTimeout(function(){focused.focus()},200)
-        }catch(err){}
     })
 
     var _w = $('.preloadMap').width()/2;

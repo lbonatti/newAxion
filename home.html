@@ -16,6 +16,7 @@
     <script src="js/jquery-ui-1.9.2.min.js"></script>
     <script src="js/slimscroll.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?v=3.6&language=es&key=AIzaSyDfs88uaYQmu_fU2PMdDM90BqdMn5ZWeh8&sensor=false" ></script>
+    <script src="js/markerclusterer.js" ></script>
 
     <link rel="stylesheet" href="css/fuentes.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -360,16 +361,7 @@
                     });
 
 			$(document).on('touchstart','#removeRuta',function(e){
-				if(gpsEnabled){
-					e.preventDefault();
-					$('.geo').trigger('touchstart');
-					$('.closeRuta').remove();
-					mostrandoRuta = false;
-				}else{
-					limpiarRuta();
-					$('.closeRuta').remove();
-					mostrandoRuta = false;
-				}
+				limpiarRuta();
 			})
         })
 
