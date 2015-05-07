@@ -8,37 +8,34 @@ var currentDirText = '';
 var currentDirText2 = '';
 var gpsEnabled = true;
 var routeShow = false
-/*var currentMarkerId;*/
-//if (!location.origin)
-//    location.origin = location.protocol + "//" + location.host + '/newAxion';
-var urlPath = null;
+
 var markerCluster;
 var filterCluster = [];
 var allMarkers = [];
 var clusterStyles = {
     styles: [{
         width: 35,
-        url: urlPath + "/img/clusters/1.png",
+        url: "img/clusters/1.png",
         height: 51
     },
     {
         width: 35,
-        url: urlPath + "/img/clusters/1.png",
+        url: "img/clusters/1.png",
         height: 51
     },
     {
         width: 35,
-        url: urlPath + "/img/clusters/1.png",
+        url: "img/clusters/1.png",
         height: 51
     },
     {
         width: 35,
-        url: urlPath + "/img/clusters/1.png",
+        url: "img/clusters/1.png",
         height: 51
     },
     {
         width: 35,
-        url: urlPath + "/img/clusters/1.png",
+        url: "img/clusters/1.png",
         height: 51
     }]
 }
