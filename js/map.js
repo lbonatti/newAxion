@@ -18,27 +18,32 @@ var clusterStyles = {
     styles: [{
         width: 35,
         url: "img/clusters/1.png",
-        height: 51
+        height: 51,
+        textColor: '#ffffff'
     },
     {
         width: 35,
         url: "img/clusters/1.png",
-        height: 51
+        height: 51,
+        textColor: '#ffffff'
     },
     {
         width: 35,
         url: "img/clusters/1.png",
-        height: 51
+        height: 51,
+        textColor: '#ffffff'
     },
     {
         width: 35,
         url: "img/clusters/1.png",
-        height: 51
+        height: 51,
+        textColor: '#ffffff'
     },
     {
         width: 35,
         url: "img/clusters/1.png",
-        height: 51
+        height: 51,
+        textColor: '#ffffff'
     }]
 }
 
