@@ -46,6 +46,8 @@ function filtrar() {
     filtrarEstaciones();
     ocultarMenu3();
 
+
+
     markerCluster.clearMarkers();
     markerCluster = new MarkerClusterer(map, filterCluster)
     pasosOcultar();

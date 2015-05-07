@@ -9,10 +9,39 @@ var currentDirText2 = '';
 var gpsEnabled = true;
 var routeShow = false
 /*var currentMarkerId;*/
-
+//if (!location.origin)
+//    location.origin = location.protocol + "//" + location.host + '/newAxion';
+var urlPath = location.origin + '/newAxion';
 var markerCluster;
 var filterCluster = [];
-var allMarkers = []
+var allMarkers = [];
+var clusterStyles = {
+    styles: [{
+        width: 35,
+        url: urlPath + "/img/clusters/1.png",
+        height: 51
+    },
+    {
+        width: 35,
+        url: urlPath + "/img/clusters/1.png",
+        height: 51
+    },
+    {
+        width: 35,
+        url: urlPath + "/img/clusters/1.png",
+        height: 51
+    },
+    {
+        width: 35,
+        url: urlPath + "/img/clusters/1.png",
+        height: 51
+    },
+    {
+        width: 35,
+        url: urlPath + "/img/clusters/1.png",
+        height: 51
+    }]
+}
 
 var geoMarkerStart;
 var geoMarkerEnd;
@@ -73,7 +102,7 @@ function initializeMap() {
         cargarDirecciones(Estaciones);
 
     }).error(function (jqXHR, textStatus, errorThrown) { alert(errorThrown); })
-        .success(function(){markerCluster = new MarkerClusterer(map, allMarkers);});
+        .success(function(){markerCluster = new MarkerClusterer(map, allMarkers, clusterStyles);});
 
     $('#txBusqueda').autocomplete({
         source: direcciones,
