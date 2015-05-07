@@ -13,6 +13,8 @@ var markerCluster;
 var filterCluster = [];
 var allMarkers = [];
 var clusterStyles = {
+    minimumClusterSize: 4,
+    gridSize: 70,
     styles: [{
         width: 35,
         url: "img/clusters/1.png",

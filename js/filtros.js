@@ -49,7 +49,7 @@ function filtrar() {
 
 
     markerCluster.clearMarkers();
-    markerCluster = new MarkerClusterer(map, filterCluster)
+    markerCluster = new MarkerClusterer(map, filterCluster, clusterStyles)
     pasosOcultar();
 }
 
