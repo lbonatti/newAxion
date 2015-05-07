@@ -11,8 +11,7 @@ var routeShow = false
 /*var currentMarkerId;*/
 //if (!location.origin)
 //    location.origin = location.protocol + "//" + location.host + '/newAxion';
-var urlPath = location.origin;
-alert(urlPath + "/img/clusters/1.png");
+var urlPath = null;
 var markerCluster;
 var filterCluster = [];
 var allMarkers = [];
