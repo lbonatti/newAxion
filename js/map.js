@@ -12,6 +12,7 @@ var routeShow = false
 //if (!location.origin)
 //    location.origin = location.protocol + "//" + location.host + '/newAxion';
 var urlPath = location.origin;
+alert(urlPath + "/img/clusters/1.png");
 var markerCluster;
 var filterCluster = [];
 var allMarkers = [];
