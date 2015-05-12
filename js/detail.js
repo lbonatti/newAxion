@@ -1,7 +1,10 @@
 var currentMarkerId;
 function showDetail(idEstacion){
-
-    calculateDistance(Estaciones[idEstacion].lat,Estaciones[idEstacion].lon)
+    if (currentDirText){
+        console.log(codeAddress(currentDirText, Estaciones[idEstacion].lat,Estaciones[idEstacion].lon));
+    }else{
+        calculateDistance(Estaciones[idEstacion].lat,Estaciones[idEstacion].lon)
+    }
 
     //pasosCerrar();
     $('div.detail-bg').css('height',$(window).height()).show();

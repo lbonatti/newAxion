@@ -513,10 +513,10 @@ function resizeMap(ocultarChrome){
 
     if(isMobile()){
         var alturaHeader = 61;
-        var alturaFoot = 58;
+        var alturaFoot = 35;
     }else{
         var alturaHeader = 74;
-        var alturaFoot = 58;
+        var alturaFoot = 35;
     }
 
     $('#container').height(alturaScreen-alturaHeader);
@@ -557,14 +557,17 @@ window.addEventListener("resize", function() {
 }, false);
 
 
-function calculateDistance(latitud,longitud){
+function calculateDistance(to_lat, to_lng,from_lat, from_lng){
+    from_lat = typeof from_lat !== 'undefined' ? from_lat : globalLat;
+    from_lng = typeof from_lng !== 'undefined' ? from_lng : globalLon;
 
     var MydirectionsService = new google.maps.DirectionsService();
 
-    var start = new google.maps.LatLng(globalLat,globalLon);
-    var end = new google.maps.LatLng(latitud, longitud);
+    var start = new google.maps.LatLng(from_lat,from_lng);
+    var end = new google.maps.LatLng(to_lat, to_lng);
 
     var distance = google.maps.geometry.spherical.computeDistanceBetween(start, end)
+
 
     if (distance){
         var km = distance / 1000;
@@ -575,8 +578,18 @@ function calculateDistance(latitud,longitud){
     }else{
         $('.detail .distancia').hide()
     }
+}
 
+function codeAddress(address, to_lat, to_lng) {
+    //In this case it gets the address from an element on the page, but obviously you  could just pass it to the method instead
+    var ret = [];
+    geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
+            ret[0] = results[0].geometry.location.lat();
+            ret[1] = results[0].geometry.location.lng();
 
-
-
+            calculateDistance(to_lat, to_lng, ret[0],ret[1])
+        }
+    });
 }
