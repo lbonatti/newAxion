@@ -560,24 +560,34 @@ window.addEventListener("resize", function() {
 function calculateDistance(to_lat, to_lng,from_lat, from_lng){
     from_lat = typeof from_lat !== 'undefined' ? from_lat : globalLat;
     from_lng = typeof from_lng !== 'undefined' ? from_lng : globalLon;
+    var f_latlng = from_lat+','+from_lng;
+    var to_latlng = to_lat+','+to_lng
 
-    var MydirectionsService = new google.maps.DirectionsService();
+    $('.detail .distancia').hide()
 
-    var start = new google.maps.LatLng(from_lat,from_lng);
-    var end = new google.maps.LatLng(to_lat, to_lng);
-
-    var distance = google.maps.geometry.spherical.computeDistanceBetween(start, end)
-
-
-    if (distance){
-        var km = distance / 1000;
-        km = km.toFixed(1) + " km";
-
-        $('.detail .distancia').html('Distancia: '+ km);
-        $('.detail .distancia').show()
-    }else{
-        $('.detail .distancia').hide()
-    }
+    var distanceService = new google.maps.DistanceMatrixService();
+    distanceService.getDistanceMatrix({
+            origins: [f_latlng],
+            destinations: [to_latlng],
+            travelMode: google.maps.TravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.METRIC,
+            durationInTraffic: true,
+            avoidHighways: false,
+            avoidTolls: false
+        },
+        function (response, status) {
+            if (status !== google.maps.DistanceMatrixStatus.OK) {
+                $('.detail .distancia').hide()
+            } else {
+                var distance = response.rows[0].elements[0].distance.text;
+                if (distance){
+                    $('.detail .distancia').html(distance);
+                    $('.detail .distancia').show()
+                }else{
+                    $('.detail .distancia').hide()
+                }
+            }
+        });
 }
 
 function codeAddress(address, to_lat, to_lng) {
