@@ -62,6 +62,9 @@ function cargarPaises() {
 
         }
 
+        $('div.pais.abierto').removeClass('abierto');
+        $('div.menu-pais').hide();
+
     });
 
 }

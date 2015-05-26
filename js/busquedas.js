@@ -59,7 +59,16 @@ function buscar(zoom){
                     centerMap(pos);
                     map.setZoom(zoom)
                 }else{
-                    alert('No se encontró la dirección');
+                    try{
+                        navigator.notification.alert(
+                            'No se encontró la dirección', // message
+                            function(){}, // callback to invoke with index of button pressed
+                            'Oops!',            // title
+                            'Continuar'                  // buttonName
+                        );
+                    }catch(err){
+                        alert('no se encuentra direccion 2')
+                    }
                 }
             })
         }
@@ -201,6 +210,7 @@ function eventosBusqueda(){
             $('.sec1 .dir').show();
             var map = true
             comoLlegar(map);
+            pasosOcultar();
         }
     });
 

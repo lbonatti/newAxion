@@ -485,12 +485,30 @@ function routeFromDirToDir(dir1,dir2){
                     //no se encuentra dir 2
                     /*centerMap(pos1.k,pos1.A);
                     limpiarRuta();*/
-                    alert('no se encuentra direccion 2')
+                    try{
+                        navigator.notification.alert(
+                            'no se encuentra direccion 2', // message
+                            function(){}, // callback to invoke with index of button pressed
+                            'Oops!',            // title
+                            'Continuar'                  // buttonName
+                        );
+                    }catch(err){
+                        alert('no se encuentra direccion 2')
+                    }
                 }
             })
         }else{
             //no se encuentra dir 1
-            alert('no se encuentra direccion 1')
+            try{
+                navigator.notification.alert(
+                    'no se encuentra direccion 1', // message
+                    function(){}, // callback to invoke with index of button pressed
+                    'Oops!',            // title
+                    'Continuar'                  // buttonName
+                );
+            }catch(err){
+                alert('no se encuentra direccion 1')
+            }
         }
     })
 }
