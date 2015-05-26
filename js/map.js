@@ -302,7 +302,7 @@ function onSuccess(position) {
         //estacionesAleatorias();
         globalPositionStr=dir;
         globalPais=pais;
-        $('#txBusqueda, #txDesde').val('Mi ubicvac');
+        $('#txBusqueda, #txDesde').val(globalPositionStr);
         $('#txBusqueda, #txDesde').attr('data-location',globalPositionStr);
         cambiarBandera(pais);
     });
