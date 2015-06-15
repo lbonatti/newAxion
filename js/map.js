@@ -108,42 +108,42 @@ function initializeMap() {
     }).error(function (jqXHR, textStatus, errorThrown) { alert(errorThrown); })
         .success(function(){markerCluster = new MarkerClusterer(map, allMarkers, clusterStyles);});
 
-    $('#txBusqueda').autocomplete({
-        source: direcciones,
-        minLength: 3,
-        position: {
-            my: "left bottom",
-            at: "left top",
-            collision: "flip flip",
-            of: '#suggestSearch'
-        },
-        open: function() {
-            $(this).autocomplete("widget").prepend('<div class="closeUI">x</div>');
-            $(document).on('touchstart','.closeUI',function(){
-                $('#txBusqueda').autocomplete('close')
-            })
-        }
-    });
+    //$('#txBusqueda').autocomplete({
+    //    source: direcciones,
+    //    minLength: 3,
+    //    position: {
+    //        my: "left bottom",
+    //        at: "left top",
+    //        collision: "flip flip",
+    //        of: '#suggestSearch'
+    //    },
+    //    open: function() {
+    //        $(this).autocomplete("widget").prepend('<div class="closeUI">x</div>');
+    //        $(document).on('touchstart','.closeUI',function(){
+    //            $('#txBusqueda').autocomplete('close')
+    //        })
+    //    }
+    //});
     //$( "#txBusqueda" ).on( "autocompleteopen", function( event, ui ) {
     //    $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px','important')
     //} );
 
-    $('#txHasta').autocomplete({
-        source: direcciones,
-        minLength: 3,
-        position: {
-            my: "left bottom",
-            at: "left top",
-            of: '#suggestHasta',
-            collision: "flip flip"
-        },
-        open: function() {
-            $(this).autocomplete("widget").prepend('<div class="closeUI">x</div>');
-            $(document).on('touchstart','.closeUI',function(){
-                $('#txBusqueda').autocomplete('close')
-            })
-        }
-    });
+    //$('#txHasta').autocomplete({
+    //    source: direcciones,
+    //    minLength: 3,
+    //    position: {
+    //        my: "left bottom",
+    //        at: "left top",
+    //        of: '#suggestHasta',
+    //        collision: "flip flip"
+    //    },
+    //    open: function() {
+    //        $(this).autocomplete("widget").prepend('<div class="closeUI">x</div>');
+    //        $(document).on('touchstart','.closeUI',function(){
+    //            $('#txBusqueda').autocomplete('close')
+    //        })
+    //    }
+    //});
     //$( "#txHasta" ).on( "autocompleteopen", function( event, ui ) {
     //    $('.ui-autocomplete').css('max-height', $(window).height()-250 + 'px','important')
     //} );
@@ -543,19 +543,20 @@ function resizeMap(ocultarChrome){
     //$('#container').width($(window).width());
     //$('#googleMap').width($(window).width());
 
-    if(!isMobile()){
+    //if(!isMobile()){
         $.each(Paises, function(index, value) {
 
-            $($('.menu-pais').children()[index]).html('<img src="'+value.icon+'" />'+value.nombre)
+            $($('.menu-pais').children()[index]).html('<img src="'+value.icon+'" /></br>'+value.nombre)
         });
         $('.sec1 .pais ').html('<img src="'+$('img',$('.menu-pais div.selected')).attr('src')+'" />' /*+ $('.menu-pais div.selected').html()*/ );
         //$('.sec1 .pais img').show();
-    }else{
-        $.each(Paises, function(index, value) {
-            $($('.menu-pais').children()[index]).html(value.abreviatura)
-        });
-        $('.sec1 .pais').html($('.menu-pais div.selected').html());
-    };
+    //}else{
+    //    $.each(Paises, function(index, value) {
+    //        $($('.menu-pais').children()[index]).html(value.abreviatura)
+    //    });
+    //    $('.sec1 .pais ').html('<img src="'+$('img',$('.menu-pais div.selected')).attr('src')+'" />');
+    //    //$('.sec1 .pais').html($('.menu-pais div.selected').html());
+    //};
     if (!mostrandoRuta){
         try{google.maps.event.trigger(map, "resize");map.panTo(geoMarker.getPosition());}catch(err){}
     }

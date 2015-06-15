@@ -40,7 +40,6 @@ function cargarPaises() {
         //Regirigir mapa
         for (var i = 0; i < 3; i++) {
             if (Paises[i].nombre == paisActual) {
-                console.log(Paises)
                 var punto = new google.maps.LatLng(Paises[i].lat, Paises[i].lon);
                 centerMap(punto);
                 try{geoMarkerStart.setMap(null);geoMarkerEnd.setMap(null)}catch(err){}
