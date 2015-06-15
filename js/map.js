@@ -16,34 +16,44 @@ var clusterStyles = {
     minimumClusterSize: 4,
     gridSize: 70,
     styles: [{
-        width: 35,
+        width: 38,
         url: "img/clusters/1.png",
         height: 51,
-        textColor: '#ffffff'
+        opt_textColor: 'white',
+        opt_fontWeight: 'bold',
+        opt_textSize: 13,
     },
     {
-        width: 35,
+        width: 38,
         url: "img/clusters/1.png",
         height: 51,
-        textColor: '#ffffff'
+        opt_textColor: 'white',
+        opt_fontWeight: 'bold',
+        opt_textSize: 13,
     },
     {
-        width: 35,
+        width: 38,
         url: "img/clusters/1.png",
         height: 51,
-        textColor: '#ffffff'
+        opt_textColor: 'white',
+        opt_fontWeight: 'bold',
+        opt_textSize: 13,
     },
     {
-        width: 35,
+        width: 38,
         url: "img/clusters/1.png",
         height: 51,
-        textColor: '#ffffff'
+        opt_textColor: 'white',
+        opt_fontWeight: 'bold',
+        opt_textSize: 13,
     },
     {
-        width: 35,
+        width: 38,
         url: "img/clusters/1.png",
         height: 51,
-        textColor: '#ffffff'
+        opt_textColor: 'white',
+        opt_fontWeight: 'bold',
+        opt_textSize: 13,
     }]
 }
 

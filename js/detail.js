@@ -31,7 +31,11 @@ function showDetail(idEstacion){
 
     $('.detail .estado').html(Estaciones[idEstacion].estado);
     //$('.detail .distancia').html('Distancia: '+Estaciones[idEstacion].distancia);
-    $('.detail .tel').html('Tel. '+Estaciones[idEstacion].telf);
+    if (Estaciones[idEstacion].telf != '0'){
+        $('.detail .tel').html('Tel. '+Estaciones[idEstacion].telf).show()
+    }else{
+        $('.detail .tel').hide();
+    }
 
     var web = Estaciones[idEstacion].web;
     if (web == "#") {
