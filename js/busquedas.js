@@ -281,23 +281,13 @@ function eventosBusqueda() {
         }
     });
 
-    $(document).on('touchstart', '.pac-container', function () {
+    $(document).on('touchstart', '.pac-container', function (e) {
         if (!$('#txHasta').is(':visible')){
             setTimeout(function () {
-                $('#removeRuta').hide();
-
-                if ($('.goToBtn').length > 0) {
-                    $('.goToBtn').remove();
-                }
-
-                $('#txDesde, #txHasta').val('');
-                $('.pasos').hide();
-                globalModoBusqueda = 1;
-                buscar();
-                pasosOcultar();
-                return false;
-                $('.sec1 div.abierto').removeClass('abierto');
-                $('.sec1 div .tooltip').hide();
+                var e = jQuery.Event("keypress");
+                e.which = 13; // # Some key code value
+                e.keyCode = 13;
+                $('#txBusqueda, #txDesde, #txHasta').trigger(e);
             }, 500)
         }else{
         }
@@ -328,20 +318,24 @@ function eventosBusqueda() {
 
     $('.buscarBtn').on('touchstart', function (e) {
         e.preventDefault()
-        if (!$('#txBusqueda').val()) {
-            $('#txBusqueda').attr('placeholder', 'Complete este campo')
-            setTimeout(function () {
-                $('#txBusqueda').attr('placeholder', 'Ingrese ubicación a buscar');
-                $('#txBusqueda').focus();
-            }, 1000)
-        } else {
-            var zoom = 18;
-            $('#txDesde, #txHasta').val('');
-            $('.pasos').hide();
-            globalModoBusqueda = 1;
-            buscar(zoom);
-            pasosOcultar();
-        }
+        var c = jQuery.Event("keydown");
+        c.which = 13; // # Some key code value
+        $('#txBusqueda, #txDesde, #txHasta').trigger(c);
+
+        //if (!$('#txBusqueda').val()) {
+        //    $('#txBusqueda').attr('placeholder', 'Complete este campo')
+        //    setTimeout(function () {
+        //        $('#txBusqueda').attr('placeholder', 'Ingrese ubicación a buscar');
+        //        $('#txBusqueda').focus();
+        //    }, 1000)
+        //} else {
+        //    var zoom = 18;
+        //    $('#txDesde, #txHasta').val('');
+        //    $('.pasos').hide();
+        //    globalModoBusqueda = 1;
+        //    buscar(zoom);
+        //    pasosOcultar();
+        //}
     })
 
 

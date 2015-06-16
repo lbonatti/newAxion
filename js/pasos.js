@@ -26,8 +26,9 @@ function pasosMostrar(){
 }
 
 function pasosOcultar(){
-    $('.closeRuta').hide();
+    $('.closeRuta').remove();
     $('.pasos').hide();
+    directionsDisplay.setMap(null);
     //$('#googleMap').show();
 }
 

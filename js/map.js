@@ -412,12 +412,12 @@ function calcRoute(start,end) {
 
 }
 function limpiarRuta(){
+    directionsDisplay.setMap(null);
     if(currentDirText != ''){
         $('#txDesde, #txHasta').val('');
         $('.pasos').hide();
         globalModoBusqueda=1;
         buscar();
-        pasosOcultar();
     }else{
         try{
             directionsDisplay.setMap(null);
@@ -427,10 +427,9 @@ function limpiarRuta(){
         }catch(err){}
         //initializeMap();
         geoloc();
-        pasosOcultar();
         map.setZoom(14);
     }
-    //console.log(currentDirText);
+    pasosOcultar();
 }
 
 function routeFromGeoToStation(stationId){
