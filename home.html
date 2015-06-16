@@ -15,7 +15,7 @@
 	<script src="js/jquery-1.9.0.min.js"></script>
     <script src="js/jquery-ui-1.9.2.min.js"></script>
     <script src="js/slimscroll.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?v=3.6&language=es&key=AIzaSyDfs88uaYQmu_fU2PMdDM90BqdMn5ZWeh8&sensor=false" ></script>
+    <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&language=es&key=AIzaSyDfs88uaYQmu_fU2PMdDM90BqdMn5ZWeh8&sensor=false&libraries=places" ></script>
     <script src="js/markerclusterer.js" ></script>
 
     <link rel="stylesheet" href="css/fuentes.css" />
@@ -280,13 +280,8 @@
                     <div class="map">
                     </div>
                     <div class="dir">
-						<div id="suggestSearch" >
-						</div>
                         <input id="txBusqueda" />
                         <input id="txDesde" placeholder="Desde" class="clearable x"/>
-						<div id="suggestHasta">
-							<div class="Hasd"></div>
-						</div>
 						<input id="txHasta" placeholder="Hasta" />
                         <div class="buscarBtn">
                             <a href="#" title="Buscar">Buscar</a>
@@ -361,7 +356,32 @@
 			$(document).on('touchstart','#removeRuta',function(e){
 				limpiarRuta();
 			})
-        })
+			$(window).resize();
+		})
+
+		$(window).on('resize',function(){
+			if(isMobile()){
+				$('input#txHasta').on('touchstart focusin', function() {
+					$('.pac-container').css('bottom','167px')
+				});
+				$('#txDesde').on('touchstart focusin', function() {
+					$('.pac-container').css('bottom','167px')
+				});
+				$('#txBusqueda').on('touchstart focusin', function() {
+					$('.pac-container').css('bottom','105px')
+				});
+			}else{
+				$('input#txHasta').on('touchstart focusin', function() {
+					$('.pac-container').css('bottom','40px')
+				});
+				$('#txDesde').on('touchstart focusin', function() {
+					$('.pac-container').css('bottom','40px')
+				});
+				$('#txBusqueda').on('touchstart focusin', function() {
+					$('.pac-container').css('bottom','40px')
+				});
+			}
+		})
 
 		document.addEventListener("deviceready", function(e){
 			deviceBackBtn();

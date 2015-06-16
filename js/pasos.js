@@ -89,8 +89,9 @@ function pasosDestino(destino){
 }
 
 function showCloseRuta(){
-    var closeBtn_html = '<div class="closeRuta"><a href="javascript:void(0);" id="removeRuta" title="Eliminar ruta marcada">Borrar ruta</a></div>';
-    $('#container').append(closeBtn_html);
+    $('.closeRuta').remove();
+    var closeBtn_html = '<div class="closeRuta"><a href="javascript:void(0);" id="removeRuta" title="Eliminar ruta marcada">X</a></div>';
+    $('.pasos').append(closeBtn_html);
 }
 
 function cargarPasos(myRoute){

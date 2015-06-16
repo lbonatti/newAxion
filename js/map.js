@@ -82,6 +82,10 @@ function initializeMap() {
         }
     ];
 
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('txBusqueda'));
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('txHasta'));
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('txDesde'));
+
     var mapProp = {
         scrollwheel: mScrollWheel,
         center: pos1,
