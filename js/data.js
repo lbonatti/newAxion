@@ -55,8 +55,8 @@ function cargarPaises() {
                 });
 
                 ///nuevaUbicacionActual(punto);
-                if(isMobile())
-                    $('div.pais').html(paisActualAb)
+                //if(isMobile())
+                //    $('div.pais').html(paisActualAb)
             }
 
         }
@@ -74,7 +74,7 @@ function cambiarBandera(pais) {
         if (p == pais) {
             $('.menu-pais div').removeClass('selected');
             $(this).addClass('selected');
-            $('.pais img').attr('src', $('img', this).attr('src'));
+            $('.pais').attr('src', $('img', this).attr('src'));
             paisActual = pais;
 
         }
