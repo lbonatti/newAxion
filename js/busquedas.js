@@ -58,6 +58,8 @@ function buscar(zoom) {
         if ($('#txBusqueda').val() == '') {
             alertaDireccionVacia(false);
         } else {
+
+            //console.log("vamos a buscaaaar");
             DirToPosition($('#txBusqueda').val(), function (pos, formatedAddress) {
                 if (pos != null) {
                     currentDirText = formatedAddress;
@@ -92,7 +94,10 @@ function buscar(zoom) {
     }
     hideDetail();
     hidePromocionesInicial();
-    $('.dir').hide();
+    if (!ocultarChrome || isMobile()) {
+        $('.dir').hide();
+    }
+    
     $('.sec1 .abierto').removeClass('abierto');
 }
 
@@ -132,7 +137,7 @@ function miUbicacion() {
 
 function eventosBusqueda() {
 
-    $('.sec1 .pais').on('touchstart', function (e) {
+    $('.sec1 .pais').on('touchstart click', function (e) {
         $('.sec1 .footer-content div').removeClass('abierto');
         $('.sec1 .pais').addClass('abierto');
         ocultarMenu1();
@@ -148,7 +153,7 @@ function eventosBusqueda() {
         e.stopPropagation();
     });
 
-    $('.geo').on('touchstart', function (e) {
+    $('.geo').on('touchstart click', function (e) {
         $('#txHasta').val('');
         e.preventDefault();
         $('.dir').removeClass('searchIsOpen').css('height', 'auto');
@@ -197,7 +202,7 @@ function eventosBusqueda() {
         pasosOcultar();
     });
 
-    $('.map').on('touchstart', function (e) {
+    $('.map').on('touchstart click', function (e) {
         $('.dir').removeClass('searchIsOpen').css('height', 'auto');
         $('#txDesde').addClass('x');
         $('#txBusqueda').removeAttr('disabled');
@@ -229,7 +234,7 @@ function eventosBusqueda() {
         }
     });
 
-    $('.lupa').on('touchstart', function () {
+    $('.lupa').on('touchstart click', function () {
         $('#txHasta').val('');
         $('.goToBtn').remove();
         $('#txBusqueda').removeAttr('disabled');
@@ -256,6 +261,8 @@ function eventosBusqueda() {
     $('#txBusqueda, #txDesde, #txHasta').keypress(function (e) {
         if (e.keyCode == 13) {
 
+            //console.log("VAMOS A BUSCAR");
+
             //try{limpiarRuta();}catch(err){}
             $('#removeRuta').hide();
 
@@ -264,6 +271,7 @@ function eventosBusqueda() {
             }
 
             if ($(this).attr('id') == 'txBusqueda') {
+                //console.log("ES LA BUSQUEDA");
                 //var zoom = 18;
                 $('#txDesde, #txHasta').val('');
                 $('.pasos').hide();
@@ -281,7 +289,7 @@ function eventosBusqueda() {
         }
     });
 
-    $(document).on('touchstart', '.pac-container', function (e) {
+    $(document).on('touchstart click', '.pac-container', function (e) {
         if (!$('#txHasta').is(':visible')){
             setTimeout(function () {
                 var e = jQuery.Event("keypress");
@@ -293,7 +301,7 @@ function eventosBusqueda() {
         }
     })
 
-    $(document).on('touchstart', '.goToBtn a', function (e) {
+    $(document).on('touchstart click', '.goToBtn a', function (e) {
         e.preventDefault();
         if ($('#txHasta').val() == '' || $('#txDesde').val() == '') {
             if ($('#txDesde').val() == '') {
@@ -316,7 +324,7 @@ function eventosBusqueda() {
         }
     })
 
-    $('.buscarBtn').on('touchstart', function (e) {
+    $('.buscarBtn').on('touchstart click', function (e) {
         e.preventDefault()
         var c = jQuery.Event("keydown");
         c.which = 13; // # Some key code value

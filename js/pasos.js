@@ -2,7 +2,7 @@
 var alturaModalPasos;
 
 function eventosPasos(){
-    $('.pasos .encabezado').on('touchstart',function(){
+    $('.pasos .encabezado').on('touchstart click',function(){
         if($(this).hasClass('closed')){
             $('.pasos').animate({height:alturaModalPasos},function(){/*$('#googleMap').hide();*/});
             $(this).removeClass('closed');
@@ -13,7 +13,11 @@ function eventosPasos(){
         }
     });
 
-    $('.printer').on('touchstart',pasosImprimir);
+    $('.printer').on('touchstart click',pasosImprimir);
+
+    $(document).on("touchstart click", ".pasos .closeRuta a", function(e) {
+        pasosOcultar();
+    });
 }
 function pasosMostrar(){
     if(mostrandoRuta){

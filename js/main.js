@@ -1,4 +1,5 @@
 var deviceInfo;
+var ocultarChrome = false;
 
 $(document).ready(function(){
         $('input').blur();
@@ -22,15 +23,20 @@ $(document).ready(function(){
             document.addEventListener("deviceready", geoloc(), false);
         },300);
 
-        var ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
+        ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
+        //console.log("OCULTAR CHROME: " + ocultarChrome);
+
         resizeMap(ocultarChrome);
 
         if (ocultarChrome) {
-            $(".header-content").css("display", "none");
-            $(".sec2").css("display", "none");
-            $("#googleMap").css("margin-top", 0);
-            $(".bloque-filtro").css("padding-bottom", "90px");
+            //console.log("voy a ocultar el header");
+            $("body").addClass("ocultar-chrome");
 
+            //$("header").css("display", "none");
+            //$(".sec2").css("display", "none");
+            //$("#googleMap").css("margin-top", 0);
+            //$(".bloque-filtro").css("padding-bottom", "90px");
+            //$(".bloque-filtro").css("padding-bottom", "90px");
         }
 });
 

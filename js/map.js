@@ -83,6 +83,10 @@ function initializeMap() {
     ];
 
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('txBusqueda'));
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        buscar();
+    });
+
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('txHasta'));
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('txDesde'));
 
@@ -548,6 +552,11 @@ function resizeMap(ocultarChrome){
     }else{
         var alturaHeader = 74;
         var alturaFoot = 35;
+    }
+
+    if (ocultarChrome) {
+        alturaHeader = 0;
+        $('#container').attr('style', 'margin-top: 0 !important');
     }
 
     $('#container').height(alturaScreen-alturaHeader);

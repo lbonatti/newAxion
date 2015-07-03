@@ -54,8 +54,8 @@ function filtrar() {
 function eventosFiltro() {
     cargarFiltros()
 
-    $('.filtro').on('touchend', function (e) {
-
+    $('.filtro').on('touchend click', function (e) {
+        console.log("abro los filtros");
         ocultarMenu1();
         ocultarMenu2();
         hideDetail();
@@ -74,7 +74,7 @@ function eventosFiltro() {
 
     $(' .bloque-filtro a.ok').on('click', filtrar);
 
-    $(' a.cancel').on('touchstart', function (e) {
+    $(' a.cancel').on('touchstart click', function (e) {
         ocultarMenu3();
         //var $this = $('.bf-todos')
         //$this.css('background-image','url(img/unchecked.png)');
@@ -86,7 +86,7 @@ function eventosFiltro() {
         e.preventDefault();
     });
 
-    $('.bf-todos').on('touchstart', function (e) {
+    $('.bf-todos').on('touchstart click', function (e) {
         if ($(this).attr('data-checked') == "1") {
             $(this).css('background-image', 'url(img/unchecked.png)');
             $(this).attr('data-checked', '0');

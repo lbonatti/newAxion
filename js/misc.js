@@ -58,7 +58,7 @@ function eventosGenerales(){
     //    e.stopPropagation();
     //});
 
-    $('.footer-content > div').on('touchstart',function(e){
+    $('.footer-content > div').on('touchstart click',function(e){
         $('.footer-content > div').removeClass('abierto');
         var current = $(this).attr('class');
         var focused = '';
@@ -66,7 +66,10 @@ function eventosGenerales(){
             case 'lupa': focused = $('#txBusqueda');ocultarMenu3(); break;
             case 'map' : focused = $('#txHasta');ocultarMenu3(); break;
             case 'geo' : ocultarMenu3(); break;
-            case 'filtro' :$('.dir').hide();
+            case 'filtro' :
+                if (!ocultarChrome) {
+                    $('.dir').hide();
+                }
         }
     })
 
