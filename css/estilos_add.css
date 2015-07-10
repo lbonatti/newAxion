@@ -101,7 +101,12 @@ body {
   opacity: 1;
   text-indent: 1000px; }
 
-.detail .combustibles, .detail .servicios {
+
+
+/*# sourceMappingURL=estilos_add.css.map */
+
+@media screen and (min-width: 1025px){
+    .detail .combustibles, .detail .servicios {
   width: 50%;
   left: 0; }
 .detail .combustibles {
@@ -110,5 +115,5 @@ body {
   left: 50%;
   width: 50%;
   padding: 0 38px 0 17px; }
-
-/*# sourceMappingURL=estilos_add.css.map */
+    
+}
