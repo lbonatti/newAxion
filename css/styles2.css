@@ -1,7 +1,1 @@
-body.ocultar-chrome header {
-	display: none;
-}
-
-body.ocultar-chrome div.detail-bg {
-	top: 0;
-}
+body.ocultar-chrome header{display:none}body.ocultar-chrome div.detail-bg{top:0}

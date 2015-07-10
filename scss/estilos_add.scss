@@ -1,5 +1,5 @@
 body {
-  font-family: 'HelveticaNeueLT-Medium';
+  font-family: 'HelveticaNeueLT-Medium',sans-serif;
 }
 
 .header-content {
@@ -156,4 +156,19 @@ body {
   background-position: center -3px;
   opacity: 1;
   text-indent: 1000px;
+}
+
+.detail{
+  .combustibles, .servicios{
+    width: 50%;
+    left: 0;
+  }
+  .combustibles{
+    padding: 0 17px 0 38px;
+  }
+  .servicios{
+    left: 50%;
+    width: 50%;
+    padding: 0 38px 0 17px;
+  }
 }
