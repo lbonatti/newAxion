@@ -8,7 +8,7 @@ function rnd(min,max){
 
 $('.sec1 .lupa').hover(function(){
     $('.sec1 .lupa .tooltip').show();
-},function(){$('.sec1 .lupa .tooltip').hide();})
+},function(){$('.sec1 .lupa .tooltip').hide();});
 
 String.prototype.contains = function(it) {
     return this.indexOf(it) != -1;
@@ -71,11 +71,11 @@ function eventosGenerales(){
                     $('.dir').hide();
                 }
         }
-    })
+    });
 
     var _w = $('.preloadMap').width()/2;
     var _h = $('.preloadMap').height()/2;
-    $('.preloadMap').css('margin-top',-(_h)).css('margin-left',-(_w))
+    $('.preloadMap').css('margin-top',-(_h)).css('margin-left',-(_w));
     $('.preloadMap').fadeIn();
 }
 
@@ -98,7 +98,7 @@ document.addEventListener("offline",isOffLine, false);
 
 function isOffLine(){
     if (deviceInfo != 'iPad' || deviceInfo != 'iPhone') {
-        console.log('Android')
+        console.log('Android');
         try{
             navigator.notification.alert(
                 'La aplicación no puede conectarse a internet. Se intentará reconectarse.', // message
@@ -112,10 +112,10 @@ function isOffLine(){
     }else{
         console.log('IOS')
     }
-};
+}
 function showLoadingConection(){
     $('#googleMap').hide();
-    $('.preloadMap').show()
+    $('.preloadMap').show();
     $('.noConectionPreload').show();
     document.addEventListener("online", onOnline, false);
 }

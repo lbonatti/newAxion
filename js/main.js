@@ -4,7 +4,7 @@ var ocultarChrome = false;
 $(document).ready(function(){
         $('input').blur();
 
-        eventosGenerales()
+        eventosGenerales();
 
         eventosDetail();
 

@@ -102,7 +102,7 @@ function buscar(zoom) {
 }
 
 function comoLlegar(map) {
-    map = map || false
+    map = map || false;
     if (paisCambiado) {
         $('#txDesde').show();
         $('#txHasta').show().focus();
@@ -118,7 +118,7 @@ function comoLlegar(map) {
 
     $('#txBusqueda').hide();
     globalModoBusqueda = 2;
-    hideDetail()
+    hideDetail();
     hidePromocionesInicial();
 }
 function miUbicacion() {
@@ -226,9 +226,8 @@ function eventosBusqueda() {
             else {
                 $('#txHasta').val('');
             }
-            ;
             $('.sec1 .dir').show();
-            var map = true
+            var map = true;
             comoLlegar(map);
             pasosOcultar();
         }
@@ -247,7 +246,7 @@ function eventosBusqueda() {
             //var $_calc = $(document).height() - $('.sec1').height() - $('.header-content').height()
             //$('.dir').addClass('searchIsOpen');
             $('.sec1 .footer-content div').removeClass('abierto');
-            $(this).addClass('abierto')
+            $(this).addClass('abierto');
             var $inputsBar = $('.sec1 .dir:hidden');
             $inputsBar.show();
             $('#txDesde,#txHasta').hide();
@@ -299,7 +298,7 @@ function eventosBusqueda() {
             }, 500)
         }else{
         }
-    })
+    });
 
     $(document).on('touchstart click', '.goToBtn a', function (e) {
         e.preventDefault();
@@ -322,10 +321,10 @@ function eventosBusqueda() {
             $('.sec1 div.abierto').removeClass('abierto');
             $('.sec1 div .tooltip').hide();
         }
-    })
+    });
 
     $('.buscarBtn').on('touchstart click', function (e) {
-        e.preventDefault()
+        e.preventDefault();
         var c = jQuery.Event("keydown");
         c.which = 13; // # Some key code value
         $('#txBusqueda, #txDesde, #txHasta').trigger(c);
@@ -344,7 +343,7 @@ function eventosBusqueda() {
         //    buscar(zoom);
         //    pasosOcultar();
         //}
-    })
+    });
 
 
     //function closeRuta(e){

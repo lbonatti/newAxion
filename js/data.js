@@ -8,7 +8,7 @@ var Paises = {
     2: {
         nombre: 'Uruguay', abreviatura: 'Uru.', lat: -34.8767092, lon: -56.1424982, icon: 'img/flag-uru.png'
     }
-}
+};
 var paisActual = 'Argentina';
 var paisCambiado = false;
 function cargarPaises() {
@@ -45,7 +45,7 @@ function cargarPaises() {
                 try{geoMarkerStart.setMap(null);geoMarkerEnd.setMap(null)}catch(err){}
                 try{directionsService.setMap(null)}catch(err){}
                 try{geoMarker.setMap(null)}catch(err){}
-                actualizarGeolocMarker(punto)
+                actualizarGeolocMarker(punto);
                 paisCambiado = true;
 
                 PositionToDir(punto, function (dir, pais) {

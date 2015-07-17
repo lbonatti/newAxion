@@ -47,12 +47,12 @@ function filtrar() {
 
 
     markerCluster.clearMarkers();
-    markerCluster = new MarkerClusterer(map, filterCluster, clusterStyles)
+    markerCluster = new MarkerClusterer(map, filterCluster, clusterStyles);
     pasosOcultar();
 }
 
 function eventosFiltro() {
-    cargarFiltros()
+    cargarFiltros();
 
     $('.filtro').on('touchend click', function (e) {
         console.log("abro los filtros");

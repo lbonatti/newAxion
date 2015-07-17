@@ -7,7 +7,7 @@ var currentPositionToCenter;
 var currentDirText = '';
 var currentDirText2 = '';
 var gpsEnabled = true;
-var routeShow = false
+var routeShow = false;
 
 var markerCluster;
 var filterCluster = [];
@@ -55,7 +55,7 @@ var clusterStyles = {
         opt_fontWeight: 'bold',
         opt_textSize: 13,
     }]
-}
+};
 
 var geoMarkerStart;
 var geoMarkerEnd;
@@ -213,7 +213,9 @@ function dibujarEstaciones() {
 
         Estaciones[i].marker = new google.maps.Marker({
             position: new google.maps.LatLng(Estaciones[i].lat, Estaciones[i].lon),
-            map: map, icon:icon
+            map: map, 
+            icon:icon,
+            zIndex: google.maps.Marker.MAX_ZINDEX + 1
         });
         Estaciones[i].marker.idEstacion=i;
 
@@ -324,7 +326,7 @@ function onSuccess(position) {
         $('#txBusqueda, #txDesde').attr('data-location',globalPositionStr);
         cambiarBandera(pais);
     });
-    console.log('GeoLocation success!')
+    console.log('GeoLocation success!');
     $('.preloadMap').fadeOut();
     $('#googleMap').animate({opacity:1},500);
 }
@@ -353,7 +355,7 @@ function onError(error) {
         $('#txBusqueda, #txDesde').val(globalPositionStr);
         cambiarBandera(pais);
     });
-    console.log('GeoLocation success!')
+    console.log('GeoLocation success!');
     $('.preloadMap').fadeOut();
     $('#googleMap').animate({opacity:1},500);
     map.setZoom(3)
@@ -535,7 +537,7 @@ function cargarDirecciones(estaciones){
         var dir1 = estaciones[index].direccion1;
         var dir2 = estaciones[index].direccion2;
         direcciones[index] = dir1+', '+dir2;
-    })
+    });
 //    console.log(direcciones)
 }
 
@@ -602,9 +604,9 @@ function calculateDistance(to_lat, to_lng,from_lat, from_lng){
     from_lat = typeof from_lat !== 'undefined' ? from_lat : globalLat;
     from_lng = typeof from_lng !== 'undefined' ? from_lng : globalLon;
     var f_latlng = from_lat+','+from_lng;
-    var to_latlng = to_lat+','+to_lng
+    var to_latlng = to_lat+','+to_lng;
 
-    $('.detail .distancia').hide()
+    $('.detail .distancia').hide();
 
     var distanceService = new google.maps.DistanceMatrixService();
     distanceService.getDistanceMatrix({

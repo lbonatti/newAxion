@@ -380,7 +380,7 @@ MarkerClusterer.prototype.removeMarker = function(marker) {
         for (var i = 0, m; m = this.markers_[i]; i++) {
             if (m == marker) {
                 index = i;
-                continue;
+
             }
         }
     }

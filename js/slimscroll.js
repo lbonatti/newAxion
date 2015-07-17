@@ -128,7 +128,7 @@ jQuery.fn.extend({
                 //stop window scroll
                 if (e.preventDefault) { e.preventDefault(); }
                 e.returnValue = false;
-            }
+            };
 
             var scrollContent = function(x, y, isWheel)
             {
@@ -157,7 +157,7 @@ jQuery.fn.extend({
 
                 //ensure bar is visible
                 showBar();
-            }
+            };
 
             var attachWheel = function()
             {
@@ -170,7 +170,7 @@ jQuery.fn.extend({
                 {
                     document.attachEvent("onmousewheel", _onWheel)
                 }
-            }
+            };
 
             //attach scroll events
             attachWheel();
@@ -180,7 +180,7 @@ jQuery.fn.extend({
                 //calculate scrollbar height and make sure it is not too small
                 barHeight = Math.max((me.outerHeight() / me[0].scrollHeight) * me.outerHeight(), minBarHeight);
                 bar.css({ height: barHeight + 'px' });
-            }
+            };
 
             //set up initial height
             getBarHeight();
@@ -196,7 +196,7 @@ jQuery.fn.extend({
                     return;
                 }
                 bar.fadeIn('fast');
-            }
+            };
 
             var hideBar = function()
             {

@@ -322,38 +322,38 @@
 <script>
 	var lasPositionScroll;
     $(document).ready(function(){
-        eventosGenerales()
+        eventosGenerales();
 
 		$('.detail .cerrar').on('touchstart',function(){
 			setTimeout(function(){
 				var body = $("html, body");
 				body.animate({scrollTop:lasPositionScroll}, '500', 'swing')
-			},100)
+			},100);
 			hideDetail();
-		})
+		});
 
 		$('.secPromociones .detail .stationContent a').on('touchstart',function(e){
-			e.preventDefault()
+			e.preventDefault();
 			goToStation();
-		})
+		});
 
 		$('.descargas a.masinfo.ext').on('touchstart',function(e){
 			e.preventDefault();
 			var href = $(this).attr('data-href');
 			window.open(href, '_system', 'location=no');
 		})
-    })
+    });
 	function goToStation(){
 		window.open('index.html', '_self');
 	}
 	function openDetail(){
-		lasPositionScroll = $(window).scrollTop()
-		$(window).scrollTop(0)
-		var _h = $('body').height() - 74
+		lasPositionScroll = $(window).scrollTop();
+		$(window).scrollTop(0);
+		var _h = $('body').height() - 74;
 		if(isMobile()){
 			$('div.detail').css({
 				height:'auto'
-			})
+			});
 			$('div.detail').show();
 		}else{
 			$('div.detail').show();

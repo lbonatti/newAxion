@@ -330,7 +330,7 @@
                 e.preventDefault();
                 var href = $(this).attr('data-href');
                 window.open(href, '_system', 'location=no');
-            })
+            });
 
             Input.focus(function() {
                 if (currentDirText != ''){
@@ -356,9 +356,9 @@
 
 			$(document).on('touchstart','#removeRuta',function(e){
 				limpiarRuta();
-			})
+			});
 			$(window).resize();
-		})
+		});
 
 		$(window).on('resize',function(){
 			if(isMobile()){
@@ -382,7 +382,7 @@
 					$('.pac-container').css('bottom','40px')
 				});
 			}
-		})
+		});
 
 		document.addEventListener("deviceready", function(e){
 			deviceBackBtn();

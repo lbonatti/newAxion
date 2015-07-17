@@ -61,7 +61,7 @@ function showDetail(idEstacion){
     });
     $.each(Estaciones[idEstacion].combustibles,function(index,value){
         resCombustibles += '<div><img src="img/combustible.png" /><span>'+value+'</span></div>';
-    })
+    });
 
 
     $('.detail .combustibles').html(resCombustibles);
@@ -86,14 +86,14 @@ function hideDetail(){
 function eventosDetail(){
 
     $('div.detail-bg').on('touchstart click',function(){
-        hideDetail()
+        hideDetail();
         hidePromocionesInicial()
     });
 
-    $('.detail a.cerrar').on('touchstart click',function(){ hideDetail() })
+    $('.detail a.cerrar').on('touchstart click',function(){ hideDetail() });
 
     $('.detail a.comollegar').on('touchstart click',function(){
-        routeFromGeoToStation(currentMarkerId)
+        routeFromGeoToStation(currentMarkerId);
         hideDetail();
     })
 
