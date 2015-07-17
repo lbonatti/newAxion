@@ -94,7 +94,7 @@ function buscar(zoom) {
     }
     hideDetail();
     hidePromocionesInicial();
-    if (!ocultarChrome || isMobile()) {
+    if (isMobile()) {
         $('.dir').hide();
     }
     

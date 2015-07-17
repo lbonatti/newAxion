@@ -1,5 +1,6 @@
 var deviceInfo;
 var ocultarChrome = false;
+var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 
 $(document).ready(function(){
         $('input').blur();
@@ -23,14 +24,14 @@ $(document).ready(function(){
             document.addEventListener("deviceready", geoloc(), false);
         },300);
 
-        ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
-        //console.log("OCULTAR CHROME: " + ocultarChrome);
 
+        // ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
+        //console.log("OCULTAR CHROME: " + ocultarChrome);
         resizeMap(ocultarChrome);
 
         if (ocultarChrome) {
             //console.log("voy a ocultar el header");
-            $("body").addClass("ocultar-chrome");
+            // $("body").addClass("ocultar-chrome");
 
             //$("header").css("display", "none");
             //$(".sec2").css("display", "none");

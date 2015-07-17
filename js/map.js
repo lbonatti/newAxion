@@ -557,8 +557,8 @@ function resizeMap(ocultarChrome){
     }
 
     if (ocultarChrome) {
-        alturaHeader = 0;
-        $('#container').attr('style', 'margin-top: 0 !important');
+        //alturaHeader = 0;
+        //$('#container').attr('style', 'margin-top: 0 !important');
     }
 
     $('#container').height(alturaScreen-alturaHeader);

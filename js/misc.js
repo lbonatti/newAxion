@@ -67,7 +67,7 @@ function eventosGenerales(){
             case 'map' : focused = $('#txHasta');ocultarMenu3(); break;
             case 'geo' : ocultarMenu3(); break;
             case 'filtro' :
-                if (!ocultarChrome) {
+                if (isMobile()) {
                     $('.dir').hide();
                 }
         }
