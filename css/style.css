@@ -770,9 +770,11 @@ div.detail-bg {
     height: 442px;
     background-color: #fff;
     background-image: url(../img/modal-header.png);
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
 }
-
+.detail.bases {
+    overflow: hidden;
+}
 .promociones .titulo1 {
     position: absolute;
     top: 26px;
@@ -1236,12 +1238,23 @@ input {
     margin: 0;
     top: 100%;
 }
-
+.dropdown img {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+}
 .dropdown ul li {
     padding: 10px 0;
     border-bottom: 1px dotted #9e1f63;
     text-align: center;
     position: relative;
+}
+.dropdown ul li a {
+    text-decoration: none;
+    color: #9e1f63;
+    font-size: 14px;
 }
 .dropdown ul li.active:before {
     content: '';
