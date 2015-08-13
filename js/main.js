@@ -54,11 +54,11 @@ function detectOs() {
 function isFirstTimeOpen(data){
     if (data == null){
         openPopUpBases()
-        window.localStorage.setItem('firstTime','1');
     }else{
 
     }
 }
+
 function openPopUpBases(){
     $('div.detail-bg').css('height',$(window).height()).show();
     $('div.detail').show();
@@ -66,10 +66,16 @@ function openPopUpBases(){
     $('.detail .titulo1').html('<span style="font-size: 20px;display: block;text-align: center">BASES Y CONDICIONES</span>')
     $('.detail .titulo2').html('')
     $('.detail .img-background .tipo').hide()
-    $('.detail .group,.detail .linea,.detail .linea2,.detail .linea3,.detail .comollegar,.detail .tel, .detail .web, .detail .distancia,.img-background ').hide()
+    $('.detail .group,.detail .linea,.detail .linea2,.detail .linea3,.detail .comollegar,.detail .tel, .detail .web, .detail .distancia,.img-background,.detail .cerrar').hide()
 
-    text = $('#basesText div').clone()
+    var text = $('#basesText div').clone()
 
     text.css('height',$('.detail').height()-120+'px')
     $('.estado').html(text)
+
+    $(document).on('click touchstart','.acept',function(){
+        hideDetail();
+        window.localStorage.setItem('firstTime','1');
+    })
+
 }
