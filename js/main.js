@@ -70,7 +70,7 @@ function openPopUpBases(){
 
     var text = $('#basesText div').clone()
     if (isMobile()){
-        text.css('height',$('.detail').height()-160+'px').css({
+        text.css('height',$('.detail').height()-230+'px').css({
             position:'realtive',top:-60
         })
     }else{
