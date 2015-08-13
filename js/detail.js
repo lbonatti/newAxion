@@ -18,7 +18,7 @@ function showDetail(idEstacion){
      */
 
 
-    $('div.detail').show();
+    $('div.detail, div.detail *').show();
 
     $('.detail .titulo1').html(Estaciones[idEstacion].direccion1);
     $('.detail .titulo2').html(Estaciones[idEstacion].direccion2);
@@ -27,7 +27,7 @@ function showDetail(idEstacion){
     }else{
         $('.detail .tipo').attr('src','img/logo_esso.png');
     }
-
+    $('.detail .tipo').show()
 
     $('.detail .estado').html(Estaciones[idEstacion].estado);
     //$('.detail .distancia').html('Distancia: '+Estaciones[idEstacion].distancia);
