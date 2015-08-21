@@ -60,29 +60,27 @@ function isFirstTimeOpen(data){
 }
 
 function openPopUpBases(){
-    $('div.detail-bg').css('height',$(window).height()).show();
-    $('div.detail').show().addClass('bases');
+    if (isMobile()) {
+        $('div.detail-bg').css('height', $(window).height()).show();
+        $('div.detail').show().addClass('bases');
 
-    $('.detail .titulo1').html('<span style="font-size: 20px;display: block;text-align: center">BASES Y CONDICIONES</span>')
-    $('.detail .titulo2').html('')
-    $('.detail .img-background .tipo').hide()
-    $('.detail .group,.detail .linea,.detail .linea2,.detail .linea3,.detail .comollegar,.detail .tel, .detail .web, .detail .distancia,.img-background,.detail .cerrar').hide()
+        $('.detail .titulo1').html('<span style="font-size: 20px;display: block;text-align: center;padding: 10px 0 0 ;position: relative;left: -23px;">T&eacute;rminos y Condiciones Generales de Uso</span>')
+        $('.detail .titulo2').html('')
+        $('.detail .img-background .tipo').hide()
+        $('.detail .group,.detail .linea,.detail .linea2,.detail .linea3,.detail .comollegar,.detail .tel, .detail .web, .detail .distancia,.img-background,.detail .cerrar').hide()
 
-    var text = $('#basesText div').clone()
-    if (isMobile()){
-        text.css('height',$('.detail').height()-230+'px').css({
-            position:'realtive',top:-60
+        var text = $('#basesText div').clone()
+
+        text.css('height', $('.detail').height() - 230 + 'px').css({
+            position: 'realtive', top: -60
         })
-    }else{
-        text.css('height',$('.detail').height()-100+'px')
+
+        $('.estado').html(text)
+
+        $(document).on('click touchstart', '.acept', function () {
+            hideDetail();
+            $('.detail.bases').removeClass('bases')
+            window.localStorage.setItem('firstTime', '1');
+        })
     }
-
-    $('.estado').html(text)
-
-    $(document).on('click touchstart','.acept',function(){
-        hideDetail();
-        $('.detail.bases').removeClass('bases')
-        window.localStorage.setItem('firstTime','1');
-    })
-
 }

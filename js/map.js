@@ -620,69 +620,50 @@ function codeAddress(address, to_lat, to_lng) {
         }
     });
 }
-
 function updateEESS() {
     $.ajax({
-        url: WSUrl,
-        method: 'POST',
-        async: false,
-        data: {
-            callUpdateEESS: false
-        },
+        url: 'http://www.axionenergy.com/app/js/estaciones_servicio.txt',
         async: false,
         success: function (response) {
             window.localStorage.setItem('localEESS', response);
         },
         error: function (error) {
-            //console.log(error)
+
         }
     })
 }
 
 function getVersionEESS() {
-
-    $('#g')
-
-    var isOffline = !navigator.onLine;
-
-    $.ajax({
-        url: WSUrl,
-        method: 'POST',
-        data: {
-            callVersion: true
-        },
-        async: true,
-        success: function (response) {
-            //Check if exist versionEESS (first time open)
-            if ((window.localStorage.getItem('versionEESS') == null || parseInt(window.localStorage.getItem('versionEESS')) < parseInt(response)) && !isOffline) {
-                window.localStorage.setItem('versionEESS', response);
-                updateEESS();
-                //alert('Update to ' + response);
-            }
-        },
-        complete: function () {
-            Estaciones = $.parseJSON(window.localStorage.getItem('localEESS'));
-            procesarUpdateEstaciones()
-            markerCluster = new MarkerClusterer(map, allMarkers, clusterStyles);
-        },
-        error: function () {
-            Estaciones = $.parseJSON(window.localStorage.getItem('localEESS'));
-            procesarUpdateEstaciones()
-        }
-    });
-
-    if (window.localStorage.getItem('versionEESS') == null && isOffline) {
-        //alert('local file EESS')
-        //local file EESS
+    if (isMobile()) {
         $.ajax({
-            url: "js/estaciones_servicio.json",
+            url: 'http://www.axionenergy.com/app/js/version.json',
+            method: 'POST',
             dataType: 'json',
             async: true,
-            success: function (data) {
-                Estaciones = data;
+            success: function (response) {
+                //Check if exist versionEESS (first time open)
+                if ((window.localStorage.getItem('versionEESS') == null || parseInt(window.localStorage.getItem('versionEESS')) < parseInt(response))) {
+                    window.localStorage.setItem('versionEESS', response);
+                    updateEESS();
+                    //alert('Update to ' + response);
+                }
+            },
+            complete: function () {
+                Estaciones = $.parseJSON(window.localStorage.getItem('localEESS'));
                 procesarUpdateEstaciones()
+                markerCluster = new MarkerClusterer(map, allMarkers, clusterStyles);
+            },
+            error: function () {
+                if (window.localStorage.getItem('localEESS') != null) {
+                    Estaciones = $.parseJSON(window.localStorage.getItem('localEESS'));
+                    procesarUpdateEstaciones()
+                } else {
+                    getLocalEESS();
+                }
             }
-        })
+        });
+    } else {
+        getLocalEESS()
     }
 
     $('.preloadMap').fadeOut();
@@ -691,9 +672,23 @@ function getVersionEESS() {
     }, 500);
 }
 
-function procesarUpdateEstaciones(){
+function procesarUpdateEstaciones() {
     procesarEstaciones();
     dibujarEstaciones(Estaciones);
     cargarDirecciones(Estaciones);
     markerCluster = new MarkerClusterer(map, allMarkers, clusterStyles);
+}
+
+function getLocalEESS() {
+    //alert('local file EESS')
+    //local file EESS
+    $.ajax({
+        url: "js/estaciones_servicio.json",
+        dataType: 'json',
+        async: true,
+        success: function (data) {
+            Estaciones = data;
+            procesarUpdateEstaciones()
+        }
+    })
 }
