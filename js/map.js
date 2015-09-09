@@ -126,9 +126,10 @@ var myIconGeo = new google.maps.MarkerImage('img/geoloc.png', null, null, new go
 var geoMarker = null;
 
 function centerMap(pos /*lat,lon*/) {
-    setTimeout(function () {
+    try {
         map.panTo(pos /*new google.maps.LatLng(lat,lon)*/);
-    }, 400)
+    } catch (err) {
+    }
 }
 
 /*var markers={};
@@ -150,29 +151,32 @@ function centerMap(pos /*lat,lon*/) {
 function dibujarEstaciones() {
     //console.log("por dibujar: " + Estaciones.length);
     //console.log(Estaciones);
-    for (var i = 0; i < Estaciones.length; i++) { //CantEstaciones
-        //newMarker(i,Estaciones[i].nombre,Estaciones[i].lat,Estaciones[i].lon)
+    try {
+        for (var i = 0; i < Estaciones.length; i++) { //CantEstaciones
+            //newMarker(i,Estaciones[i].nombre,Estaciones[i].lat,Estaciones[i].lon)
 
-        var icon;
-        if (Estaciones[i].tipo == 'esso') {
-            icon = myIconEsso;
-        } else {
-            icon = myIconAxion;
+            var icon;
+            if (Estaciones[i].tipo == 'esso') {
+                icon = myIconEsso;
+            } else {
+                icon = myIconAxion;
+            }
+
+            Estaciones[i].marker = new google.maps.Marker({
+                position: new google.maps.LatLng(Estaciones[i].lat, Estaciones[i].lon),
+                map: map,
+                icon: icon,
+                zIndex: google.maps.Marker.MAX_ZINDEX + 1
+            });
+            Estaciones[i].marker.idEstacion = i;
+
+            google.maps.event.addListener(Estaciones[i].marker, 'click', function () {
+                //var theid=this.theid;
+                showDetail(this.idEstacion);
+            });
+            allMarkers.push(Estaciones[i].marker);
         }
-
-        Estaciones[i].marker = new google.maps.Marker({
-            position: new google.maps.LatLng(Estaciones[i].lat, Estaciones[i].lon),
-            map: map,
-            icon: icon,
-            zIndex: google.maps.Marker.MAX_ZINDEX + 1
-        });
-        Estaciones[i].marker.idEstacion = i;
-
-        google.maps.event.addListener(Estaciones[i].marker, 'click', function () {
-            //var theid=this.theid;
-            showDetail(this.idEstacion);
-        });
-        allMarkers.push(Estaciones[i].marker);
+    } catch (err) {
     }
 }
 
@@ -498,11 +502,15 @@ function routeFromDirToDir(dir1, dir2) {
 }
 
 function cargarDirecciones(estaciones) {
-    $.each(estaciones, function (index, value) {
-        var dir1 = estaciones[index].direccion1;
-        var dir2 = estaciones[index].direccion2;
-        direcciones[index] = dir1 + ', ' + dir2;
-    });
+    try {
+        $.each(estaciones, function (index, value) {
+            var dir1 = estaciones[index].direccion1;
+            var dir2 = estaciones[index].direccion2;
+            direcciones[index] = dir1 + ', ' + dir2;
+        });
+    } catch (err) {
+    }
+
     //    console.log(direcciones)
 }
 

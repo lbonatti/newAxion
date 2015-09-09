@@ -322,17 +322,19 @@ function estacionesAleatorias() {
 }
 
 function procesarEstaciones() {
-    for (var i = 0; i < Estaciones.length; i++) {
-        var latitud, longitud = 0;
-        latitud = Estaciones[i].lat;
-        longitud = Estaciones[i].lon;
+    try{
+        for (var i = 0; i < Estaciones.length; i++) {
+            var latitud, longitud = 0;
+            latitud = Estaciones[i].lat;
+            longitud = Estaciones[i].lon;
 
-        latitud = latitud.replace(",", ".");
-        longitud = longitud.replace(",", ".");
+            latitud = latitud.replace(",", ".");
+            longitud = longitud.replace(",", ".");
 
-        Estaciones[i].lat = latitud;
-        Estaciones[i].lon = longitud;
-        Estaciones[i].tipo = Estaciones[i].tipo.toLowerCase();
-        //Estaciones[i].distancia = '';
-    }
+            Estaciones[i].lat = latitud;
+            Estaciones[i].lon = longitud;
+            Estaciones[i].tipo = Estaciones[i].tipo.toLowerCase();
+            //Estaciones[i].distancia = '';
+        }
+    }catch(err){}
 }

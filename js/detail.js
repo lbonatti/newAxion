@@ -73,11 +73,13 @@ function showDetail(idEstacion){
     // routeFromGeoToStation(currentMarkerId)
 
     //pasosCerrar();
+    $('.encuesta').show();
 }
 
 function hideDetail(){
     $('div.detail').hide();
     $('div.detail-bg').hide();
+    $('.encuesta').hide();
 
     pasosMostrar();
 

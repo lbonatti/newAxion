@@ -255,7 +255,7 @@
         text-align: center;
         float: none;
         display: inline-block;
-        vertical-align: middle
+        vertical-align: top;
     }
 
     .detail .group div span {
@@ -296,7 +296,7 @@
         position: static
     }
 
-    .detail .comollegar {
+    .detail .comollegar, .detail .encuesta {
         left: 0;
         bottom: 0;
         position: relative;

@@ -619,7 +619,7 @@ div.detail-bg {
     width: 148px
 }
 
-.detail .comollegar {
+.detail .comollegar, .detail .encuesta {
     position: absolute;
     bottom: 26px;
     left: 298px;
@@ -775,7 +775,14 @@ div.detail-bg {
 .detail.bases {
     overflow: hidden;
 }
-.promociones .titulo1 {
+.detail.bases .d-header{
+    min-height: auto !important;
+
+}
+.detail.bases .d-header .titleContainer{
+    padding: 15px 16px 15px 37px !important;
+}
+ .promociones .titulo1 {
     position: absolute;
     top: 26px;
     left: 52px;
@@ -1016,6 +1023,12 @@ body.mapSection #container {
     .titleContainer .titulo1, .titleContainer .titulo2 {
         white-space: nowrap
     }
+    .detail .comollegar{
+        left: 80px;
+    }
+    .detail .encuesta{
+        left: 300px;
+    }
 }
 
 .goToBtn a {
@@ -1219,15 +1232,12 @@ input {
     display: inline-block;
     clear: both;
 }
-
+.dropdown.collapsed ul {
+    display: none;
+}
 .dropdown ul{
-    height: 0;
-    width: 0;
-    -webkit-transition: all 0.6s ease-in;
-    -moz-transition: all 0.6s ease-in;
-    -ms-transition: all 0.6s ease-in;
-    -o-transition: all 0.6s ease-in;
-    transition: all 0.6s ease-in;
+    height: 80px;
+    width: 150px;
     position: absolute;
     background: #fff;
     color: #111761;
@@ -1267,16 +1277,14 @@ input {
     background:#9e1f63 ;
     left: 25px;
 }
-.dropdown:hover ul:not(.hidden){
-    height: 80px;
-    width: 150px;
+.dropdown:hover ul{
 }
 
 .acept {
-    width: 288px;
+    width: 200px;
     display: block;
     text-align: center;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     border: 1px solid #9E1F63;
     background-color: #9E1F63;
     color: #FFF;
@@ -1287,6 +1295,10 @@ input {
     -ms-transition: all 0.4s ease-in;
     -o-transition: all 0.4s ease-in;
     transition: all 0.4s ease-in;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -100px;
 }
 .acept:hover{
     background-color: transparent;

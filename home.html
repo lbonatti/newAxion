@@ -12,8 +12,9 @@
 		}
 	</style>
 
+
 	<script src="js/jquery-1.9.0.min.js"></script>
-	<script src="js/jquery-ui-1.9.2.min.js"></script>
+	<!--<script src="js/jquery-ui-1.9.2.min.js"></script>-->
 	<script src="js/slimscroll.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?v=3.exp&language=es&key=AIzaSyDfs88uaYQmu_fU2PMdDM90BqdMn5ZWeh8&sensor=false&libraries=places"></script>
 	<script src="js/markerclusterer.js"></script>
@@ -53,8 +54,8 @@
 							 style="display: table-cell;vertical-align: middle"/>
 					</a>
 					<ul>
-						<li class="active"><a data-type="ROADMAP" href="#">STREET</a></li>
-						<li><a data-type="HYBRID" href="#">HEART</a></li>
+						<li class="active"><a data-type="ROADMAP" href="#">MAPA</a></li>
+						<li><a data-type="HYBRID" href="#">STÉLITE</a></li>
 					</ul>
 				</div>
 			</div>
@@ -118,6 +119,9 @@
 
 			<a class="comollegar" href="#" style="">
 				<span class="vCenter">COMO LLEGAR</span>
+			</a>
+			<a class="encuesta" style="display: none" href="http://encuestas-axion-energy.consumidor-final.sgizmo.com/s3/" target="_system">
+				<span class="vCenter">ENCUESTA</span>
 			</a>
 		</div>
 
@@ -711,7 +715,7 @@
 						href="mailto:axionmarketing@axionenergy.com">axionmarketing@axionenergy.com</a></p>
 
 			<a class="acept" href="#" style="margin-bottom: 30px">
-				<span>Aceptar y continuar utilizando la aplicacion</span>
+				<span>Aceptar y continuar</span>
 			</a>
 		</div>
 	</div>
@@ -841,7 +845,9 @@
 
 	document.addEventListener("deviceready", function (e) {
 		deviceBackBtn();
+
 	}, false);
+
 
 	function doOnOrientationChange() {
 		ScrrenOrientation = "portrait";
@@ -849,27 +855,39 @@
 	}
 
 	window.addEventListener('orientationchange', doOnOrientationChange);
-	$('.mapTypeChange .dropdown > a').on('touchstart', function (e) {
+	$('.mapTypeChange .dropdown > a').on('touchstart click', function (e) {
 		e.preventDefault;
 		if ($('.mapTypeChange .dropdown ul').hasClass('hidden')) {
 			$('.mapTypeChange .dropdown ul').removeClass('hidden')
 		}
 	})
-	$(document).on('touchstart click', '.mapTypeChange .dropdown li:not(.active) a', function () {
+	$(document).on('touchstart click', '.mapTypeChange .dropdown li a', function (e) {
+		e.preventDefault()
+
+		$('#googleMap').animate({opacity:0},100);
+
 		$('.mapTypeChange .dropdown li').removeClass('active')
+		$(this).parent('li').addClass('active')
+		$('.dropdown.uncollapsed').attr('class','dropdown collapsed')
 		var type = $(this).attr('data-type');
-		alertaDireccionVacia(type)
 		if (type == 'HYBRID') {
 			map.setMapTypeId(google.maps.MapTypeId.HYBRID);
 		}
 		if (type == 'ROADMAP') {
 			map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 		}
-		$(this).parent().addClass('active')
+
 		//Cerramos dropdown
+
+		setTimeout(function(){
+			$('#googleMap').animate({opacity:1},600);
+		},1000)
 	})
-	$(document).on('touchstart', '.mapTypeChange .dropdown li:not(.active) a', function () {
-		$(this).parent().parent().addClass('hidden')
+	$(document).on('click touchstart','.dropdown.collapsed > a',function(){
+		$('.dropdown.collapsed').attr('class','dropdown uncollapsed')
+	})
+	$(document).on('click touchstart','.dropdown.uncollapsed > a',function(){
+		$('.dropdown.uncollapsed').attr('class','dropdown collapsed')
 	})
 </script>
 

@@ -1,65 +1,76 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="app.basso.axion" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="app.basso.axion" version="1.0" xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>AXION</name>
     <description></description>
-    <author email="devteam@webFactory.com" href="http://devTeam.com">
+    <author email="devteam@webfactory.com" href="http://devteam.com">
         WebFactory DevTeam
     </author>
 
 
-
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="permissions"                value="none"/>
-    <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
-    <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
-    <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
-    <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
-    <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
-    <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
-    <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
-    <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
-    <preference name="exit-on-suspend"            value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
-    <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
-    <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
-    <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
-    <preference name="show-splash-screen-spinner" value="false" />
-    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
-    <preference name="HideKeyboardFormAccessoryBar" value="true" />
-    <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="1" />
+    <preference name="permissions" value="none"/>
+    <preference name="orientation" value="default"/>
+    <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="target-device" value="universal"/>
+    <!-- all: possible values handset, tablet, or universal -->
+    <preference name="fullscreen" value="false"/>
+    <!-- all: hides the status bar at the top of the screen -->
+    <preference name="webviewbounce" value="true"/>
+    <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
+    <preference name="prerendered-icon" value="true"/>
+    <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
+    <preference name="stay-in-webview" value="false"/>
+    <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
+    <preference name="ios-statusbarstyle" value="black-opaque"/>
+    <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
+    <preference name="detect-data-types" value="true"/>
+    <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
+    <preference name="exit-on-suspend" value="false"/>
+    <!-- ios: if set to true, app will terminate when home button is pressed -->
+    <preference name="auto-hide-splash-screen" value="true"/>
+    <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
+    <preference name="disable-cursor" value="false"/>
+    <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
+    <preference name="android-installLocation" value="auto"/>
+    <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+    <preference name="show-splash-screen-spinner" value="false"/>
+    <preference name="KeyboardDisplayRequiresUserAction" value="true"/>
+    <preference name="HideKeyboardFormAccessoryBar" value="true"/>
+    <preference name="SplashScreen" value="splash"/>
+    <preference name="SplashScreenDelay" value="1"/>
     <preference name="DisallowOverscroll" value="false"/>
-	<preference name="KeyboardShrinksView" value="true" />
-    <preference name="TopActivityIndicator" value="gray" />
-    <gap:platform name="ios" />
-    <gap:platform name="android" />.
+    <preference name="KeyboardShrinksView" value="true"/>
+    <preference name="TopActivityIndicator" value="gray"/>
+    <gap:platform name="ios"/>
+    <gap:platform name="android"/>.
     <!-- SPLASH SCREEN IMAGE -->
 
     <!-- PLUGINS -->
-    <gap:plugin name="org.apache.cordova.geolocation" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="com.moust.cordova.videoplayer" />
-    <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <gap:plugin name="org.apache.cordova.geolocation"/>
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.dialogs"/>
+    <gap:plugin name="org.apache.cordova.network-information"/>
+    <gap:plugin name="org.apache.cordova.splashscreen"/>
 
-    <gap:splash src="splash/iOS/Default~iphone.png" gap:platform="ios" width="320" height="480" />
-    <gap:splash src="splash/iOS/Default_iphone_640x960.png" gap:platform="ios" width="640" height="960" />
-    <gap:splash src="splash/iOS/Default-Landscape~ipad_480x320.png" gap:platform="ios" width="480" height="320" />
-    <gap:splash src="splash/iOS/Default-568h_iphone_640x1136.png" gap:platform="ios" width="640" height="1136" />
-    <gap:splash src="splash/iOS/Default-Landscape~ipad_960x640.png" gap:platform="ios" width="960" height="640" />
+    <gap:splash src="splash/iOS/Default~iphone.png" gap:platform="ios" width="320" height="480"/>
+    <gap:splash src="splash/iOS/Default_iphone_640x960.png" gap:platform="ios" width="640" height="960"/>
+    <gap:splash src="splash/iOS/Default-Landscape~ipad_480x320.png" gap:platform="ios" width="480" height="320"/>
+    <gap:splash src="splash/iOS/Default-568h_iphone_640x1136.png" gap:platform="ios" width="640" height="1136"/>
+    <gap:splash src="splash/iOS/Default-Landscape~ipad_960x640.png" gap:platform="ios" width="960" height="640"/>
 
-    <gap:splash src="splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="1136" height="640" />
-    <gap:splash src="splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="768" height="1024 " />
-    <gap:splash src="splash/iOS/Default-Landscape~ipad_1024x768.png" gap:platform="ios" width="1024" height="768" />
+    <gap:splash src="splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="1136" height="640"/>
+    <gap:splash src="splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="768" height="1024 "/>
+    <gap:splash src="splash/iOS/Default-Landscape~ipad_1024x768.png" gap:platform="ios" width="1024" height="768"/>
 
 
-    <gap:splash src="splash/Android/drawable/screen.png" gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="splash/Android/drawable/screen.png" gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="splash/Android/drawable-hdpi/screen.png" gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="splash/Android/drawable-ldpi/screen.png" gap:platform="android" gap:density="xhdpi" />
-    <gap:splash src="splash/Android/drawable-xxhdpi/screen.png" gap:platform="android" gap:density="xxhdpi" />
+    <gap:splash src="splash/Android/drawable/screen.png" gap:platform="android" gap:density="ldpi"/>
+    <gap:splash src="splash/Android/drawable/screen.png" gap:platform="android" gap:density="mdpi"/>
+    <gap:splash src="splash/Android/drawable-hdpi/screen.png" gap:platform="android" gap:density="hdpi"/>
+    <gap:splash src="splash/Android/drawable-ldpi/screen.png" gap:platform="android" gap:density="xhdpi"/>
+    <gap:splash src="splash/Android/drawable-xxhdpi/screen.png" gap:platform="android" gap:density="xxhdpi"/>
 
-    <access origin="*"/>
+    <access origin="*" browserOnly="true" />
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
         <string>100</string>
@@ -72,7 +83,7 @@
     </gap:config-file>
 
     <!-- ICON -->
-    <gap:splash src="splash.png" />
-    <icon src="img/axion-ico.png" />
+    <gap:splash src="splash.png"/>
+    <icon src="img/axion-ico.png"/>
 
 </widget>
