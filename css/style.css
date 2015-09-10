@@ -776,11 +776,11 @@ div.detail-bg {
     overflow: hidden;
 }
 .detail.bases .d-header{
-    min-height: auto !important;
+    min-height: 0 !important;
 
 }
 .detail.bases .d-header .titleContainer{
-    padding: 15px 16px 15px 37px !important;
+    padding: 10px 0 !important;
 }
  .promociones .titulo1 {
     position: absolute;

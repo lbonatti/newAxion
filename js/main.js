@@ -64,14 +64,14 @@ function openPopUpBases(){
         $('div.detail-bg').css('height', $(window).height()).show();
         $('div.detail').show().addClass('bases');
 
-        $('.detail .titulo1').html('<span style="font-size: 20px;display: block;text-align: center;padding: 10px 0 0 ;position: relative;left: -23px;">T&eacute;rminos y Condiciones Generales de Uso</span>')
+        $('.detail .titulo1').html('<span style="font-size: 20px;display: block;text-align: center;padding: 10px 0 0 ;position: relative;">T&eacute;rminos y Condiciones Generales de Uso</span>')
         $('.detail .titulo2').html('')
         $('.detail .img-background .tipo').hide()
         $('.detail .group,.detail .linea,.detail .linea2,.detail .linea3,.detail .comollegar,.detail .tel, .detail .web, .detail .distancia,.img-background,.detail .cerrar').hide()
 
         var text = $('#basesText div').clone()
 
-        text.css('height', $('.detail').height() - 230 + 'px').css({
+        text.css('height', $('.detail').height() - 190 + 'px').css({
             position: 'realtive', top: -60
         })
 
