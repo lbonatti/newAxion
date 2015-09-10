@@ -886,7 +886,7 @@
 	})
 	var flag = false;
 
-	$(document).bind('click touchstart', '.dropdown.collapsed > a', function () {
+	$(document).on('click touchstart', '.dropdown.collapsed > a', function () {
 		if (!flag) {
 			flag = true;
 			setTimeout(function () {
@@ -898,7 +898,7 @@
 	})
 
 
-	$(document).bind('click touchstart', '.dropdown.uncollapsed > a', function () {
+	$(document).on('click touchstart', '.dropdown.uncollapsed > a', function () {
 		if (!flag) {
 			flag = true;
 			setTimeout(function () {
