@@ -48,7 +48,7 @@
 
     <!-- PLUGINS -->
     <gap:plugin name="org.apache.cordova.geolocation"/>
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="cordova-plugin-inappbrowser" />
     <gap:plugin name="org.apache.cordova.dialogs"/>
     <gap:plugin name="org.apache.cordova.network-information"/>
     <gap:plugin name="org.apache.cordova.splashscreen"/>
