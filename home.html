@@ -120,7 +120,8 @@
 			<a class="comollegar" href="#" style="">
 				<span class="vCenter">COMO LLEGAR</span>
 			</a>
-			<a class="encuesta" style="display: none" href="http://encuestas-axion-energy.consumidor-final.sgizmo.com/s3/" target="_system">
+			<a class="encuesta" style="display: none"
+			   href="http://encuestas-axion-energy.consumidor-final.sgizmo.com/s3/" target="_system">
 				<span class="vCenter">ENCUESTA</span>
 			</a>
 		</div>
@@ -864,11 +865,11 @@
 	$(document).on('touchstart click', '.mapTypeChange .dropdown li a', function (e) {
 		e.preventDefault()
 
-		$('#googleMap').animate({opacity:0},100);
+		$('#googleMap').animate({opacity: 0}, 100);
 
 		$('.mapTypeChange .dropdown li').removeClass('active')
 		$(this).parent('li').addClass('active')
-		$('.dropdown.uncollapsed').attr('class','dropdown collapsed')
+		$('.dropdown.uncollapsed').attr('class', 'dropdown collapsed')
 		var type = $(this).attr('data-type');
 		if (type == 'HYBRID') {
 			map.setMapTypeId(google.maps.MapTypeId.HYBRID);
@@ -879,15 +880,33 @@
 
 		//Cerramos dropdown
 
-		setTimeout(function(){
-			$('#googleMap').animate({opacity:1},600);
-		},1000)
+		setTimeout(function () {
+			$('#googleMap').animate({opacity: 1}, 600);
+		}, 1000)
 	})
-	$(document).on('click touchstart','.dropdown.collapsed > a',function(){
-		$('.dropdown.collapsed').attr('class','dropdown uncollapsed')
+	var flag = false;
+
+	$(document).bind('click touchstart', '.dropdown.collapsed > a', function () {
+		if (!flag) {
+			flag = true;
+			setTimeout(function () {
+				flag = false;
+			}, 100);
+			$('.dropdown.collapsed').attr('class', 'dropdown uncollapsed');
+		}
+		return false
 	})
-	$(document).on('click touchstart','.dropdown.uncollapsed > a',function(){
-		$('.dropdown.uncollapsed').attr('class','dropdown collapsed')
+
+
+	$(document).bind('click touchstart', '.dropdown.uncollapsed > a', function () {
+		if (!flag) {
+			flag = true;
+			setTimeout(function () {
+				flag = false;
+			}, 100);
+			$('.dropdown.uncollapsed').attr('class', 'dropdown collapsed')
+		}
+		return false
 	})
 </script>
 
