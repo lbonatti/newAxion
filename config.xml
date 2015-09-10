@@ -7,7 +7,7 @@
         WebFactory DevTeam
     </author>
 
-
+    <preference name='phonegap-version' value='cli-5.1.1' />
     <!-- Customize your app and platform with the preference element. -->
     <preference name="permissions" value="none"/>
     <preference name="orientation" value="default"/>

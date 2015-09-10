@@ -258,9 +258,9 @@
         vertical-align: top;
     }
 
-    .detail .group div span {
-        width: 90%
-    }
+    /*.detail .group div span {*/
+        /*width: 90%*/
+    /*}*/
 
     .detail .combustibles.group div img {
         position: static;
