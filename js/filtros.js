@@ -54,22 +54,35 @@ function filtrar() {
 function eventosFiltro() {
     cargarFiltros();
 
-    $('.filtro').on('touchend click', function (e) {
-        console.log("abro los filtros");
-        ocultarMenu1();
-        ocultarMenu2();
-        hideDetail();
-        hidePromocionesInicial();
+    $(document).on('touchstart click','.filtro', function (e) {
+        var flag = false;
+        if (!flag) {
+            flag = true;
+            setTimeout(function () {
+                flag = false;
+            }, 100);
+            if ($(this).hasClass('abierto')){
+                ocultarMenu3();
+            }else{
+                $('.footer-content > div').removeClass('abierto');
+                $('.sec1 .dir').hide();
+                ocultarMenu1();
+                ocultarMenu2();
+                hideDetail();
+                hidePromocionesInicial();
 
-        actualizarFiltros();
-        if (isMobile()) {
-            $('#googleMap').hide();
-            $('#container').css('background-color', '#861D55');
-            //pasosCerrar()
+                actualizarFiltros();
+                if (isMobile()) {
+                    $('#googleMap').hide();
+                    $('#container').css('background-color', '#861D55');
+                    //pasosCerrar()
+                }
+                $(this).addClass('abierto');
+                $('.bf-container').show();
+                pasosOcultar();
+            }
         }
-        $(this).addClass('abierto');
-        $('.bf-container').show();
-        pasosOcultar();
+        return false
     });
 
     $(' .bloque-filtro a.ok').on('click', filtrar);

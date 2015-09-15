@@ -6,11 +6,6 @@ function rnd(min, max) {
     return min + aleat;
 }
 
-$('.sec1 .lupa').hover(function () {
-    $('.sec1 .lupa .tooltip').show();
-}, function () {
-    $('.sec1 .lupa .tooltip').hide();
-});
 
 String.prototype.contains = function (it) {
     return this.indexOf(it) != -1;
@@ -60,29 +55,29 @@ function eventosGenerales() {
     //    e.stopPropagation();
     //});
 
-    $('.footer-content > div').on('touchstart click', function (e) {
-
-        $('.footer-content > div').removeClass('abierto');
-        var current = $(this).attr('class');
-        var focused = '';
-        switch (current) {
-            case 'lupa':
-                focused = $('#txBusqueda');
-                ocultarMenu3();
-                break;
-            case 'map' :
-                focused = $('#txHasta');
-                ocultarMenu3();
-                break;
-            case 'geo' :
-                ocultarMenu3();
-                break;
-            case 'filtro' :
-                if (isMobile()) {
-                    $('.dir').hide();
-                }
-        }
-    });
+    //$('.footer-content > div').on('touchstart click', function (e) {
+    //
+    //    $('.footer-content > div').removeClass('abierto');
+    //    var current = $(this).attr('class');
+    //    var focused = '';
+    //    switch (current) {
+    //        case 'lupa':
+    //            focused = $('#txBusqueda');
+    //            ocultarMenu3();
+    //            break;
+    //        case 'map' :
+    //            focused = $('#txHasta');
+    //            ocultarMenu3();
+    //            break;
+    //        case 'geo' :
+    //            ocultarMenu3();
+    //            break;
+    //        case 'filtro' :
+    //            if (isMobile()) {
+    //                $('.dir').hide();
+    //            }
+    //    }
+    //});
 
     var _w = $('.preloadMap').width() / 2;
     var _h = $('.preloadMap').height() / 2;
@@ -142,9 +137,4 @@ function showMap() {
     if ($('.detail').length > 0) {
         $('.detail .cerrar').trigger('touchstart')
     }
-    $('.sec1 .footer-content > div').each(function () {
-        if ($(this).hasClass('abierto')) {
-            $(this).trigger('touchstart');
-        }
-    })
 }

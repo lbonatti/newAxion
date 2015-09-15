@@ -104,7 +104,8 @@ function initializeMap() {
          styles: myStyles*/
         zoomControlOptions: {
             position: google.maps.ControlPosition.LEFT_BOTTOM
-        }
+        },
+        disableDefaultUI: true
     };
     map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
     directionsDisplay.setMap(map);
@@ -173,6 +174,7 @@ function dibujarEstaciones() {
             google.maps.event.addListener(Estaciones[i].marker, 'click', function () {
                 //var theid=this.theid;
                 showDetail(this.idEstacion);
+                pasosOcultar();
             });
             allMarkers.push(Estaciones[i].marker);
         }

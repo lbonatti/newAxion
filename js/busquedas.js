@@ -97,7 +97,7 @@ function buscar(zoom) {
     if (isMobile()) {
         $('.dir').hide();
     }
-    
+
     $('.sec1 .abierto').removeClass('abierto');
 }
 
@@ -137,20 +137,30 @@ function miUbicacion() {
 
 function eventosBusqueda() {
 
-    $('.sec1 .pais').on('touchstart click', function (e) {
-        $('.sec1 .footer-content div').removeClass('abierto');
-        $('.sec1 .pais').addClass('abierto');
-        ocultarMenu1();
-        ocultarMenu3();
-        hideDetail();
-        hidePromocionesInicial();
-        if ($('.menu-pais').is(':visible')) {
-            $('.menu-pais').hide();
-            $('.sec1 .pais').removeClass('abierto');
-        } else {
-            $('.menu-pais').show();
+    $(document).on('touchstart click','.sec1 .pais', function (e) {
+        var flag = false;
+        if(!flag){
+            flag = true;
+            setTimeout(function(){
+                flag = false;
+            },100)
+
+            $('.sec1 .footer-content div').removeClass('abierto');
+            $('.sec1 .pais').addClass('abierto');
+            ocultarMenu1();
+            ocultarMenu3();
+            hideDetail();
+            hidePromocionesInicial();
+            if ($('.menu-pais').is(':visible')) {
+                $('.menu-pais').hide();
+                $('.sec1 .pais').removeClass('abierto');
+            } else {
+                $('.menu-pais').show();
+            }
+            e.stopPropagation();
+
         }
-        e.stopPropagation();
+        return false
     });
 
     $('.geo').on('touchstart click', function (e) {
@@ -202,59 +212,76 @@ function eventosBusqueda() {
         pasosOcultar();
     });
 
-    $('.map').on('touchstart click', function (e) {
-        $('.dir').removeClass('searchIsOpen').css('height', 'auto');
-        $('#txDesde').addClass('x');
-        $('#txBusqueda').removeAttr('disabled');
-        $('.goToBtn').remove();
-        if ($(this).hasClass('abierto')) {
-            $('.sec1 .dir').hide();
-            $(this).removeClass('abierto');
-            $('#txHasta').val('');
-        } else {
-            var gotobtn_html = '<div class="goToBtn"><a href="#" title="ir">Ir</a></div>';
-            $('.dir').append(gotobtn_html);
-            $('.sec1 .footer-content div').removeClass('abierto');
-            $(this).addClass('abierto');
-            if (currentDirText)
-                $('#txDesde').val(currentDirText);
-            else
-                $('#txDesde').val(globalPositionStr);
-            if (currentDirText2 && showRute) {
-                $('#txHasta').val(currentDirText2)
-            }
-            else {
+    $(document).on('touchstart click', '.map', function (e) {
+        e.preventDefault()
+        var flag = false;
+        if (!flag) {
+            flag = true;
+            setTimeout(function () {
+                flag = false;
+            }, 100);
+            if ($(this).hasClass('abierto')) {
+                e.preventDefault()
+                $('.sec1 .dir').hide();
+                $(this).removeClass('abierto');
                 $('#txHasta').val('');
+            } else {
+                ocultarMenu3();
+                $('.dir').removeClass('searchIsOpen').css('height', 'auto');
+                $('#txDesde').addClass('x');
+                $('#txBusqueda').removeAttr('disabled');
+                $('.goToBtn').remove();
+                var gotobtn_html = '<div class="goToBtn"><a href="#" title="ir">Ir</a></div>';
+                $('.dir').append(gotobtn_html);
+                $('.sec1 .footer-content div').removeClass('abierto');
+                $(this).addClass('abierto');
+                if (currentDirText)
+                    $('#txDesde').val(currentDirText);
+                else
+                    $('#txDesde').val(globalPositionStr);
+                if (currentDirText2 && showRute) {
+                    $('#txHasta').val(currentDirText2)
+                }
+                else {
+                    $('#txHasta').val('');
+                }
+                $('.sec1 .dir').show();
+                var map = true;
+                comoLlegar(map);
+                pasosOcultar();
             }
-            $('.sec1 .dir').show();
-            var map = true;
-            comoLlegar(map);
-            pasosOcultar();
         }
     });
 
-    $('.lupa').on('touchstart click', function () {
-        $('#txHasta').val('');
-        $('.goToBtn').remove();
-        $('#txBusqueda').removeAttr('disabled');
-        if ($(this).hasClass('abierto')) {
-            $(this).removeClass('abierto');
-            $('.sec1 .dir').hide();
-            $('.searchOverlay').remove();
-            $('#txBusqueda').val('')
-        } else {
-            //var $_calc = $(document).height() - $('.sec1').height() - $('.header-content').height()
-            //$('.dir').addClass('searchIsOpen');
-            $('.sec1 .footer-content div').removeClass('abierto');
-            $(this).addClass('abierto');
-            var $inputsBar = $('.sec1 .dir:hidden');
-            $inputsBar.show();
-            $('#txDesde,#txHasta').hide();
-            $('#txBusqueda').show();
-            $('#txBusqueda').val('').attr('placeholder', 'Ingrese ubicación a buscar').focus();
-            $('#txBusqueda').val(currentDirText);
-            //buscar();
+    $(document).on('touchstart click', '.lupa', function (e) {
+        var flag = false;
+        if (!flag) {
+            flag = true;
+            setTimeout(function () {
+                flag = false;
+            }, 100);
+
+            if ($(this).hasClass('abierto')) {
+                $(this).removeClass('abierto')
+                $('.sec1 .dir').hide();
+                $('#txBusqueda').val('')
+            } else {
+                ocultarMenu3();
+                $('#txHasta').val('');
+                $('.goToBtn').remove();
+                $('#txBusqueda').removeAttr('disabled');
+                var $inputsBar = $('.sec1 .dir:hidden');
+                $inputsBar.show();
+                $('#txDesde,#txHasta').hide();
+
+                $('#txBusqueda').val('').attr('placeholder', 'Ingrese ubicación a buscar').focus();
+                $('#txBusqueda').val(currentDirText);
+                $('#txBusqueda').show();
+                $(this).addClass('abierto')
+                //buscar();
+            }
         }
+        return false
     });
 
     $('#txBusqueda, #txDesde, #txHasta').keypress(function (e) {
@@ -289,14 +316,14 @@ function eventosBusqueda() {
     });
 
     $(document).on('touchstart click', '.pac-container', function (e) {
-        if (!$('#txHasta').is(':visible')){
+        if (!$('#txHasta').is(':visible')) {
             setTimeout(function () {
                 var e = jQuery.Event("keypress");
                 e.which = 13; // # Some key code value
                 e.keyCode = 13;
                 $('#txBusqueda, #txDesde, #txHasta').trigger(e);
             }, 500)
-        }else{
+        } else {
         }
     });
 

@@ -80,9 +80,6 @@ function hideDetail(){
     $('div.detail').hide();
     $('div.detail-bg').hide();
     $('.encuesta').hide();
-
-    pasosMostrar();
-
 }
 
 function eventosDetail(){
