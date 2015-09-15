@@ -384,7 +384,7 @@ function calcRoute(start, end) {
 function limpiarRuta() {
     directionsDisplay.setMap(null);
     try{geoMarkerStart.setMap(null);}catch(err){}
-    geoMarkerEnd.setMap(null);
+    try{geoMarkerEnd.setMap(null);}catch(err){}
     if (currentDirText != '') {
         $('#txDesde, #txHasta').val('');
         $('.pasos').hide();
