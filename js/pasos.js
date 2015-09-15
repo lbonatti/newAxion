@@ -3,14 +3,21 @@ var alturaModalPasos;
 
 function eventosPasos(){
     $('.pasos .encabezado').on('touchstart click',function(){
-        if($(this).hasClass('closed')){
-            $('.pasos').animate({height:alturaModalPasos},function(){/*$('#googleMap').hide();*/});
-            $(this).removeClass('closed');
-        }else{
-            $('.pasos').animate({height:$(this).height()+38});
-            $(this).addClass('closed');
-            //$('#googleMap').show();
+        var flag = false;
+        if (!flag) {
+            flag = true;
+            setTimeout(function(){ flag = false; }, 100);
+            // do something
+            if($(this).hasClass('closed')){
+                $('.pasos').animate({height:alturaModalPasos},function(){/*$('#googleMap').hide();*/});
+                $(this).removeClass('closed');
+            }else{
+                $('.pasos').animate({height:$(this).height()+38});
+                $(this).addClass('closed');
+                //$('#googleMap').show();
+            }
         }
+        return false
     });
 
     $('.printer').on('touchstart click',pasosImprimir);

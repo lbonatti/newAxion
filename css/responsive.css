@@ -244,14 +244,14 @@
         min-height: 92px;
         width: 100%;
         left: 0;
-        padding: 0 34px;
+        /*padding: 0 34px;*/
         display: inline-block;
         text-align: center;
         vertical-align: middle
     }
 
     .detail .combustibles div {
-        width: 25%;
+        width: 20%;
         text-align: center;
         float: none;
         display: inline-block;
