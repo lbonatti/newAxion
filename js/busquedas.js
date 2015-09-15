@@ -174,13 +174,19 @@ function eventosBusqueda() {
             e.preventDefault();
             $('.dir').removeClass('searchIsOpen').css('height', 'auto');
             $('.goToBtn').remove();
+            try{directionsDisplay.setMap(null);}catch(err){}
+            try{geoMarkerStart.setMap(null);}catch(err){}
+            try{geoMarkerEnd.setMap(null);}catch(err){}
             if (gpsEnabled) {
                 currentDirText = '';
                 $('#txDesde').val(globalPositionStr);
                 $('.footer-content > div').removeClass('abierto')
                 ocultarMenu2()
                 $('.sec1 .dir').hide();
-                limpiarRuta()
+                try{directionsDisplay.setMap(null);}catch(err){}
+                try{geoMarkerStart.setMap(null);}catch(err){}
+                try{geoMarkerEnd.setMap(null);}catch(err){}
+                miUbicacion();
             } else {
                 try {
                     navigator.notification.alert(

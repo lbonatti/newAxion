@@ -246,9 +246,12 @@ function actualizarGeolocMarker(pos /*latitude, longitude*/) {
 //Centra el mapa en la posición según GPS
 function centerMapCurrentLoc() {
     var punto = new google.maps.LatLng(globalLat, globalLon);
+    try{directionsDisplay.setMap(null);}catch(err){}
+    try{geoMarkerStart.setMap(null);}catch(err){}
+    try{geoMarkerEnd.setMap(null);}catch(err){}
+    try{geoMarker.setMap(null)}catch(err){}
     actualizarGeolocMarker(punto);
     centerMap(punto);
-
 }
 
 /*function nuevaUbicacionActual(punto){
