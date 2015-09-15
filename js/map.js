@@ -248,7 +248,7 @@ function centerMapCurrentLoc() {
     var punto = new google.maps.LatLng(globalLat, globalLon);
     actualizarGeolocMarker(punto);
     centerMap(punto);
-    limpiarRuta();
+
 }
 
 /*function nuevaUbicacionActual(punto){

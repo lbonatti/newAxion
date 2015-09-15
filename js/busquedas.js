@@ -170,7 +170,6 @@ function eventosBusqueda() {
             setTimeout(function () {
                 flag = false
             }, 100);
-
             $('#txHasta').val('');
             e.preventDefault();
             $('.dir').removeClass('searchIsOpen').css('height', 'auto');
@@ -181,8 +180,7 @@ function eventosBusqueda() {
                 $('.footer-content > div').removeClass('abierto')
                 ocultarMenu2()
                 $('.sec1 .dir').hide();
-                geoMarker.setMap(null);
-                miUbicacion();
+                limpiarRuta()
             } else {
                 try {
                     navigator.notification.alert(
