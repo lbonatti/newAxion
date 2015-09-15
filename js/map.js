@@ -383,19 +383,14 @@ function calcRoute(start, end) {
 
 function limpiarRuta() {
     directionsDisplay.setMap(null);
+    geoMarkerStart.setMap(null);
+    geoMarkerEnd.setMap(null);
     if (currentDirText != '') {
         $('#txDesde, #txHasta').val('');
         $('.pasos').hide();
         globalModoBusqueda = 1;
         buscar();
     } else {
-        try {
-            directionsDisplay.setMap(null);
-            geoMarker.setMap(null);
-            geoMarkerStart.setMap(null);
-            geoMarkerEnd.setMap(null);
-        } catch (err) {
-        }
         //initializeMap();
         geoloc();
         map.setZoom(14);

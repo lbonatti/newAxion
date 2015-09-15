@@ -137,13 +137,13 @@ function miUbicacion() {
 
 function eventosBusqueda() {
 
-    $(document).on('touchstart click','.sec1 .pais', function (e) {
+    $(document).on('touchstart click', '.sec1 .pais', function (e) {
         var flag = false;
-        if(!flag){
+        if (!flag) {
             flag = true;
-            setTimeout(function(){
+            setTimeout(function () {
                 flag = false;
-            },100)
+            }, 100)
 
             $('.sec1 .footer-content div').removeClass('abierto');
             $('.sec1 .pais').addClass('abierto');
@@ -163,53 +163,42 @@ function eventosBusqueda() {
         return false
     });
 
-    $('.geo').on('touchstart click', function (e) {
-        $('#txHasta').val('');
-        e.preventDefault();
-        $('.dir').removeClass('searchIsOpen').css('height', 'auto');
-        $('.goToBtn').remove();
-        if (gpsEnabled) {
-            currentDirText = '';
-            $('#txDesde').val(globalPositionStr);
+    $(document).on('touchstart click', '.geo', function (e) {
+        var flag = false;
+        if (!flag) {
+            flag = true;
+            setTimeout(function () {
+                flag = false
+            }, 100);
 
-            if ($(this).hasClass('abierto')) {
-                //$('.sec1 .dir').hide();
-                //$(this).removeClass('abierto');
+            $('#txHasta').val('');
+            e.preventDefault();
+            $('.dir').removeClass('searchIsOpen').css('height', 'auto');
+            $('.goToBtn').remove();
+            if (gpsEnabled) {
+                currentDirText = '';
+                $('#txDesde').val(globalPositionStr);
+                $('.footer-content > div').removeClass('abierto')
+                ocultarMenu2()
+                $('.sec1 .dir').hide();
+                geoMarker.setMap(null);
+                miUbicacion();
             } else {
                 try {
-                    directionsDisplay.setMap(null);
-                    geoMarker.setMap(null);
-                    geoMarkerStart.setMap(null);
-                    geoMarkerEnd.setMap(null);
+                    navigator.notification.alert(
+                        'Imposible obtener su ubicación. Active el GPS para activar esta función.', // message
+                        function () {
+                        }, // callback to invoke with index of button pressed
+                        'GPS desactivado',            // title
+                        'Continuar'                  // buttonName
+                    );
                 } catch (err) {
+                    alert('Imposible obtener su ubicación. Active el GPS para activar esta función.')
                 }
-                //$('#txBusqueda').attr('disabled','disabled');
-                //$('.sec1 .footer-content div').removeClass('abierto');
-                //$(this).addClass('abierto');
-                //var $inputsBar = $('.sec1 .dir:hidden');
-                //if ( $inputsBar.length ){
-                //    $inputsBar.fadeIn();
-                //    setTimeout(function(){
-                //        $inputsBar.fadeOut()
-                //        $('.sec1 .footer-content div').removeClass('abierto');
-                //    },2000)
-                //}
-                miUbicacion();
             }
-        } else {
-            try {
-                navigator.notification.alert(
-                    'Imposible obtener su ubicación. Active el GPS para activar esta función.', // message
-                    function () {
-                    }, // callback to invoke with index of button pressed
-                    'GPS desactivado',            // title
-                    'Continuar'                  // buttonName
-                );
-            } catch (err) {
-                alert('Imposible obtener su ubicación. Active el GPS para activar esta función.')
-            }
+            pasosOcultar();
         }
-        pasosOcultar();
+        return false
     });
 
     $(document).on('touchstart click', '.map', function (e) {
