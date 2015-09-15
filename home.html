@@ -814,8 +814,17 @@
 					$body.removeClass('fixfixed');
 				});
 
-		$(document).on('touchstart', '#removeRuta', function (e) {
-			limpiarRuta();
+		$(document).on('touchstart click', '#removeRuta', function (e) {
+			var flag = false;
+			if(!flag){
+				flag = true;
+				setTimeout(function(){
+					flag = false;
+				},100)
+				limpiarRuta();
+			}
+			return false;
+
 		});
 		$(window).resize();
 	});

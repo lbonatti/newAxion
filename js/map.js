@@ -383,7 +383,7 @@ function calcRoute(start, end) {
 
 function limpiarRuta() {
     directionsDisplay.setMap(null);
-    geoMarkerStart.setMap(null);
+    try{geoMarkerStart.setMap(null);}catch(err){}
     geoMarkerEnd.setMap(null);
     if (currentDirText != '') {
         $('#txDesde, #txHasta').val('');
