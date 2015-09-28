@@ -36,9 +36,9 @@ function eventosPasos(){
             threshold:0
         });
     }
-    $(document).on("touchstart click", ".pasos .closeRuta a", function(e) {
-        pasosOcultar();
-    });
+    //$(document).on("touchstart click", ".pasos .closeRuta a", function(e) {
+    //    pasosOcultar();
+    //});
 }
 function pasosMostrar(){
     if(mostrandoRuta){

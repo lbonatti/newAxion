@@ -399,6 +399,7 @@ function limpiarRuta() {
         map.setZoom(14);
     }
     pasosOcultar();
+    mostrandoRuta = false;
 }
 
 function routeFromGeoToStation(stationId) {
@@ -555,11 +556,11 @@ function resizeMap(ocultarChrome) {
     //    //$('.sec1 .pais').html($('.menu-pais div.selected').html());
     //};
     if (!mostrandoRuta) {
-        try {
+        //try {
             google.maps.event.trigger(map, "resize");
             map.panTo(geoMarker.getPosition());
-        } catch (err) {
-        }
+        //} catch (err) {
+        //}
     }
 }
 

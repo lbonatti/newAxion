@@ -1029,6 +1029,39 @@ body.mapSection #container {
     .detail .encuesta{
         left: 300px;
     }
+
+    .detail .group div img {
+        float: none !important;
+    }
+    .detail .group{
+        float: none !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+        text-align: center !important;
+        display: inline-block !important;
+    }
+    .detail .group.servicios {
+        top: 280px !important;
+    }
+    .detail .group > div {
+        float: none !important;
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        padding: 0 10px;
+        margin-right: 0 !important;
+    }
+    .combustibles.group:after {
+        content: '';
+        display: table;
+        width: 100%;
+        height: 1px;
+        background-color: #EFEFEF;
+        position: absolute;
+        left: 0;
+        margin-top: 5px;
+    }
 }
 
 .goToBtn a {
@@ -1050,11 +1083,10 @@ body.mapSection #container {
     line-height: 35px
 }
 
-.goToBtn a:hover, .closeRuta a:hover {
+.goToBtn a:hover{
     border: 1px solid #861d55;
     background: #79174a
 }
-
 .closeRuta a {
     position: absolute;
     top: 5px;
@@ -1063,12 +1095,12 @@ body.mapSection #container {
     display: block;
     padding: 4px;
     border-radius: 50%;
-    background: #861d55 none repeat scroll 0 0;
-    color: #fff;
+    /* background: #861d55 none repeat scroll 0 0; */
+    color: #861d55;
     text-align: center;
     text-decoration: none;
     text-transform: none;
-    font-size: 11px;
+    font-size: 17px;
     line-height: 9px;
 }
 

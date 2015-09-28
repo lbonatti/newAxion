@@ -282,10 +282,12 @@
     }
 
     .detail .servicios.group div {
-        margin-right: 5%;
-        margin-left: 5%;
-        width: 23%;
-        text-align: center
+        /* margin-right: 5%; */
+        /* margin-left: 5%; */
+        width: 20%;
+        text-align: center;
+        float: none;
+        display: inline-block;
     }
 
     .detail .linea3 {
