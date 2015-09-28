@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="app.basso.axion" version="1.0" xmlns="http://www.w3.org/ns/widgets"
+<widget id="com.bassobrovelli.axionenergy.estaciones" version="1.0" xmlns="http://www.w3.org/ns/widgets"
         xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>AXION</name>
-    <description></description>
-    <author email="devteam@webfactory.com" href="http://devteam.com">
-        WebFactory DevTeam
+    <name>AXION Estaciones</name>
+    <description>Buscador de Estaciones de Servicio AXION y ESSO</description>
+    <author email="info@humanagency.com" href="http://www.humanagency.com">
+        Human Agency
     </author>
 
-    <preference name='phonegap-version' value='cli-5.1.1' />
+    <preference name='phonegap-version' value='cli-5.2.0' />
     <!-- Customize your app and platform with the preference element. -->
     <preference name="permissions" value="none"/>
     <preference name="orientation" value="default"/>
@@ -54,22 +54,22 @@
     <gap:plugin name="cordova-plugin-network-information" source="npm"/>
     <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 
-    <gap:splash src="splash/iOS/Default~iphone.png" gap:platform="ios" width="320" height="480"/>
-    <gap:splash src="splash/iOS/Default_iphone_640x960.png" gap:platform="ios" width="640" height="960"/>
-    <gap:splash src="splash/iOS/Default-Landscape~ipad_480x320.png" gap:platform="ios" width="480" height="320"/>
-    <gap:splash src="splash/iOS/Default-568h_iphone_640x1136.png" gap:platform="ios" width="640" height="1136"/>
-    <gap:splash src="splash/iOS/Default-Landscape~ipad_960x640.png" gap:platform="ios" width="960" height="640"/>
+    <gap:splash src="res/splash/iOS/Default~iphone.png" gap:platform="ios" width="320" height="480"/>
+    <gap:splash src="res/splash/iOS/Default_iphone_640x960.png" gap:platform="ios" width="640" height="960"/>
+    <gap:splash src="res/splash/iOS/Default-Landscape~ipad_480x320.png" gap:platform="ios" width="480" height="320"/>
+    <gap:splash src="res/splash/iOS/Default-568h_iphone_640x1136.png" gap:platform="ios" width="640" height="1136"/>
+    <gap:splash src="res/splash/iOS/Default-Landscape~ipad_960x640.png" gap:platform="ios" width="960" height="640"/>
 
-    <gap:splash src="splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="1136" height="640"/>
-    <gap:splash src="splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="768" height="1024 "/>
-    <gap:splash src="splash/iOS/Default-Landscape~ipad_1024x768.png" gap:platform="ios" width="1024" height="768"/>
+    <gap:splash src="res/splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="1136" height="640"/>
+    <gap:splash src="res/splash/iOS/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="768" height="1024 "/>
+    <gap:splash src="res/splash/iOS/Default-Landscape~ipad_1024x768.png" gap:platform="ios" width="1024" height="768"/>
 
 
-    <gap:splash src="splash/Android/drawable/screen.png" gap:platform="android" gap:density="ldpi"/>
-    <gap:splash src="splash/Android/drawable/screen.png" gap:platform="android" gap:density="mdpi"/>
-    <gap:splash src="splash/Android/drawable-hdpi/screen.png" gap:platform="android" gap:density="hdpi"/>
-    <gap:splash src="splash/Android/drawable-ldpi/screen.png" gap:platform="android" gap:density="xhdpi"/>
-    <gap:splash src="splash/Android/drawable-xxhdpi/screen.png" gap:platform="android" gap:density="xxhdpi"/>
+    <gap:splash src="res/splash/Android/drawable/screen.png" gap:platform="android" gap:density="ldpi"/>
+    <gap:splash src="res/splash/Android/drawable/screen.png" gap:platform="android" gap:density="mdpi"/>
+    <gap:splash src="res/splash/Android/drawable-hdpi/screen.png" gap:platform="android" gap:density="hdpi"/>
+    <gap:splash src="res/splash/Android/drawable-ldpi/screen.png" gap:platform="android" gap:density="xhdpi"/>
+    <gap:splash src="res/splash/Android/drawable-xxhdpi/screen.png" gap:platform="android" gap:density="xxhdpi"/>
 
     <access origin="*" browserOnly="true" />
 
@@ -86,5 +86,13 @@
     <!-- ICON -->
     <gap:splash src="splash.png"/>
     <icon src="img/axion-ico.png"/>
+    <icon src="res/icons/icon-128.png" width="128" height="128" />
+    <icon src="res/icons/icon-256.png" width="256" height="256" gap:role="default" />
+    <icon src="res/icons/icon-57.png" gap:platform="ios" width="57" height="57" />
+    <icon src="res/icons/icon-120.png" gap:platform="ios" width="120" height="120" />
+    <icon src="res/icons/icon-152.png" gap:platform="ios" width="152" height="152" />
+    <icon src="res/icons/icon-114.png" gap:platform="ios" width="114" height="114" />
+    <icon src="res/icons/icon-76.png" gap:platform="ios" width="76" height="76" />
+    <icon src="res/icons/icon-72.png" gap:platform="ios" width="72" height="72" />
 
 </widget>

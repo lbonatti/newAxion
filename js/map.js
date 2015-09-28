@@ -630,7 +630,7 @@ function codeAddress(address, to_lat, to_lng) {
 }
 function updateEESS() {
     $.ajax({
-        url: 'http://www.axionenergy.com/app/js/estaciones_servicio.txt',
+        url: 'http://www.axionenergy.com/app/js/estaciones_servicio.json',
         async: false,
         success: function (response) {
             window.localStorage.setItem('localEESS', response);

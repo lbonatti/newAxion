@@ -22,6 +22,20 @@ function eventosPasos(){
 
     $('.printer').on('touchstart click',pasosImprimir);
 
+    //Enable swiping...
+    if (isMobile()){
+        $('.pasos').append('(Deslice hacia la izquierda o derecha para cerrar)')
+        $("div.pasos .encabezado").swipe( {
+            //Generic swipe handler for all directions
+            swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+                if((direction == 'left' || direction == 'right') && distance > 100){
+                    limpiarRuta();
+                }
+            },
+            //Default is 75px, set to 0 for demo so any distance triggers swipe
+            threshold:0
+        });
+    }
     $(document).on("touchstart click", ".pasos .closeRuta a", function(e) {
         pasosOcultar();
     });
@@ -101,9 +115,13 @@ function pasosDestino(destino){
 }
 
 function showCloseRuta(){
-    $('.closeRuta').remove();
-    var closeBtn_html = '<div class="closeRuta"><a href="javascript:void(0);" id="removeRuta" title="Eliminar ruta marcada">X</a></div>';
-    $('.pasos').append(closeBtn_html);
+    if(!isMobile()){
+        $('.closeRuta').remove();
+        var closeBtn_html = '<div class="closeRuta"><a href="javascript:void(0);" id="removeRuta" title="Eliminar ruta marcada">X</a></div>';
+        $('.pasos').append(closeBtn_html);
+    }else{
+        $('.pasos').append('<p style="position: absolute;top: 0;font-weight: normal;font-family: arial;font-size: 11px;width: 100%;text-align: center;">(Deslice hacia la izquierda o derecha para cerrar)</p>')
+    }
 }
 
 function cargarPasos(myRoute){

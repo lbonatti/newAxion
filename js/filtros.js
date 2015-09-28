@@ -65,7 +65,6 @@ function eventosFiltro() {
                 ocultarMenu3();
             }else{
                 $('.footer-content > div').removeClass('abierto');
-                $('.sec1 .dir').hide();
                 ocultarMenu1();
                 ocultarMenu2();
                 hideDetail();
@@ -73,6 +72,7 @@ function eventosFiltro() {
 
                 actualizarFiltros();
                 if (isMobile()) {
+                    $('.sec1 .dir').hide();
                     $('#googleMap').hide();
                     $('#container').css('background-color', '#861D55');
                     //pasosCerrar()
