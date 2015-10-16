@@ -270,11 +270,13 @@ function centerMapCurrentLoc() {
  }*/
 
 function geoloc() {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, {
-        enableHighAccuracy: false,
-        maximumAge: 3000,
-        timeout: 8000
-    });
+    setTimeout(function(){
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+            enableHighAccuracy: false,
+            maximumAge: 3000,
+            timeout: 8000
+        });
+    },500)
 }
 
 function onSuccess(position) {
