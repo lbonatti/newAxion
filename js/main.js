@@ -21,6 +21,9 @@ $(document).ready(function () {
     eventosPromociones();
 
 
+    document.addEventListener("deviceready", geoloc(), false);
+
+
     // ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
     //console.log("OCULTAR CHROME: " + ocultarChrome);
 

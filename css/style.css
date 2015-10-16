@@ -869,7 +869,7 @@ div.detail-bg {
 
 #googleMap {
     width: 100% !important;
-    opacity: 0
+    opacity: 1
 }
 
 body.mapSection #container {

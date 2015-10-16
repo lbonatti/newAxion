@@ -62,6 +62,19 @@ var geoMarkerStart;
 var geoMarkerEnd;
 
 function initializeMap() {
+    var pos1 = new google.maps.LatLng(-34.6, -58.45);
+    var ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
+    var mScrollWheel = true;
+    if (ocultarChrome) {
+        mScrollWheel = false;
+    }
+    var myStyles = [{
+        featureType: "poi",
+        elementType: "labels",
+        stylers: [{
+            visibility: "off"
+        }]
+    }];
     var mapProp = {
         scrollwheel: mScrollWheel,
         center: pos1,
@@ -79,25 +92,11 @@ function initializeMap() {
         disableDefaultUI: true
     };
     map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-    var ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
-    var mScrollWheel = true;
-    if (ocultarChrome) {
-        mScrollWheel = false;
-    }
 
     directionsDisplay = new google.maps.DirectionsRenderer({
         suppressMarkers: false
     });
     directionsService = new google.maps.DirectionsService();
-    var pos1 = new google.maps.LatLng(-34.6, -58.45);
-
-    var myStyles = [{
-        featureType: "poi",
-        elementType: "labels",
-        stylers: [{
-            visibility: "off"
-        }]
-    }];
 
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('txBusqueda'));
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
@@ -113,19 +112,21 @@ function initializeMap() {
 
     });
 
-    geoloc();
-    resizeMap(ocultarChrome);
     getVersionEESS()
+
+    resizeMap();
 }
-
-google.maps.event.addDomListener(window, 'load', initializeMap);
-
-var myIconAxion = new google.maps.MarkerImage('img/marker_axion.png', null, null, null, new google.maps.Size(33, 34));
-var myIconEsso = new google.maps.MarkerImage('img/marker_esso.png', null, null, null, new google.maps.Size(45, 32));
-
-var myIconGeo = new google.maps.MarkerImage('img/geoloc.png', null, null, new google.maps.Point(57, 57), new google.maps.Size(114, 114));
-
-var geoMarker = null;
+var myIconAxion;
+var myIconEsso;
+var myIconGeo;
+var geoMarker;
+$(window).on('load',function(){
+    initializeMap()
+    myIconAxion = new google.maps.MarkerImage('img/marker_axion.png', null, null, null, new google.maps.Size(33, 34));
+    myIconEsso = new google.maps.MarkerImage('img/marker_esso.png', null, null, null, new google.maps.Size(45, 32));
+    myIconGeo = new google.maps.MarkerImage('img/geoloc.png', null, null, new google.maps.Point(57, 57), new google.maps.Size(114, 114));
+    geoMarker = null;
+});
 
 function centerMap(pos /*lat,lon*/ ) {
     try {
@@ -575,7 +576,7 @@ function resizeMap(ocultarChrome) {
             .attr('src') + '" />' /*+ $('.menu-pais div.selected').html()*/ );
     if (!mostrandoRuta) {
         //try {
-        google.maps.event.trigger(map, "resize");
+        //google.maps.event.trigger(map, "resize");
         //map.panTo(geoMarker.getPosition());
         //} catch (err) {
         //}
