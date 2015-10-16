@@ -4,7 +4,7 @@ var app = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https:
 
 
 $(document).ready(function () {
-    $('input').blur();
+    //$('input').blur();
 
     eventosGenerales();
 
@@ -21,14 +21,8 @@ $(document).ready(function () {
     eventosPromociones();
 
 
-    setTimeout(function () {
-        document.addEventListener("deviceready", geoloc(), false);
-    }, 300);
-
-
     // ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
     //console.log("OCULTAR CHROME: " + ocultarChrome);
-    resizeMap(ocultarChrome);
 
     if (ocultarChrome) {
         //console.log("voy a ocultar el header");

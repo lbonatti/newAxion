@@ -62,7 +62,23 @@ var geoMarkerStart;
 var geoMarkerEnd;
 
 function initializeMap() {
-
+    var mapProp = {
+        scrollwheel: mScrollWheel,
+        center: pos1,
+        zoom: 14,
+        zoomControl: true,
+        disableDefaultUI: true,
+        /* streetViewControl:false,*/
+        /*mapTypeControlOptions: { mapTypeIds: []},*/
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        /*,
+         styles: myStyles*/
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
+        disableDefaultUI: true
+    };
+    map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
     var ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
     var mScrollWheel = true;
     if (ocultarChrome) {
@@ -91,29 +107,14 @@ function initializeMap() {
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('txHasta'));
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('txDesde'));
 
-    var mapProp = {
-        scrollwheel: mScrollWheel,
-        center: pos1,
-        zoom: 14,
-        zoomControl: true,
-        disableDefaultUI: true,
-        /* streetViewControl:false,*/
-        /*mapTypeControlOptions: { mapTypeIds: []},*/
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        /*,
-         styles: myStyles*/
-        zoomControlOptions: {
-            position: google.maps.ControlPosition.LEFT_BOTTOM
-        },
-        disableDefaultUI: true
-    };
-    map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
     directionsDisplay.setMap(map);
 
     google.maps.event.addListener(map, 'click', function (event) {
 
     });
 
+    geoloc();
+    resizeMap(ocultarChrome);
     getVersionEESS()
 }
 
@@ -126,11 +127,10 @@ var myIconGeo = new google.maps.MarkerImage('img/geoloc.png', null, null, new go
 
 var geoMarker = null;
 
-function centerMap(pos /*lat,lon*/) {
+function centerMap(pos /*lat,lon*/ ) {
     try {
-        map.panTo(pos /*new google.maps.LatLng(lat,lon)*/);
-    } catch (err) {
-    }
+        map.panTo(pos /*new google.maps.LatLng(lat,lon)*/ );
+    } catch (err) {}
 }
 
 /*var markers={};
@@ -178,8 +178,7 @@ function dibujarEstaciones() {
             });
             allMarkers.push(Estaciones[i].marker);
         }
-    } catch (err) {
-    }
+    } catch (err) {}
 }
 
 function filtrarEstaciones() {
@@ -231,7 +230,7 @@ function filtrarEstaciones() {
  return null;
  }*/
 
-function actualizarGeolocMarker(pos /*latitude, longitude*/) {
+function actualizarGeolocMarker(pos /*latitude, longitude*/ ) {
     //var pos = new google.maps.LatLng(latitude, longitude);
 
     geoMarker = new google.maps.Marker({
@@ -246,10 +245,18 @@ function actualizarGeolocMarker(pos /*latitude, longitude*/) {
 //Centra el mapa en la posición según GPS
 function centerMapCurrentLoc() {
     var punto = new google.maps.LatLng(globalLat, globalLon);
-    try{directionsDisplay.setMap(null);}catch(err){}
-    try{geoMarkerStart.setMap(null);}catch(err){}
-    try{geoMarkerEnd.setMap(null);}catch(err){}
-    try{geoMarker.setMap(null)}catch(err){}
+    try {
+        directionsDisplay.setMap(null);
+    } catch (err) {}
+    try {
+        geoMarkerStart.setMap(null);
+    } catch (err) {}
+    try {
+        geoMarkerEnd.setMap(null);
+    } catch (err) {}
+    try {
+        geoMarker.setMap(null)
+    } catch (err) {}
     actualizarGeolocMarker(punto);
     centerMap(punto);
 }
@@ -284,8 +291,10 @@ function onSuccess(position) {
         //estacionesAleatorias();
         globalPositionStr = dir;
         globalPais = pais;
-        $('#txBusqueda, #txDesde').val(globalPositionStr);
-        $('#txBusqueda, #txDesde').attr('data-location', globalPositionStr);
+        $('#txBusqueda, #txDesde')
+            .val(globalPositionStr);
+        $('#txBusqueda, #txDesde')
+            .attr('data-location', globalPositionStr);
         cambiarBandera(pais);
     });
     console.log('GeoLocation success!');
@@ -296,8 +305,7 @@ function onError(error) {
     try {
         navigator.notification.alert(
             'No hemos encontrado su ubicación. Active el GPS para una mejor experiencia con la aplicación.', // message
-            function () {
-            }, // callback to invoke with index of button pressed
+            function () {}, // callback to invoke with index of button pressed
             'GPS desactivado', // title
             'Continuar' // buttonName
         );
@@ -315,14 +323,17 @@ function onError(error) {
         //estacionesAleatorias();
         globalPositionStr = dir;
         globalPais = pais;
-        $('#txBusqueda, #txDesde').val(globalPositionStr);
+        $('#txBusqueda, #txDesde')
+            .val(globalPositionStr);
         cambiarBandera(pais);
     });
     console.log('GeoLocation success!');
-    $('.preloadMap').fadeOut();
-    $('#googleMap').animate({
-        opacity: 1
-    }, 500);
+    $('.preloadMap')
+        .fadeOut();
+    $('#googleMap')
+        .animate({
+            opacity: 1
+        }, 500);
     map.setZoom(3)
 }
 
@@ -339,8 +350,7 @@ function calcRoute(start, end) {
         geoMarker.setMap(null);
         geoMarkerStart.setMap(null);
         geoMarkerEnd.setMap(null);
-    } catch (err) {
-    }
+    } catch (err) {}
 
     geoMarkerStart = new google.maps.Marker({
         position: start,
@@ -386,11 +396,17 @@ function calcRoute(start, end) {
 
 function limpiarRuta() {
     directionsDisplay.setMap(null);
-    try{geoMarkerStart.setMap(null);}catch(err){}
-    try{geoMarkerEnd.setMap(null);}catch(err){}
+    try {
+        geoMarkerStart.setMap(null);
+    } catch (err) {}
+    try {
+        geoMarkerEnd.setMap(null);
+    } catch (err) {}
     if (currentDirText != '') {
-        $('#txDesde, #txHasta').val('');
-        $('.pasos').hide();
+        $('#txDesde, #txHasta')
+            .val('');
+        $('.pasos')
+            .hide();
         globalModoBusqueda = 1;
         buscar();
     } else {
@@ -463,7 +479,8 @@ function routeFromDirToDir(dir1, dir2) {
             /*globalLat=pos1.k;
              globalLon=pos1.A;
              updateGeolocMarker(globalLat, globalLon);*/
-            currentDirText2 = $('#txHasta').val();
+            currentDirText2 = $('#txHasta')
+                .val();
 
             DirToPosition(dir2, function (pos2) {
                 if (pos2 != null) {
@@ -475,8 +492,7 @@ function routeFromDirToDir(dir1, dir2) {
                     try {
                         navigator.notification.alert(
                             'no se encuentra direccion 2', // message
-                            function () {
-                            }, // callback to invoke with index of button pressed
+                            function () {}, // callback to invoke with index of button pressed
                             'Oops!', // title
                             'Continuar' // buttonName
                         );
@@ -490,8 +506,7 @@ function routeFromDirToDir(dir1, dir2) {
             try {
                 navigator.notification.alert(
                     'no se encuentra direccion 1', // message
-                    function () {
-                    }, // callback to invoke with index of button pressed
+                    function () {}, // callback to invoke with index of button pressed
                     'Oops!', // title
                     'Continuar' // buttonName
                 );
@@ -509,8 +524,7 @@ function cargarDirecciones(estaciones) {
             var dir2 = estaciones[index].direccion2;
             direcciones[index] = dir1 + ', ' + dir2;
         });
-    } catch (err) {
-    }
+    } catch (err) {}
 
     //    console.log(direcciones)
 }
@@ -519,8 +533,10 @@ function cargarDirecciones(estaciones) {
 /////////////////////////////////////////////////////////////////////////////////
 
 function resizeMap(ocultarChrome) {
-    var alturaScreen = $(window).height();
-    var anchoScreen = $(window).width();
+    var alturaScreen = $(window)
+        .height();
+    var anchoScreen = $(window)
+        .width();
 
     if (isMobile()) {
         var alturaHeader = 61;
@@ -535,8 +551,10 @@ function resizeMap(ocultarChrome) {
         //$('#container').attr('style', 'margin-top: 0 !important');
     }
 
-    $('#container').height(alturaScreen - alturaHeader);
-    $('#googleMap').height(alturaScreen - alturaHeader - alturaFoot);
+    $('#container')
+        .height(alturaScreen - alturaHeader);
+    $('#googleMap')
+        .height(alturaScreen - alturaHeader - alturaFoot);
 
     //$('#container').width($(window).width());
     //$('#googleMap').width($(window).width());
@@ -544,21 +562,17 @@ function resizeMap(ocultarChrome) {
     //if(!isMobile()){
     $.each(Paises, function (index, value) {
 
-        $($('.menu-pais').children()[index]).html('<img src="' + value.icon + '" /></br>' + value.nombre)
+        $($('.menu-pais')
+            .children()[index])
+            .html('<img src="' + value.icon + '" /></br>' + value.nombre)
     });
-    $('.sec1 .pais ').html('<img src="' + $('img', $('.menu-pais div.selected')).attr('src') + '" />' /*+ $('.menu-pais div.selected').html()*/);
-    //$('.sec1 .pais img').show();
-    //}else{
-    //    $.each(Paises, function(index, value) {
-    //        $($('.menu-pais').children()[index]).html(value.abreviatura)
-    //    });
-    //    $('.sec1 .pais ').html('<img src="'+$('img',$('.menu-pais div.selected')).attr('src')+'" />');
-    //    //$('.sec1 .pais').html($('.menu-pais div.selected').html());
-    //};
+    $('.sec1 .pais ')
+        .html('<img src="' + $('img', $('.menu-pais div.selected'))
+            .attr('src') + '" />' /*+ $('.menu-pais div.selected').html()*/ );
     if (!mostrandoRuta) {
         //try {
-            google.maps.event.trigger(map, "resize");
-            map.panTo(geoMarker.getPosition());
+        google.maps.event.trigger(map, "resize");
+        //map.panTo(geoMarker.getPosition());
         //} catch (err) {
         //}
     }
@@ -572,11 +586,9 @@ window.addEventListener("resize", function () {
         resizeMap();
     } else {
         resizeMap();
-
         try {
             map.setCenter(currentPositionToCenter)
-        } catch (err) {
-        }
+        } catch (err) {}
     }
 }, false);
 
@@ -587,7 +599,8 @@ function calculateDistance(to_lat, to_lng, from_lat, from_lng) {
     var f_latlng = from_lat + ',' + from_lng;
     var to_latlng = to_lat + ',' + to_lng;
 
-    $('.detail .distancia').hide();
+    $('.detail .distancia')
+        .hide();
 
     var distanceService = new google.maps.DistanceMatrixService();
     distanceService.getDistanceMatrix({
@@ -601,14 +614,18 @@ function calculateDistance(to_lat, to_lng, from_lat, from_lng) {
         },
         function (response, status) {
             if (status !== google.maps.DistanceMatrixStatus.OK) {
-                $('.detail .distancia').hide()
+                $('.detail .distancia')
+                    .hide()
             } else {
                 var distance = response.rows[0].elements[0].distance.text;
                 if (distance) {
-                    $('.detail .distancia').html(distance);
-                    $('.detail .distancia').show()
+                    $('.detail .distancia')
+                        .html(distance);
+                    $('.detail .distancia')
+                        .show()
                 } else {
-                    $('.detail .distancia').hide()
+                    $('.detail .distancia')
+                        .hide()
                 }
             }
         });
@@ -629,6 +646,7 @@ function codeAddress(address, to_lat, to_lng) {
         }
     });
 }
+
 function updateEESS() {
     $.ajax({
         url: 'http://www.axionenergy.com/app/js/estaciones_servicio.json',
@@ -675,10 +693,12 @@ function getVersionEESS() {
         getLocalEESS()
     }
 
-    $('.preloadMap').fadeOut();
-    $('#googleMap').animate({
-        opacity: 1
-    }, 500);
+    $('.preloadMap')
+        .fadeOut();
+    $('#googleMap')
+        .animate({
+            opacity: 1
+        }, 500);
 }
 
 function procesarUpdateEstaciones() {
