@@ -113,7 +113,6 @@ function initializeMap() {
     });
 
     getVersionEESS()
-
     resizeMap();
 }
 var myIconAxion;
@@ -122,6 +121,7 @@ var myIconGeo;
 var geoMarker;
 $(window).on('load',function(){
     initializeMap()
+    geoloc();
     myIconAxion = new google.maps.MarkerImage('img/marker_axion.png', null, null, null, new google.maps.Size(33, 34));
     myIconEsso = new google.maps.MarkerImage('img/marker_esso.png', null, null, null, new google.maps.Size(45, 32));
     myIconGeo = new google.maps.MarkerImage('img/geoloc.png', null, null, new google.maps.Point(57, 57), new google.maps.Size(114, 114));
@@ -271,7 +271,7 @@ function centerMapCurrentLoc() {
 
 function geoloc() {
     navigator.geolocation.getCurrentPosition(onSuccess, onError, {
-        enableHighAccuracy: true,
+        enableHighAccuracy: false,
         maximumAge: 3000,
         timeout: 8000
     });
@@ -304,7 +304,7 @@ function onSuccess(position) {
 function onError(error) {
     if (error.code === PositionError.TIMEOUT){
         navigator.geolocation.getCurrentPosition(onSuccess, onError,
-            { maximumAge: 3000, timeout: 20000, enableHighAccuracy: false } );
+            { maximumAge: 3000, timeout: 20000, enableHighAccuracy: true } );
     }
     gpsEnabled = false;
     try {
