@@ -301,6 +301,10 @@ function onSuccess(position) {
 }
 
 function onError(error) {
+    if (error.code === PositionError.TIMEOUT){
+        navigator.geolocation.getCurrentPosition(onSuccess, onError,
+            { maximumAge: 3000, timeout: 20000, enableHighAccuracy: false } );
+    }
     gpsEnabled = false;
     try {
         navigator.notification.alert(
