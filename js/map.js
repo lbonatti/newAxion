@@ -232,8 +232,11 @@ function filtrarEstaciones() {
 
 function actualizarGeolocMarker(pos /*latitude, longitude*/ ) {
     //var pos = new google.maps.LatLng(latitude, longitude);
-
-    geoMarker = new google.maps.Marker({
+    if(geoMarker) {
+        geoMarker.setMap(null)
+    }
+    
+    geoMarker = new google.maps.Markºer({
         position: pos,
         map: map,
         icon: myIconGeo
