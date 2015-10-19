@@ -235,8 +235,8 @@ function actualizarGeolocMarker(pos /*latitude, longitude*/ ) {
     if(geoMarker) {
         geoMarker.setMap(null)
     }
-    
-    geoMarker = new google.maps.Markºer({
+
+    geoMarker = new google.maps.Marker({
         position: pos,
         map: map,
         icon: myIconGeo
