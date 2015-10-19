@@ -22,6 +22,7 @@ $(document).ready(function () {
 });
 
 
+document.addEventListener("deviceready", geoloc(), false);
 document.addEventListener("deviceready", detectOs(), false);
 
 function detectOs() {
