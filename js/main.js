@@ -19,10 +19,24 @@ $(document).ready(function () {
     eventosPasos();
 
     eventosPromociones();
+
+
+    // ocultarChrome = obtenerQueryString("ocultar_chrome", 0);
+    //console.log("OCULTAR CHROME: " + ocultarChrome);
+
+    if (ocultarChrome) {
+        //console.log("voy a ocultar el header");
+        // $("body").addClass("ocultar-chrome");
+
+        //$("header").css("display", "none");
+        //$(".sec2").css("display", "none");
+        //$("#googleMap").css("margin-top", 0);
+        //$(".bloque-filtro").css("padding-bottom", "90px");
+        //$(".bloque-filtro").css("padding-bottom", "90px");
+    }
 });
 
 
-document.addEventListener("deviceready", geoloc(), false);
 document.addEventListener("deviceready", detectOs(), false);
 
 function detectOs() {

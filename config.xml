@@ -47,13 +47,12 @@
     <!-- SPLASH SCREEN IMAGE -->
 
     <!-- PLUGINS -->
-    <gap:plugin name="cordova-plugin-dialogs" source="npm" version="1.1.1" />
-    <gap:plugin name="cordova-plugin-geolocation" source="npm" version="1.0.1" />
-    <gap:plugin name="cordova-plugin-inappbrowser" source="npm" version="1.0.1" />
-    <gap:plugin name="cordova-plugin-network-information" source="npm" version="1.0.1" />
-    <gap:plugin name="cordova-plugin-splashscreen" source="npm" version="2.1.0" />
+    <gap:plugin name="cordova-plugin-geolocation" source="npm"/>
+    <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" />
-    <gap:plugin name="cordova-plugin-cache" source="npm" />
+    <gap:plugin name="cordova-plugin-dialogs" source="npm"/>
+    <gap:plugin name="cordova-plugin-network-information" source="npm"/>
+    <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 
     <gap:splash src="res/splash/iOS/Default~iphone.png" gap:platform="ios" width="320" height="480"/>
     <gap:splash src="res/splash/iOS/Default_iphone_640x960.png" gap:platform="ios" width="640" height="960"/>

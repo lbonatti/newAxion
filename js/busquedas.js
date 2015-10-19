@@ -177,7 +177,6 @@ function eventosBusqueda() {
             try{directionsDisplay.setMap(null);}catch(err){}
             try{geoMarkerStart.setMap(null);}catch(err){}
             try{geoMarkerEnd.setMap(null);}catch(err){}
-            try{geoMarker.setMap(null);}catch(err){}
             if (gpsEnabled) {
                 currentDirText = '';
                 $('#txDesde').val(globalPositionStr);
