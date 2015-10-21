@@ -1,7 +1,3 @@
-var WSUrl = 'http://projectsunderdev.com/axion/webservice.php';
-//var WSUrl = window.location.origin + '/newAxion/ws/webservice.php';
-
-
 var map;
 var geocoder = new google.maps.Geocoder();
 var directionsDisplay;
@@ -655,7 +651,8 @@ function updateEESS() {
         url: 'http://www.axionenergy.com/app/js/estaciones_servicio.json',
         async: false,
         success: function (response) {
-            window.localStorage.setItem('localEESS', response);
+
+            window.localStorage.setItem('localEESS', JSON.stringify(response));
         },
         error: function (error) {
 
@@ -667,13 +664,12 @@ function getVersionEESS() {
     if (isMobile()) {
         $.ajax({
             url: 'http://www.axionenergy.com/app/js/version.json',
-            method: 'POST',
             dataType: 'json',
             async: true,
             success: function (response) {
                 //Check if exist versionEESS (first time open)
                 if ((window.localStorage.getItem('versionEESS') == null || parseInt(window.localStorage.getItem('versionEESS')) < parseInt(response))) {
-                    window.localStorage.setItem('versionEESS', response);
+                    window.localStorage.setItem('versionEESS', response.version);
                     updateEESS();
                     //alert('Update to ' + response);
                 }
@@ -715,7 +711,7 @@ function getLocalEESS() {
     //alert('local file EESS')
     //local file EESS
     $.ajax({
-        url: "js/estaciones_servicio.json",
+        url: "js/estaciaones_servicio.json",
         dataType: 'json',
         async: true,
         success: function (data) {
