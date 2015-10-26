@@ -711,7 +711,7 @@ function getLocalEESS() {
     //alert('local file EESS')
     //local file EESS
     $.ajax({
-        url: "js/estaciaones_servicio.json",
+        url: "js/estaciones_servicio.json",
         dataType: 'json',
         async: true,
         success: function (data) {
